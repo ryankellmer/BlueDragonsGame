@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Zion's Scene.unity
+=======
+- path: Assets/Scenes/ColeScene.unity
+>>>>>>> b3696a717528bcf104242eed54155cbd227215c1
   isLoaded: 1
   isActive: 1
   isSubScene: 0
