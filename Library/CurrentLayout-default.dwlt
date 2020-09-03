@@ -329,9 +329,27 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 023c0000
     m_LastClickedID: 15362
     m_ExpandedIDs: 00000000f83b000000ca9a3b
+=======
+<<<<<<< HEAD
+    m_SelectedIDs: a03c0000
+    m_LastClickedID: 15520
+    m_ExpandedIDs: 000000009c3c0000
+=======
+<<<<<<< HEAD
+    m_SelectedIDs: 263f0000
+    m_LastClickedID: 16166
+    m_ExpandedIDs: 00000000223f000000ca9a3b
+=======
+    m_SelectedIDs: 363f0000
+    m_LastClickedID: 16182
+    m_ExpandedIDs: 000000001e3f000000ca9a3b
+>>>>>>> b3696a717528bcf104242eed54155cbd227215c1
+>>>>>>> 4a7a831ad746b9109925cb0f0de4aaa32c6f6220
+>>>>>>> 2fddec69f66ff66074496f91f0d0c0449b07bafa
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -481,9 +499,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: e0f7ffff
       m_LastClickedID: -2080
       m_ExpandedIDs: fcf7ffff1af8ffffa0f8ffff60f9ffff86f9ffff98f9ffffb4f9ffffc6f9ffffe2f9fffff4f9ffff10faffff34faffff46faffff68faffffb0faffff4efbffff
+=======
+      m_SelectedIDs: 443f0000
+      m_LastClickedID: 0
+<<<<<<< HEAD
+      m_ExpandedIDs: 5cfbffff
+=======
+<<<<<<< HEAD
+      m_ExpandedIDs: bce9ffff6ceaffff
+=======
+      m_ExpandedIDs: 6aeaffff
+>>>>>>> b3696a717528bcf104242eed54155cbd227215c1
+>>>>>>> 4a7a831ad746b9109925cb0f0de4aaa32c6f6220
+>>>>>>> 2fddec69f66ff66074496f91f0d0c0449b07bafa
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
