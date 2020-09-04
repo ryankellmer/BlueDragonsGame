@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public float maxHealth = 100;
+    float health;
+    public float score = 0;
+    public float money = 0;
+
     public GameObject toSpawn;
+
+    private void Awake()
+    {
+        health = maxHealth;
+    }
 
     private void Update()
     {
