@@ -1,5 +1,13 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/RonanScene.unity
+=======
+<<<<<<< HEAD
+- path: Assets/Scenes/ColeScene.unity
+=======
+- path: Assets/Scenes/MelissaScene.unity
+>>>>>>> 38af611cab178c790fdbefd2ef39d5f1ab99f312
+>>>>>>> 9612d8c7b1fe7f6803e931255903746a81bf1938
   isLoaded: 1
   isActive: 1
   isSubScene: 0
