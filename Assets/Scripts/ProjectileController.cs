@@ -49,7 +49,7 @@ public class ProjectileController : MonoBehaviour
     //Decremet enemy health based on turret damage, destroy enemy when health is 0.
     void HitTarget()
     {
-        EnemyController enemy = projectileTarget.GetComponent<EnemyController>();
+        ronan_EnemyController enemy = projectileTarget.GetComponent<ronan_EnemyController>();
 
         Destroy(gameObject);
 

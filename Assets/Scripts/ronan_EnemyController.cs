@@ -51,7 +51,7 @@ public class ronan_EnemyController : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
         UnityEngine.Debug.Log(currentHealth + "/" + maxHealth);
     }
 }

@@ -16,9 +16,10 @@ public class TowerController : MonoBehaviour
     public GameObject ProjectilePrefab;
 
     [Header("Tower Stats")]
-    public float range = 3f;
+    public float range = 20f;
     public float timeBeforeNextShot = 0.75f;
-    public int damage = -1;
+    public int damage = 1;
+    public float rotationSpeed = 25f;
 
     void Start()
     {
@@ -56,12 +57,23 @@ public class TowerController : MonoBehaviour
         if (closestTarget != null && closestTargetDistance <= range)
         {
             target = closestTarget.transform;
+            RotateTower(target);
         }
         else
         {
             target = null;
         }
 
+    }
+
+    //Rotate Tower Guns towards Enemy
+    private void RotateTower(Transform currentTarget)
+    {
+        Vector3 targetPos = currentTarget.position;
+        Quaternion towerPos = transform.rotation;
+        float angle = (Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg) - 90;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.rotation = Quaternion.Slerp(towerPos, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     //When enemy enters trigger box, search for closest enemy by calling UpdateTarget function twice a second

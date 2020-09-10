@@ -7180,6 +7180,18 @@ PrefabInstance:
       propertyPath: ProjectilePrefab
       value: 
       objectReference: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
+    - target: {fileID: -7799787827350045379, guid: f6cba6f7a57e38c4588fa53ac0c78e7a, type: 3}
+      propertyPath: rotationSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -7799787827350045379, guid: f6cba6f7a57e38c4588fa53ac0c78e7a, type: 3}
+      propertyPath: range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7799787827350045379, guid: f6cba6f7a57e38c4588fa53ac0c78e7a, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2143826426198161636, guid: f6cba6f7a57e38c4588fa53ac0c78e7a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.32
