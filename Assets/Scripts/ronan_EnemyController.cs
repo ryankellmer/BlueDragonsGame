@@ -7,7 +7,10 @@ public class ronan_EnemyController : MonoBehaviour
 	public GameObject[] waypoints;
 	private int currentWaypoint = 0;
 	private float lastWaypointSwitchTime;
-	public float speed = 1.0f;
+	public float speed = 5.0f;
+    public GameObject player;
+    public int attackDamage = 1;
+
 
     Rigidbody2D rigidbody2D;
 
@@ -15,12 +18,15 @@ public class ronan_EnemyController : MonoBehaviour
     public int health { get { return currentHealth; } }
     public int currentHealth;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         lastWaypointSwitchTime = Time.time;
         rigidbody2D = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -44,10 +50,12 @@ public class ronan_EnemyController : MonoBehaviour
 
         	else
         	{
-        		Destroy(gameObject);
+                player.GetComponent<PlayerController>().ChangePlayerHealth(attackDamage); //When enemy reaches end of level, decrement player health 
+                Destroy(gameObject);
         	}
         }
     }
+
 
     public void ChangeHealth(int amount)
     {

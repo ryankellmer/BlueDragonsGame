@@ -6,8 +6,17 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D bod;
     public float spd;
-
     public Transform positions;
+
+    [Header("Player Stats")]
+    public int maxHealth = 5;
+
+    private int health;
+
+    private void Start()
+    {
+        health = maxHealth;
+    }
 
     private void Awake()
     {
@@ -29,5 +38,11 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    public void ChangePlayerHealth(int amount)
+    {
+        health = Mathf.Clamp(health - amount, 0, maxHealth);
+        UnityEngine.Debug.Log("Player Health: " + health + "/" + maxHealth);
     }
 }
