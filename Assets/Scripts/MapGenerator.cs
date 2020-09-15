@@ -67,8 +67,8 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
+        //tilemap.SetTile(new Vector3Int(0,0,0), testTile);
     }
-
     // Update is called once per frame
     void Update()
     {
