@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca67a80ce39645041a2a4adc094d6f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnChance: 5
+  spawnChance: 12
 --- !u!1 &2135372780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,7 +2582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9aa7d47ea62fa458fe513b87751876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  middleNodes: 4
+  middleNodes: 5
   fillTile: {fileID: 11400000, guid: 989feae1ab322844793ebc81ae252094, type: 2}
   pathTile: {fileID: 11400000, guid: 16aa53e40a876e14cb653c3f74c9d76a, type: 2}
   testTile: {fileID: 11400000, guid: 271340d5c5d77da41aae223f6fbc0c6f, type: 2}
