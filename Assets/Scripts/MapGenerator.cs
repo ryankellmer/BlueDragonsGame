@@ -68,10 +68,59 @@ public class MapGenerator : MonoBehaviour
             }
         }
         //tilemap.SetTile(new Vector3Int(0,0,0), testTile);
+        UpdatePath();
     }
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void UpdatePath(){
+        string pathTileName = pathTile.name;
+        Tile straightVertical = Resources.Load<Tile>(pathTileName + "/straight_vertical");
+        Tile straightHorizontal = Resources.Load<Tile>(pathTileName + "/straight_horizontal");
+        Tile corner1 = Resources.Load<Tile>(pathTileName + "/corner1");
+        Tile corner2 = Resources.Load<Tile>(pathTileName + "/corner2");
+        Tile corner3 = Resources.Load<Tile>(pathTileName + "/corner3");
+        Tile corner4 = Resources.Load<Tile>(pathTileName + "/corner4");
+
+        Tilemap tilemap = GetComponent<Tilemap>();
+        bool upTile;
+        bool downTile;
+        bool rightTile;
+        bool leftTile;
+
+        foreach(var t in tilemap.cellBounds.allPositionsWithin){
+            if(tilemap.GetTile(t) == pathTile){
+                upTile = tilemap.GetTile(t + new Vector3Int(0, 1, 0)) != fillTile;
+                downTile = tilemap.GetTile(t + new Vector3Int(0, -1, 0)) != fillTile;
+                rightTile = tilemap.GetTile(t + new Vector3Int(1, 0, 0)) != fillTile;
+                leftTile = tilemap.GetTile(t + new Vector3Int(-1, 0, 0)) != fillTile;
+                if(rightTile){
+                    if(upTile){
+                        tilemap.SetTile(t, corner1);
+                    }
+                    else if(leftTile){
+                        tilemap.SetTile(t, straightHorizontal);
+                    }
+                    else{
+                        tilemap.SetTile(t, corner2);
+                    }
+                }
+                else if(leftTile){
+                    if(upTile){
+                        tilemap.SetTile(t, corner4);
+                    }
+                    else if(downTile){
+                        tilemap.SetTile(t, corner3);
+                    }
+                }
+                else
+                {
+                    tilemap.SetTile(t, straightVertical);
+                }
+            }
+        }
     }
 }

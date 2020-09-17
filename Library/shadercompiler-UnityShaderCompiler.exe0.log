@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 Base path: 'C:/Program Files/Unity/Editor/Data', plugins path ''
+=======
+Base path: 'C:/Program Files/Unity/Hub/Editor/2020.1.3f1/Editor/Data', plugins path ''
+>>>>>>> be522fcfba0c89d792295c02130f2aefd9a5ef15
 Cmd: initializeCompiler

@@ -16,6 +16,7 @@ public class TowerController : MonoBehaviour
     public GameObject ProjectilePrefab;
 
     [Header("Tower Stats")]
+    [Range(0f, 20f)]
     public float range = 20f;
     public float timeBeforeNextShot = 0.75f;
     public int damage = 1;
@@ -47,6 +48,7 @@ public class TowerController : MonoBehaviour
         foreach (GameObject element in targets)
         {
             float distanceToTarget = Vector3.Distance(transform.position, element.transform.position);
+            //Debug.Log(distanceToTarget);
             if (distanceToTarget < closestTargetDistance)
             {
                 closestTargetDistance = distanceToTarget;
@@ -57,23 +59,26 @@ public class TowerController : MonoBehaviour
         if (closestTarget != null && closestTargetDistance <= range)
         {
             target = closestTarget.transform;
-            RotateTower(target);
+            //RotateTower(target);
         }
         else
         {
             target = null;
         }
 
+        RotateTower(target);
     }
 
     //Rotate Tower Guns towards Enemy
     private void RotateTower(Transform currentTarget)
     {
-        Vector3 targetPos = currentTarget.position;
-        Quaternion towerPos = transform.rotation;
-        float angle = (Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg) - 90;
+        //Vector3 targetPos = currentTarget.position;
+        //Quaternion towerPos = transform.rotation;
+        Vector3 dir = currentTarget.position - transform.position;
+        float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) - 90;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        transform.rotation = Quaternion.Slerp(towerPos, targetRotation, rotationSpeed * Time.deltaTime);
+        //transform.rotation = Quaternion.Lerp(towerPos, targetRotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), Time.deltaTime * rotationSpeed);
     }
 
     //When enemy enters trigger box, search for closest enemy by calling UpdateTarget function twice a second
@@ -92,6 +97,11 @@ public class TowerController : MonoBehaviour
         {
             Projectile.ReceiveTarget(target, damage); //Pass target to ProjectileController and damage amount
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 
 }
