@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Path : MonoBehaviour
 {
-    public Vector2[] points;
+    public List<Vector2Int> wayPoints;
 
     // Start is called before the first frame update
     void Start()

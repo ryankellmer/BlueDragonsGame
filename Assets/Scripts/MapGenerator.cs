@@ -67,8 +67,9 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
-        //tilemap.SetTile(new Vector3Int(0,0,0), testTile);
+        tilemap.SetTile(new Vector3Int(0,0,0), testTile);
         UpdatePath();
+        UpdateWaypoints(nodes);
     }
     // Update is called once per frame
     void Update()
@@ -122,5 +123,24 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
+    }
+
+    void UpdateWaypoints(Vector2Int[] nodes){
+        GameObject path = GameObject.Find("Path");
+        List<Vector2Int> waypoints = new List<Vector2Int>();
+        for(int i = 0; i < nodes.Length - 1; i ++){
+            waypoints.Add(nodes[i]);
+            waypoints.Add(new Vector2Int(nodes[i].x, nodes[i+1].y));
+        }
+        waypoints[0] += new Vector2Int(0, 1);
+        waypoints.Add(nodes.Last() + new Vector2Int(0, -1));
+        //remove duplicates
+        for(int i = 1; i < waypoints.Count; i++){
+            if(waypoints[i] == waypoints[i-1]){
+                waypoints.RemoveAt(i);
+            }
+        }
+        
+        path.GetComponent<Path>().wayPoints = waypoints;
     }
 }
