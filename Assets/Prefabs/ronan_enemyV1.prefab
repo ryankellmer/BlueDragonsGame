@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8749705417454920000}
   - component: {fileID: 6670526493233903233}
   - component: {fileID: 9050807821443401659}
-  - component: {fileID: 4875880142237926331}
+  - component: {fileID: -6238454022077031498}
   m_Layer: 0
   m_Name: ronan_enemyV1
   m_TagString: Enemy
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4875880142237926331
+--- !u!114 &-6238454022077031498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,10 +141,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8893981901936707147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6f992656615e441bd315086a956a2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 18ff667374383fc46b491ddf475fc143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
-  speed: 1
   maxHealth: 5
   currentHealth: 0
+  attackDamage: 1
+  speed: 5
+  waypointIndex: 0

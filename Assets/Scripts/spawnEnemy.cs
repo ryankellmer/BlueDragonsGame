@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class spawnEnemy : MonoBehaviour
 {
-	public GameObject[] waypoints;
 	public GameObject testEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(testEnemy).GetComponent<ronan_EnemyController>().waypoints = waypoints;
+        Instantiate(testEnemy);
     }
 
     // Update is called once per frame
