@@ -46,9 +46,6 @@ public class MapGenerator : MonoBehaviour
         //sort the middle nodes
         //This might get changed later to give the randomness of the levels some more complexity
         nodes = nodes.OrderBy(o=> -1 * o.y).ToArray();
-        for(int i = 0; i < 7; i++){
-            Debug.Log(nodes[i]);
-        }
         //fill the tilemap
         tilemap.FloodFill(new Vector3Int(0,0,0), fillTile);
         //draw path
