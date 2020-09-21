@@ -12,7 +12,7 @@ public class ronan_EnemyController : MonoBehaviour
     public int attackDamage = 1;
 
 
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D rb2d;
 
     public int maxHealth = 5;
     public int health { get { return currentHealth; } }
@@ -24,7 +24,7 @@ public class ronan_EnemyController : MonoBehaviour
     void Start()
     {
         lastWaypointSwitchTime = Time.time;
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         player = GameObject.FindWithTag("Player");
     }

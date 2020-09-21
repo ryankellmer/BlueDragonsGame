@@ -10,6 +10,8 @@ public class ProjectileController : MonoBehaviour
     private Transform projectileTarget;
     private int enemyHealth;
 
+    Rigidbody2D rb2d;
+
     void Start()
     {
         enemyHealth = 100;
@@ -49,7 +51,7 @@ public class ProjectileController : MonoBehaviour
     //Decremet enemy health based on turret damage, destroy enemy when health is 0.
     void HitTarget()
     {
-        ronan_EnemyController enemy = projectileTarget.GetComponent<ronan_EnemyController>();
+        EnemyControllerV2 enemy = projectileTarget.GetComponent<EnemyControllerV2>();
 
         Destroy(gameObject);
 

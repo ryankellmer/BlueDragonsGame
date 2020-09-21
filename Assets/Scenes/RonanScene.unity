@@ -217,7 +217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044794840060039692, guid: 07b61ab921ee84a4b8e953e7d350d10b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4044794840060039692, guid: 07b61ab921ee84a4b8e953e7d350d10b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -267,6 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testEnemy: {fileID: 8893981901936707147, guid: d7cf69c8c77dd744488afe5df8f9cad2, type: 3}
+  timer: 0
+  spawnRate: 5
 --- !u!4 &1399769748
 Transform:
   m_ObjectHideFlags: 0
@@ -385,7 +387,7 @@ Transform:
   m_Children:
   - {fileID: 2063219686}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2127002162
 GameObject:

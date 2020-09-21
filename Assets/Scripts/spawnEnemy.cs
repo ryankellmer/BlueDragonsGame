@@ -5,16 +5,25 @@ using UnityEngine;
 public class spawnEnemy : MonoBehaviour
 {
 	public GameObject testEnemy;
+    public float timer;
+    public float spawnRate = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
+        timer = 0f;
         Instantiate(testEnemy);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if(timer > spawnRate)
+        {
+            Instantiate(testEnemy);
+            timer = 0f;
+        }
     }
 }
