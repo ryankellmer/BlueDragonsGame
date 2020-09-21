@@ -59,14 +59,14 @@ public class TowerController : MonoBehaviour
         if (closestTarget != null && closestTargetDistance <= range)
         {
             target = closestTarget.transform;
-            //RotateTower(target);
+            RotateTower(target);
         }
         else
         {
             target = null;
         }
 
-        RotateTower(target);
+        //RotateTower(target);
     }
 
     //Rotate Tower Guns towards Enemy
