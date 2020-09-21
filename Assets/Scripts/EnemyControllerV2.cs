@@ -31,7 +31,7 @@ public class EnemyControllerV2 : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
     }
@@ -48,14 +48,14 @@ public class EnemyControllerV2 : MonoBehaviour
 
         // Check if enemy has reached the next waypoint. If so, increment waypoint index if there are more waypoints available
         // If enemy has reached final waypoint, delete the enemy.
-        if(Vector3.Distance(transform.position, waypoints[waypointIndex]) < 0.1f)
+        if(Vector3.Distance(transform.position, waypoints[waypointIndex]) < 0.01f)
         {
             if(waypointIndex < waypoints.Count-1)
                 waypointIndex++;
             else
             {
-                Destroy(gameObject);
                 player.GetComponent<PlayerController>().ChangePlayerHealth(attackDamage);
+                Destroy(gameObject);
             }
         }
     }
