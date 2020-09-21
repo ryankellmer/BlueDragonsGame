@@ -11,45 +11,46 @@ public class EnemyControllerV2 : MonoBehaviour
     public int attackDamage = 1;
 
     [SerializeField]
-    float speed = 5.0f;
+    float speed;
 
     Rigidbody2D rigidbody2D;
 
     [SerializeField]
     int waypointIndex = 0;
 
-    // test stuff to be deleted
-    float delay = 3f;
-    float timer;
+    public List<Vector3> waypoints;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-    	GameObject path = GameObject.Find("Path");
-    	List<Vector2Int> waypoints = new List<Vector2Int>();
-    	waypoints = path.GetComponent<Path>().wayPoints;
-        transform.position = new Vector3(waypoints[waypointIndex].x, waypoints[waypointIndex].y, 0);
+        GameObject path = GameObject.Find("Path");
+        waypoints = path.GetComponent<Path>().Positions;
+        transform.position = waypoints[waypointIndex]; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex], speed * Time.deltaTime);
+        Vector3 dir = waypoints[waypointIndex] - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        if(timer > delay)
+        if(Vector3.Distance(transform.position, waypoints[waypointIndex]) < 0.1f)
         {
-        	Move();
-        	timer = 0f;
+            if(waypointIndex < waypoints.Count-1)
+            {
+                waypointIndex++;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
     void Move()
     {
-    	GameObject path = GameObject.Find("Path");
-    	List<Vector2Int> waypoints = new List<Vector2Int>();
-    	waypoints = path.GetComponent<Path>().wayPoints;
-    	waypointIndex += 1;
-    	transform.position = new Vector3(waypoints[waypointIndex].x, waypoints[waypointIndex].y, 0);
+    	
     }
 }
