@@ -59,26 +59,29 @@ public class TowerController : MonoBehaviour
         if (closestTarget != null && closestTargetDistance <= range)
         {
             target = closestTarget.transform;
-            RotateTower(target);
+            //RotateTower(target);
         }
         else
         {
             target = null;
         }
 
-       // RotateTower(target);
+       RotateTower(target);
     }
 
     //Rotate Tower Guns towards Enemy
     private void RotateTower(Transform currentTarget)
     {
-        //Vector3 targetPos = currentTarget.position;
-        //Quaternion towerPos = transform.rotation;
-        Vector3 dir = currentTarget.position - transform.position;
-        float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) - 90;
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        //transform.rotation = Quaternion.Lerp(towerPos, targetRotation, rotationSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), Time.deltaTime * rotationSpeed);
+        if (currentTarget != null)
+        {
+            //Vector3 targetPos = currentTarget.position;
+            //Quaternion towerPos = transform.rotation;
+            Vector3 dir = currentTarget.position - transform.position;
+            float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) - 90;
+            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            //transform.rotation = Quaternion.Lerp(towerPos, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), Time.deltaTime * rotationSpeed);
+        }
     }
 
     //When enemy enters trigger box, search for closest enemy by calling UpdateTarget function twice a second
