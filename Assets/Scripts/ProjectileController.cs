@@ -8,13 +8,12 @@ public class ProjectileController : MonoBehaviour
     public float projectileSpeed = 40f;
     private int attack;
     private Transform projectileTarget;
-    private int enemyHealth;
 
     Rigidbody2D rb2d;
 
     void Start()
     {
-        enemyHealth = 100;
+        
     }
 
     //Allows Turret Controller to find nearest enemy and pass that enemy as the target here that the bullet should lock onto
@@ -30,7 +29,7 @@ public class ProjectileController : MonoBehaviour
         //If not enemy to shoot, destroy bullet, do not calculate distance or direction
         if (projectileTarget == null)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 
@@ -53,7 +52,7 @@ public class ProjectileController : MonoBehaviour
     {
         EnemyControllerV2 enemy = projectileTarget.GetComponent<EnemyControllerV2>();
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
         enemy.ChangeHealth(attack);
 

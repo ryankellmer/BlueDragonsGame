@@ -66,7 +66,7 @@ public class TowerController : MonoBehaviour
             target = null;
         }
 
-        //RotateTower(target);
+       // RotateTower(target);
     }
 
     //Rotate Tower Guns towards Enemy
@@ -90,13 +90,16 @@ public class TowerController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject ProjectileGO = (GameObject)Instantiate(ProjectilePrefab, transform.position, transform.rotation);
+       GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject();
         ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
 
         if (Projectile != null)
         {
+            ProjectileGO.transform.position = transform.position;
+            ProjectileGO.transform.rotation = transform.rotation;
+            ProjectileGO.SetActive(true);
             Projectile.ReceiveTarget(target, damage); //Pass target to ProjectileController and damage amount
-        }
+        }  
     }
 
     private void OnDrawGizmos()
