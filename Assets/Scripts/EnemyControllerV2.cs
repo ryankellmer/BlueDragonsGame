@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyControllerV2 : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class EnemyControllerV2 : MonoBehaviour
     private int waypointIndex = 0;
     public List<Vector3> waypoints;
     public GameObject player;
+    public Transform enemySprite;
+
+    public Slider slider;
 
     [SerializeField]
     float speed;
@@ -29,6 +33,7 @@ public class EnemyControllerV2 : MonoBehaviour
 
         // Set enemy health to its max health
         currentHealth = maxHealth;
+        SetMaxHealth(maxHealth);
     }
 
     void FixedUpdate()
@@ -41,10 +46,12 @@ public class EnemyControllerV2 : MonoBehaviour
         // Move from current position towards next waypoint at a set speed.
     	transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex], speed * Time.deltaTime);
 
+        enemySprite = this.gameObject.transform.GetChild(0);
+        
         // Finding current direction headed, and rotating sprite to face forward direction.
         Vector3 dir = waypoints[waypointIndex] - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        enemySprite.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         // Check if enemy has reached the next waypoint. If so, increment waypoint index if there are more waypoints available
         // If enemy has reached final waypoint, delete the enemy.
@@ -65,5 +72,17 @@ public class EnemyControllerV2 : MonoBehaviour
     public void ChangeHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
+        SetHealth(currentHealth);
+    }
+
+    public void SetHealth(int health)
+    {
+        slider.value = health;
+    }
+
+    public void SetMaxHealth(int health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
     }
 }
