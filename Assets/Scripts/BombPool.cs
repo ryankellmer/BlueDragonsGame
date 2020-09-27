@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public class BombPool : MonoBehaviour
 {
 
-    public static ObjectPool SharedInstance;
+    public static BombPool SharedInstance;
     public List<GameObject> objectsPooled;
     public GameObject objectToPool;
     public int numObjectsToPool = 3;

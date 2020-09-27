@@ -5,9 +5,9 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     [Header("Projectile Stats")]
-    public float projectileSpeed = 40f;
+    public float projectileSpeed = 20f;
     private int attack;
-    private Transform projectileTarget;
+    protected Transform projectileTarget;
 
     Rigidbody2D rb2d;
 
@@ -48,17 +48,5 @@ public class ProjectileController : MonoBehaviour
     }
 
     //Decremet enemy health based on turret damage, destroy enemy when health is 0.
-    void HitTarget()
-    {
-        EnemyControllerV2 enemy = projectileTarget.GetComponent<EnemyControllerV2>();
-
-        gameObject.SetActive(false);
-
-        enemy.ChangeHealth(attack);
-
-        if (enemy.currentHealth < 1)
-        {
-            Destroy(enemy.gameObject);
-        }
-    }
+    public virtual void HitTarget(){}
 }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2143826426198161636}
   - component: {fileID: 3100492929797545490}
   - component: {fileID: -9171065275898298137}
-  - component: {fileID: -7799787827350045379}
-  - component: {fileID: -8499526068998919487}
+  - component: {fileID: 9143486518139794349}
+  - component: {fileID: 4923729244321933468}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -111,7 +111,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 50, y: 50}
   m_EdgeRadius: 0
---- !u!114 &-7799787827350045379
+--- !u!114 &9143486518139794349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,17 +120,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6267208362563482244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdd97231ee596045a8b85113fd01f25, type: 3}
+  m_Script: {fileID: 11500000, guid: d0e6cd917a8565f41a3556d9e2d436a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 0
   target: {fileID: 0}
   tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
-  range: 3
+  range: 2
   timeBeforeNextShot: 0.75
   damage: 1
-  rotationSpeed: 25
---- !u!114 &-8499526068998919487
+  rotationSpeed: 0.5
+  pooledObjects: 4
+--- !u!114 &4923729244321933468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,6 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85696317a6124494eaaeef0fd52caee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObjects: []
+  objectsPooled: []
   objectToPool: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
-  amountToPool: 3
+  numObjectsToPool: 3

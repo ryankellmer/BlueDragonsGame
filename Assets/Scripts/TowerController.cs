@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour
 {
-    private float count;
+    public float count;
 
     [Header("Necessary Public Variables")]
     public Transform target;
@@ -17,18 +17,19 @@ public class TowerController : MonoBehaviour
 
     [Header("Tower Stats")]
     [Range(0f, 20f)]
-    public float range = 20f;
+    public float range = 2f;
     public float timeBeforeNextShot = 0.75f;
     public int damage = 1;
-    public float rotationSpeed = 25f;
+    public float rotationSpeed = .5f;
 
     void Start()
     {
+        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
         count = 0f;
     }
 
     //Wait to shoot next projectile
-    void Update()
+    public virtual void Update()
     {
         count += Time.deltaTime;
 
@@ -40,7 +41,7 @@ public class TowerController : MonoBehaviour
     }
 
     //Locate Target
-    void UpdateTarget()
+    public virtual void UpdateTarget()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag(tagOfTarget);
         float closestTargetDistance = Mathf.Infinity;
@@ -59,7 +60,6 @@ public class TowerController : MonoBehaviour
         if (closestTarget != null && closestTargetDistance <= range)
         {
             target = closestTarget.transform;
-            //RotateTower(target);
         }
         else
         {
@@ -70,7 +70,7 @@ public class TowerController : MonoBehaviour
     }
 
     //Rotate Tower Guns towards Enemy
-    private void RotateTower(Transform currentTarget)
+    public void RotateTower(Transform currentTarget)
     {
         if (currentTarget != null)
         {
@@ -91,21 +91,9 @@ public class TowerController : MonoBehaviour
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
-    void Shoot()
-    {
-       GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject();
-        ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
+    public virtual void Shoot(){}
 
-        if (Projectile != null)
-        {
-            ProjectileGO.transform.position = transform.position;
-            ProjectileGO.transform.rotation = transform.rotation;
-            ProjectileGO.SetActive(true);
-            Projectile.ReceiveTarget(target, damage); //Pass target to ProjectileController and damage amount
-        }  
-    }
-
-    private void OnDrawGizmos()
+    public void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, range);
     }
