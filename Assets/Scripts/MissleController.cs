@@ -16,10 +16,5 @@ public class MissleController : ProjectileController
         gameObject.SetActive(false);
 
         enemy.ChangeHealth(missleDamage);
-
-        if (enemy.currentHealth < 1)
-        {
-            Destroy(enemy.gameObject);
-        }
     }
 }

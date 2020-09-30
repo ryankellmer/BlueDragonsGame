@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class EnemyControllerV2 : MonoBehaviour
 {
 	//Enemy Stats
+    public int maxHealth = 10;
     public int currentHealth;
-    public int maxHealth;
-    public int attackDamage = 1;
-    private int waypointIndex = 0;
+    public float attackDamage;
+    public float moneyDrop;
+    public float scoreValue;
+    int waypointIndex = 0;
+
     public List<Vector3> waypoints;
-    public GameObject player;
+    public GameController GameCtrl;
     public Transform enemySprite;
 
     public Slider slider;
@@ -25,11 +28,13 @@ public class EnemyControllerV2 : MonoBehaviour
         GameObject path = GameObject.Find("Path");
         waypoints = path.GetComponent<Path>().Positions;
 
+        GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
+
         // Set Enemy starting position to first waypoint in the Index, waypoints[0] (spawnpoint)
         transform.position = waypoints[waypointIndex]; 
 
         // Find player object that the enemy will later attack.
-        player = GameObject.FindWithTag("Player");
+        
 
         // Set enemy health to its max health
         currentHealth = maxHealth;
@@ -62,7 +67,8 @@ public class EnemyControllerV2 : MonoBehaviour
                 waypointIndex++;
             else
             {
-                player.GetComponent<PlayerController>().ChangePlayerHealth(attackDamage);
+                GameCtrl.TakeDamage(attackDamage);
+                GameCtrl.AddScore((-.25f)*scoreValue);
                 Destroy(gameObject);
             }
         }
@@ -73,7 +79,14 @@ public class EnemyControllerV2 : MonoBehaviour
     public void ChangeHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
-        SetHealth(currentHealth);
+        SetHealth(currentHealth);   //Healthbar value
+
+        if(currentHealth < 1)
+        {
+            GameCtrl.AddScore(scoreValue);
+            GameCtrl.AddMoney(moneyDrop);
+            Destroy(gameObject);
+        }
     }
 
     public void SetHealth(int health)
@@ -86,4 +99,5 @@ public class EnemyControllerV2 : MonoBehaviour
         slider.maxValue = health;
         slider.value = health;
     }
+
 }
