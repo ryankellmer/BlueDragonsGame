@@ -57,13 +57,13 @@ public class GameController : MonoBehaviour
 
     public void TakeDamage(float amt)
     {
-        health -= amt;
+        health = Mathf.Clamp(health - amt, 0, maxHealth);
         healthBar.value = (int)health;
     }
 
     public void AddScore(float amt)
     {
-        score += amt;
+        score = Mathf.Max(score + amt, 0);
         score_text.text = "Score: " + score.ToString();
     }
 
