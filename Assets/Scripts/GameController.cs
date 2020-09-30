@@ -18,6 +18,11 @@ public class GameController : MonoBehaviour
     float spawnCools = 0f;
     public int enemesPerWave;
 
+    //UI
+    public Text score_text;
+    public Text money_text;
+    public Slider healthBar;
+
     public void DetermineEnemiesPerWave()
     {
 
@@ -31,6 +36,11 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         health = maxHealth;
+        healthBar.maxValue = (int)maxHealth;
+        healthBar.value = (int)maxHealth;
+
+        score_text.text = "Score: " + score.ToString();
+        money_text.text = "$" + money.ToString();
     }
 
     private void Update()
@@ -48,15 +58,18 @@ public class GameController : MonoBehaviour
     public void TakeDamage(float amt)
     {
         health -= amt;
+        healthBar.value = (int)health;
     }
 
     public void AddScore(float amt)
     {
         score += amt;
+        score_text.text = "Score: " + score.ToString();
     }
 
     public void AddMoney(float amt)
     {
         money += amt;
+        money_text.text = "$" + money.ToString();
     }
 }

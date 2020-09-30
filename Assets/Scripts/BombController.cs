@@ -31,9 +31,6 @@ public class BombController : ProjectileController
         for(int i = 0; i < enemiesInBlast.Count; i++){
             EnemyControllerV2 enemy = enemiesInBlast[i].GetComponent<EnemyControllerV2>();
             enemy.ChangeHealth(bombDamage);
-            if (enemy.currentHealth < 1){
-            Destroy(enemy.gameObject);
-            }
         gameObject.SetActive(false);
         }
     }
