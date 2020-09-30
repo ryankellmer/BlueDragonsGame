@@ -51,7 +51,8 @@ public class EnemyControllerV2 : MonoBehaviour
         // Finding current direction headed, and rotating sprite to face forward direction.
         Vector3 dir = waypoints[waypointIndex] - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        enemySprite.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Quaternion q = Quaternion.AngleAxis(angle-90, Vector3.forward);
+        enemySprite.rotation = Quaternion.Slerp(enemySprite.rotation, q, Time.deltaTime * 10f);
 
         // Check if enemy has reached the next waypoint. If so, increment waypoint index if there are more waypoints available
         // If enemy has reached final waypoint, delete the enemy.
