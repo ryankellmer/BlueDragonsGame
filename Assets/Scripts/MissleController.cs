@@ -12,7 +12,6 @@ public class MissleController : ProjectileController
     {
 
         EnemyControllerV2 enemy = projectileTarget.GetComponent<EnemyControllerV2>();
-
         gameObject.SetActive(false);
         if(enemy == null){
             return;

@@ -7,6 +7,7 @@ public class BombTowerController : TowerController
     public int pooledObjects = 4;
 
 
+    //Send bomb to closest target 
    public override void Shoot(){
        GameObject ProjectileGO = BombPool.SharedInstance.GetPooledObject(pooledObjects);
         ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
