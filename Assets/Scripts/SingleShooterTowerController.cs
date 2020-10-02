@@ -5,7 +5,7 @@ using UnityEngine;
 public class SingleShooterTowerController : TowerController
 {
     public int pooledObjects = 4;
-   public override void Shoot(){
+    public override void Shoot(){
        GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject(pooledObjects);
         ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
 

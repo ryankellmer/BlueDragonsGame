@@ -10,39 +10,26 @@ public class MultiAttackTowerController : TowerController
    public int pooledObjects = 4;
    public Transform currentTarget;
 
-  private void OnTriggerEnter2D(Collider2D other){
-        if((other.tag == "Enemy") && !allTargets.Contains(other.gameObject)){
-            allTargets.Add(other.gameObject);
-            UnityEngine.Debug.Log("Enemy Added to List");
-        }
-    }
 
-    private void OnTriggerExit2D(Collider2D other){
-        allTargets.Remove(other.gameObject);
-    }
-  
     
-     public override void Shoot(){
+    public override void Shoot(){
+      Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, range); 
+      int numhit = 0;
 
-       for(int i = 0; i < numtoAttack; i++) {
-        currentTarget = allTargets[i].transform;
-        GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject(pooledObjects);
-        ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
-
-        if (Projectile != null){
-        
-            ProjectileGO.transform.position = transform.position;
-            ProjectileGO.transform.rotation = transform.rotation;
-            ProjectileGO.SetActive(true);
-            Projectile.ReceiveTarget(currentTarget, damage); //Pass target to ProjectileController and damage amount
-        }
-        if(allTargets.Count == 1) {
-          break;
+      for(int i = 0; i<hitColliders.Length; i++){
+      currentTarget = hitColliders[i].transform;
+      GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject(pooledObjects);
+      ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
+      if ((Projectile != null) && (hitColliders[i].gameObject.tag == "Enemy")){
+        ProjectileGO.transform.position = transform.position;
+        ProjectileGO.transform.rotation = transform.rotation;
+        ProjectileGO.SetActive(true);
+        Projectile.ReceiveTarget(currentTarget, damage); //Pass target to ProjectileController and damage amount
+          numhit += 1;
+          if (numhit == numtoAttack){
+            return;
+          }
         }
        }
-     } 
-   
-     
-
-  
+     }
 }
