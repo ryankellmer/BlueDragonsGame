@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4450458989679915496}
   - component: {fileID: 1337633625475470657}
   - component: {fileID: 6509077570146916035}
-  - component: {fileID: 6036839740981694886}
+  - component: {fileID: 8627842429067382931}
   m_Layer: 0
   m_Name: MultiAttackTower
   m_TagString: Untagged
@@ -148,7 +148,7 @@ MonoBehaviour:
   objectsPooled: []
   objectToPool: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
   numObjectsToPool: 3
---- !u!114 &6036839740981694886
+--- !u!114 &8627842429067382931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b544d8638819754ab42ed86ba5e0b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  level: 0
   count: 0
   target: {fileID: 0}
   tagOfTarget: Enemy
@@ -168,6 +170,6 @@ MonoBehaviour:
   timeBeforeNextShot: 0.75
   damage: 1
   rotationSpeed: 0.5
-  numtoAttack: 2
+  numToAttack: 2
   pooledObjects: 4
   currentTarget: {fileID: 0}

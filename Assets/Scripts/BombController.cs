@@ -6,8 +6,9 @@ using System.Collections.Generic;
 
 public class BombController : ProjectileController
 {
-    public int bombDamage = 1;
-    public int bombRange = 3;
+ 
+
+  
 
     //Deal Damage to All enemies within bombRange when bomb hits target
     public override void HitTarget() {

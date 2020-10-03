@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1607168236411203074}
   - component: {fileID: 6385202286841520717}
   - component: {fileID: -7065463436947981171}
-  - component: {fileID: 340241911887764790}
+  - component: {fileID: 2630327478276896007}
   m_Layer: 0
   m_Name: BombTower
   m_TagString: Untagged
@@ -148,7 +148,7 @@ MonoBehaviour:
   objectsPooled: []
   objectToPool: {fileID: 2945796755755916467, guid: 9f1e6eb2f70f9384c92c7e3cc89153d3, type: 3}
   numObjectsToPool: 3
---- !u!114 &340241911887764790
+--- !u!114 &2630327478276896007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f576a36dbd84eed4dbf0d37f9d35abd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  level: 0
   count: 0
   target: {fileID: 0}
   tagOfTarget: Enemy
@@ -169,3 +171,11 @@ MonoBehaviour:
   damage: 1
   rotationSpeed: 0.5
   pooledObjects: 4
+  currentAttack: 0
+  currentRange: 0
+  baseAttack: 1
+  midAttack: 3
+  highAttack: 5
+  baseRange: 2
+  midRange: 2.5
+  highRange: 3

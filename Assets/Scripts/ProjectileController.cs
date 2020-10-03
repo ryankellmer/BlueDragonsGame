@@ -5,9 +5,10 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     [Header("Projectile Stats")]
-    public float projectileSpeed = 20f;
-    private int attack;
+    public float projectileSpeed = 10f;
     protected Transform projectileTarget;
+    public int bombDamage;
+    public float bombRange;
 
     Rigidbody2D rb2d;
 
@@ -16,13 +17,16 @@ public class ProjectileController : MonoBehaviour
         
     }
 
-    //Allows Turret Controller to find nearest enemy and pass that enemy as the target here that the bullet should lock onto
+    //Sends target to projectile so projectile can lock onto enemy's location
     public void ReceiveTarget(Transform turretTarget, int d)
     {
         projectileTarget = turretTarget;
-        attack = d;
     }
 
+    public void ReceiveStats(int damage, float range){
+        bombDamage = damage;
+        bombRange = range;
+    }
 
     void Update()
     {

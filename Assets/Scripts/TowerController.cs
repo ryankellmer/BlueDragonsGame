@@ -8,24 +8,32 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour
 {
-    public float count;
-
+   
     [Header("Necessary Public Variables")]
     public Transform target;
     public string tagOfTarget = "Enemy"; //targets will need "Enemy" tag for towers to be able to find them
     public GameObject ProjectilePrefab;
+    public enum towerTypes{standard, slow, freeze, poison, burn}
+    public enum towerLevel {start, mid, high}
+    public float count;
 
     [Header("Tower Stats")]
     [Range(0f, 20f)]
     public float range = 2f;
+    public float currentRange; //Specific to Bomb Tower's Bombs
+    public int currentAttack; 
     public float timeBeforeNextShot = 0.75f;
     public int damage = 1;
     public float rotationSpeed = .5f;
+    public towerTypes type; 
+    public towerLevel level;
 
-    void Start()
+    public virtual void Start()
     {
-        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
+        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2)); //Set Trigger area size equal to range
         count = 0f;
+        type = towerTypes.standard; 
+        level = towerLevel.start;
     }
 
     //Wait to shoot next projectile
@@ -67,6 +75,21 @@ public class TowerController : MonoBehaviour
         }
 
        RotateTower(target);
+    }
+
+    public void upgradetoFreeze(){
+        type = towerTypes.freeze; 
+    }
+    public void upgradeToPoison(){
+        type = towerTypes.poison; 
+    }
+
+    public void upgradeToBurn(){
+        type = towerTypes.burn; 
+    }
+
+    public void upgradeToSlow(){
+        type = towerTypes.slow; 
     }
 
     //Rotate Tower Guns towards Enemy
