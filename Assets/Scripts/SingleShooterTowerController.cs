@@ -47,7 +47,7 @@ public class SingleShooterTowerController : TowerController
         }
        GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject(pooledObjects);
         ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
-
+        Projectile.MissleReceiveStats(currentAttack);
         if (Projectile != null)
         {
             ProjectileGO.transform.position = transform.position;

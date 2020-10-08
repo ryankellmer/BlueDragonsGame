@@ -6,7 +6,6 @@ public class MissleController : ProjectileController
 {
 
     
-    public int missleDamage = 2;
 
     public override void HitTarget()
     {
