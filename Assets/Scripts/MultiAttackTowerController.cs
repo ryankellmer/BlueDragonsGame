@@ -63,6 +63,7 @@ public class MultiAttackTowerController : TowerController
       currentTarget = objectsInRange[i].transform;
       GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject(pooledObjects);
       ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
+      Projectile.MissleReceiveStats(currentAttack);
       if ((Projectile != null) && (objectsInRange[i].gameObject.tag == "Enemy")){
         ProjectileGO.transform.position = transform.position;
         ProjectileGO.transform.rotation = transform.rotation;

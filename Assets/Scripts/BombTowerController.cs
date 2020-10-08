@@ -46,7 +46,7 @@ public class BombTowerController : TowerController
    public override void Shoot(){
        GameObject ProjectileGO = BombPool.SharedInstance.GetPooledObject(pooledObjects);
         ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
-        Projectile.ReceiveStats(currentAttack, currentRange);
+        Projectile.BombReceiveStats(currentAttack, currentRange);
         if (Projectile != null)
         {
             ProjectileGO.transform.position = transform.position;
