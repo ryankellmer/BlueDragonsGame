@@ -25,6 +25,7 @@ public class GenerateScenary : MonoBehaviour
                 }
             }
         }
+        GameObject.Find("TowerPositions").GetComponent<TowerPositions>().CreateTowerPositions();
     }
 
     // Update is called once per frame
