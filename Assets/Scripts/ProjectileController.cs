@@ -9,6 +9,8 @@ public class ProjectileController : MonoBehaviour
     protected Transform projectileTarget;
     public int bombDamage;
     public float bombRange;
+    public int missleDamage; 
+    public enum projectileTypes{standard, slow, freeze, poison, burn}
 
     Rigidbody2D rb2d;
 
@@ -23,10 +25,15 @@ public class ProjectileController : MonoBehaviour
         projectileTarget = turretTarget;
     }
 
-    public void ReceiveStats(int damage, float range){
+    public void BombReceiveStats(int damage, float range){
         bombDamage = damage;
         bombRange = range;
     }
+
+    public void MissleReceiveStats(int damage){
+        missleDamage = damage; 
+    }
+
 
     void Update()
     {

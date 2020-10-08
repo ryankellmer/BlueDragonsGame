@@ -64,7 +64,7 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
-        tilemap.SetTile(new Vector3Int(0,0,0), testTile);
+        //tilemap.SetTile(new Vector3Int(0,0,0), testTile);
         UpdatePath();
         UpdateWaypoints(nodes);
     }
