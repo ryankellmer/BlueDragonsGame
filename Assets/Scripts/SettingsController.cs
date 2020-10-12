@@ -5,7 +5,9 @@ using UnityEngine;
 public class SettingsController : MonoBehaviour
 {
 
-    public GameObject Soundcanvas;
+    public GameObject SoundCanvas;
+    public GameObject PauseCanvas;
+    public GameObject SettingsCanvas;
     private bool isShowing = true;
 
 
@@ -16,7 +18,7 @@ public class SettingsController : MonoBehaviour
         {
             if (isShowing)
             {
-                Soundcanvas.SetActive(false);
+                SoundCanvas.SetActive(false);
                 isShowing = false;
             }
         }
