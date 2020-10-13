@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
         if(firstPlayInt == 0)
         {
-            backgroundFloat = .50f;
+            backgroundFloat = 0.75f;
             soundEffectFloat = .25f;
             backgroundSlider.value = backgroundFloat;   //adjust slider to adjust float value.
             soundEffectSlider.value = soundEffectFloat;
