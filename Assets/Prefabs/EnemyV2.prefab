@@ -139,7 +139,7 @@ MonoBehaviour:
   GameCtrl: {fileID: 0}
   enemySprite: {fileID: 0}
   slider: {fileID: 2589684092098493107}
-  speed: 4
+  speed: 1
 --- !u!61 &2654491756505030218
 BoxCollider2D:
   m_ObjectHideFlags: 0
