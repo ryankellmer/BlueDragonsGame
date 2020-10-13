@@ -20,16 +20,20 @@ public class SingleShooterTowerController : TowerController
         count = 0f;
         currentAttack = singleShooterBaseAttack;
         currentRange = singleShooterBaseRange; 
+        towerCost = 50;
+        upgradeCost = 50;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
     public void upgradeSingleShooterTower(){
         if (level == towerLevel.start){
+            upgradeCost = 75;
             currentAttack = singleShooterMidAttack;
             currentRange = singleShooterMidRange;
             GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
         }
         if (level == towerLevel.mid){
+            upgradeCost = 100;
             currentAttack = singleShooterHighAttack;
             currentRange = singleShooterHighRange;
             GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));

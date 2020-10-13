@@ -27,6 +27,8 @@ public class TowerController : MonoBehaviour
     public float rotationSpeed = .5f;
     public towerTypes type; 
     public towerLevel level;
+    public int towerCost;
+    public int upgradeCost; 
 
     public virtual void Start()
     {
@@ -34,6 +36,8 @@ public class TowerController : MonoBehaviour
         count = 0f;
         type = towerTypes.standard; 
         level = towerLevel.start;
+        towerCost = 50;
+        upgradeCost = 50;
     }
 
     //Wait to shoot next projectile

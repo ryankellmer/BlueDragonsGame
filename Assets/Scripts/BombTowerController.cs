@@ -19,17 +19,21 @@ public class BombTowerController : TowerController
         GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
         count = 0f;
         currentAttack = bomberBaseAttack;
-        currentRange = bomberBaseRange; 
+        currentRange = bomberBaseRange;
+        towerCost = 100; 
+        upgradeCost = 50;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
     public void upgradeBombTower(){
         if (level == towerLevel.start){
+            upgradeCost = 75;
             currentAttack = bomberMidAttack;
             currentRange = bomberMidRange;
             GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
         }
         if (level == towerLevel.mid){
+            upgradeCost = 100;
             currentAttack = bomberHighAttack;
             currentRange = bomberHighRange;
             GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));

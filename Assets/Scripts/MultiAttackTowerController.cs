@@ -29,11 +29,14 @@ public class MultiAttackTowerController : TowerController
         currentAttack = multiShooterBaseAttack;
         currentRange = multiShooterBaseRange; 
         numToAttack = baseNum;
+        towerCost = 75;
+        upgradeCost = 50;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, attack damage, and number of enemies to attack
     public void upgrademultiShooterTower(){
         if (level == towerLevel.start){
+            upgradeCost = 75;
             currentAttack = multiShooterMidAttack;
             currentRange = multiShooterMidRange;
             numToAttack = midNum;
@@ -41,6 +44,7 @@ public class MultiAttackTowerController : TowerController
           
         }
         if (level == towerLevel.mid){
+            upgradeCost = 100;
             currentAttack = multiShooterHighAttack;
             currentRange = multiShooterHighRange;
             numToAttack = highNum;
