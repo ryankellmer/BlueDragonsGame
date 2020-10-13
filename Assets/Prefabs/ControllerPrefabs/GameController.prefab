@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465728084304764727}
   - component: {fileID: 1465728084304764726}
+  - component: {fileID: 2060012340}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -47,3 +48,24 @@ MonoBehaviour:
   timeBetweenSpawns: 0
   wave: 1
   enemesPerWave: 0
+  score_text: {fileID: 0}
+  money_text: {fileID: 0}
+  healthBar: {fileID: 0}
+--- !u!114 &2060012340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465728084304764728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858dcb0a8eb1e5040bbb1a37f2e8ba72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialWaitTime: 5
+  timeBetweenWaves: 10
+  numOfEnemiesPerWave: 5
+  timeBetweenEnimies: 1
+  numOfWaves: 5
+  enemy: {fileID: 661880096885663283, guid: 02427b4df2222714fba4e6a6b5710a5d, type: 3}
