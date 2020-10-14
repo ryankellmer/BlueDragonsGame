@@ -15,4 +15,9 @@ public class MainMenuController : MonoBehaviour
         UnityEngine.Debug.Log("ButtonPresed");
         Application.Quit();
     }
+
+    public void RestartGame() 
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

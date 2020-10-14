@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     public Text score_text;
     public Text money_text;
     public Slider healthBar;
+    public GameObject GameOverUI;
 
     public void DetermineEnemiesPerWave()
     {
@@ -52,7 +53,8 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-
+        GameOverUI.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void TakeDamage(float amt)
