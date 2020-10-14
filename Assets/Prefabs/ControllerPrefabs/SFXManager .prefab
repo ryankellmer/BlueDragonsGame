@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5600880386872466299}
   - component: {fileID: 9008117377814230617}
   - component: {fileID: 2106405947758641540}
-  - component: {fileID: 2106405947758641541}
   m_Layer: 0
   m_Name: 'SFXManager '
   m_TagString: Untagged
@@ -68,21 +67,6 @@ MonoBehaviour:
   soundEffectFloat: 0
   backgroundAudio: {fileID: 2011063324457164193}
   soundEffectAudio: []
---- !u!114 &2106405947758641541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106405947758641543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 463236d71aa7e714ea5f819f3d44c733, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SoundCanvas: {fileID: 0}
-  PauseCanvas: {fileID: 0}
-  SettingsCanvas: {fileID: 0}
 --- !u!1 &5218188715086980229
 GameObject:
   m_ObjectHideFlags: 0
