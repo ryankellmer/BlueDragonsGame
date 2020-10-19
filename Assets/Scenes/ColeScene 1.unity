@@ -30863,10 +30863,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceholderUI
       objectReference: {fileID: 0}
-    - target: {fileID: 3626575967122870106, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3626575967122870110, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -30967,10 +30963,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3626575967702921730, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3626575967749183366, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -30986,10 +30978,6 @@ PrefabInstance:
     - target: {fileID: 3626575967749183366, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3626575967749183368, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626575968468459770, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
       propertyPath: m_AnchorMin.y

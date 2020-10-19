@@ -10,6 +10,11 @@ public class tower_spawning : MonoBehaviour
     public GameObject tower_placement_UI;
     bool already = false;
 
+    private void Awake()
+    {
+        tower_placement_UI = FindObjectOfType<GameController>().towerUI;
+    }
+
     private void OnMouseDown()
     {
         tower_placement_UI.SetActive(true); 

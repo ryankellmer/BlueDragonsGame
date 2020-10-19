@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour
     public Slider healthBar;
     public GameObject GameOverUI;
 
+    public GameObject towerUI;
+
     public void DetermineEnemiesPerWave()
     {
 
@@ -36,6 +38,9 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        towerUI = GameObject.FindGameObjectWithTag("TowerUI");
+        towerUI.SetActive(false);
+
         health = maxHealth;
         healthBar.maxValue = (int)maxHealth;
         healthBar.value = (int)maxHealth;
