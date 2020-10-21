@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.Tilemaps;
 using Random = System.Random;
 
@@ -26,19 +25,7 @@ public class GenerateScenary : MonoBehaviour
                 }
             }
         }
-<<<<<<< Updated upstream
        GameObject.Find("TowerPositions").GetComponent<TowerPositions>().CreateTowerPositions();
-=======
-       GameObject tp = GameObject.Find("TowerPositions");
-       if(tp == null){
-           GameObject tpPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/TowerPositions.prefab", typeof(GameObject));
-           tp = Instantiate(tpPrefab, Vector3.zero, Quaternion.identity);
-           tp.GetComponent<TowerPositions>().CreateTowerPositions();
-       }
-       else{
-           tp.GetComponent<TowerPositions>().CreateTowerPositions();
-       }
->>>>>>> Stashed changes
     }
 
     // Update is called once per frame
