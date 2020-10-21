@@ -17,50 +17,50 @@ public class MapGenerator : MonoBehaviour
         Vector2Int[] nodes = new Vector2Int[middleNodes + 3];
         Random rand = new Random();
         Tilemap tilemap = GetComponent<Tilemap>();
-        tilemap.CompressBounds(); //this compresses the tilemap boundbox
-        int topRow = tilemap.cellBounds.yMax-1;
-        int bottomRow = tilemap.cellBounds.yMin;
-        int leftCol = tilemap.cellBounds.xMin + 1;
+        tilemap.CompressBounds(); //this makes the boundbox of the tilemap only contain what is drawn in the prefab
+        int topRow = tilemap.cellBounds.yMax - 2;
+        int bottomRow = tilemap.cellBounds.yMin + 2;
+        int leftCol = tilemap.cellBounds.xMin;
         int rightCol = tilemap.cellBounds.xMax - 1;
         //generate first node
-        nodes[0] = new Vector2Int(rand.Next(leftCol, rightCol),topRow);
+        nodes[0] = new Vector2Int(leftCol, rand.Next(bottomRow, topRow));
         // generate middle nodes
-        List<int> exclude = new List<int>();
+        List<int> exclude = new List<int>(); // list of excluded columns
         for(int i = 1; i < middleNodes + 1; i++){
-            int rand1 = rand.Next(leftCol + 1,rightCol - 1);
+            int rand1 = rand.Next(bottomRow + 1,topRow - 1);
             
             bool flag = true;
             int rand2 = 0;
             while (flag){
-                rand2 = rand.Next(bottomRow + 4, topRow - 1);
+                rand2 = rand.Next(leftCol + 3, rightCol - 4);
                 flag = exclude.Any(n => n == rand2);
             }
             exclude.Add(rand2);
             exclude.Add(rand2 - 1);
             exclude.Add(rand2 + 1);
-            nodes[i] = new Vector2Int(rand1, rand2);
+            nodes[i] = new Vector2Int(rand2, rand1);
         }
         //generate last 2 nodes
-        nodes[middleNodes + 2] = new Vector2Int(rand.Next(leftCol+1, rightCol-1),bottomRow);
-        nodes[middleNodes + 1] = new Vector2Int(nodes[middleNodes + 2].x, bottomRow + 2); // this node will make the end of the path look better
+        nodes[middleNodes + 2] = new Vector2Int(rightCol, rand.Next(bottomRow, topRow));
+        nodes[middleNodes + 1] = new Vector2Int(rightCol - 2, nodes[middleNodes + 2].y); // this node will make the end of the path look better
         //sort the middle nodes
         //This might get changed later to give the randomness of the levels some more complexity
-        nodes = nodes.OrderBy(o=> -1 * o.y).ToArray();
+        nodes = nodes.OrderBy(o=> o.x).ToArray();
         //fill the tilemap
         tilemap.FloodFill(new Vector3Int(0,0,0), fillTile);
         //draw path
         for(int i = 0; i < middleNodes + 2; i++){
-            for(int j = nodes[i].y; j >= nodes[i+1].y; j--){
-                tilemap.SetTile(new Vector3Int(nodes[i].x,j,0), pathTile);
+            for(int j = nodes[i].x; j <= nodes[i+1].x; j++){
+                tilemap.SetTile(new Vector3Int(j,nodes[i].y,0), pathTile);
             }
-            if(nodes[i].x < nodes[i+1].x){
-                for(int j = nodes[i].x; j <= nodes[i+1].x; j++){
-                    tilemap.SetTile(new Vector3Int(j, nodes[i+1].y, 0), pathTile);
+            if(nodes[i].y < nodes[i+1].y){
+                for(int j = nodes[i].y; j <= nodes[i+1].y; j++){
+                    tilemap.SetTile(new Vector3Int(nodes[i+1].x, j, 0), pathTile);
                 }
             }
             else{
-                for(int j = nodes[i+1].x; j <= nodes[i].x; j++){
-                    tilemap.SetTile(new Vector3Int(j, nodes[i+1].y,0), pathTile);
+                for(int j = nodes[i+1].y; j <= nodes[i].y; j++){
+                    tilemap.SetTile(new Vector3Int(nodes[i+1].x, j,0), pathTile);
                 }
             }
         }
@@ -125,12 +125,12 @@ public class MapGenerator : MonoBehaviour
     void UpdateWaypoints(Vector2Int[] nodes){
         GameObject path = GameObject.Find("Path");
         List<Vector2Int> waypoints = new List<Vector2Int>();
-        for(int i = 0; i < nodes.Length - 1; i ++){
+        for(int i = 0; i < nodes.Length - 1; i++){
             waypoints.Add(nodes[i]);
-            waypoints.Add(new Vector2Int(nodes[i].x, nodes[i+1].y));
+            waypoints.Add(new Vector2Int(nodes[i+1].x, nodes[i].y));
         }
-        waypoints[0] += new Vector2Int(0, 1);
-        waypoints.Add(nodes.Last() + new Vector2Int(0, -1));
+        waypoints[0] += new Vector2Int(-1, 0);
+        waypoints.Add(nodes.Last() + new Vector2Int(1, 0));
         //remove duplicates
         for(int i = 1; i < waypoints.Count; i++){
             if(waypoints[i] == waypoints[i-1]){

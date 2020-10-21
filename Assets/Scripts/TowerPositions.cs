@@ -14,8 +14,8 @@ public class TowerPositions : MonoBehaviour
         GameObject foliage = GameObject.Find("Foliage");
         List<Vector3Int> positions = new List<Vector3Int>();
         BoundsInt towerBounds = tiles.cellBounds;
-        towerBounds.xMin += 1;
-        towerBounds.xMax -= 1;
+        //towerBounds.yMin += 1; // These lines are used to limit the tower placement rectangle
+        //towerBounds.yMax -= 1;
         foreach(var t in towerBounds.allPositionsWithin){
             if(tiles.GetTile(t) == mapGenerator.fillTile){
                 positions.Add(t);
