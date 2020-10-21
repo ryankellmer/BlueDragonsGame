@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     public float maxHealth = 100;
     float health;
     float score = 0;
-    float money = 0;
+    float money = 250;
 
     //Enemies
     //public EnemyController enemy;
@@ -74,36 +74,39 @@ public class GameController : MonoBehaviour
         isPickingTower = true;
     }
 
-    public void SpawnTower_1()
+    public void SpawnTower_1()  //regular tower
     {
-        if (towerPos.already == false)
+        if (towerPos.already == false &&money >  tower1.towerCost)
         {
+            RemoveMoney(tower1.towerCost); 
             Instantiate(tower1, towerPos.transform.position, Quaternion.identity);
             towerPos.already = true;
-            towerPos.turnOffUI();
             isPickingTower = false;
         }
+        towerPos.turnOffUI();
     }
 
-    public void SpawnTower_2()
+    public void SpawnTower_2() // Bombtower
     {
-        if (towerPos.already == false)
+        if (towerPos.already == false && money > tower2.towerCost)
         {
+            RemoveMoney(tower2.towerCost);
             Instantiate(tower2, towerPos.transform.position, Quaternion.identity);
             towerPos.already = true;
-            towerPos.turnOffUI();
             isPickingTower = false;
         }
+        towerPos.turnOffUI();
     }
-    public void SpawnTower_3()
+    public void SpawnTower_3() //Multiattack tower
     {
-        if (towerPos.already == false)
+        if (towerPos.already == false && money > tower3.towerCost)
         {
+            RemoveMoney(tower3.towerCost); 
             Instantiate(tower3, towerPos.transform.position, Quaternion.identity);
             towerPos.already = true;
-            towerPos.turnOffUI();
             isPickingTower = false;
         }
+        towerPos.turnOffUI();
     }
 
     public void GameOver()
@@ -128,5 +131,11 @@ public class GameController : MonoBehaviour
     {
         money += amt;
         money_text.text = "$" + money.ToString();
+    }
+
+    public void RemoveMoney(float amt)
+    {
+        money -= amt;
+        money_text.text = "$" + money.ToString(); 
     }
 }

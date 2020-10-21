@@ -160,22 +160,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f576a36dbd84eed4dbf0d37f9d35abd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  level: 0
-  count: 0
   target: {fileID: 0}
   tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 2945796755755916467, guid: 9f1e6eb2f70f9384c92c7e3cc89153d3, type: 3}
+  count: 0
   range: 2
+  currentRange: 0
+  currentAttack: 0
   timeBeforeNextShot: 0.75
   damage: 1
   rotationSpeed: 0.5
+  type: 0
+  level: 0
+  towerCost: 10
+  upgradeCost: 0
   pooledObjects: 4
-  currentAttack: 0
-  currentRange: 0
-  baseAttack: 1
-  midAttack: 3
-  highAttack: 5
-  baseRange: 2
-  midRange: 2.5
-  highRange: 3
+  bomberBaseAttack: 1
+  bomberMidAttack: 3
+  bomberHighAttack: 5
+  bomberBaseRange: 2
+  bomberMidRange: 2.5
+  bomberHighRange: 3
