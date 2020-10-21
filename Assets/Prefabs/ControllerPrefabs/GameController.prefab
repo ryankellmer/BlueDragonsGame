@@ -51,6 +51,12 @@ MonoBehaviour:
   score_text: {fileID: 0}
   money_text: {fileID: 0}
   healthBar: {fileID: 0}
+  GameOverUI: {fileID: 0}
+  towerUI: {fileID: 0}
+  tower1: {fileID: 9143486518139794349, guid: f6cba6f7a57e38c4588fa53ac0c78e7a, type: 3}
+  tower2: {fileID: 2630327478276896007, guid: 0ebdc2233585bcf4880c3d12448565a4, type: 3}
+  tower3: {fileID: 8627842429067382931, guid: efc9de95708e0e74893d8b0f5eb3533c, type: 3}
+  isPickingTower: 0
 --- !u!114 &2060012340
 MonoBehaviour:
   m_ObjectHideFlags: 0

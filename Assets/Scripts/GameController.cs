@@ -26,6 +26,12 @@ public class GameController : MonoBehaviour
 
     public GameObject towerUI;
 
+    tower_spawning towerPos;
+
+    public TowerController tower1, tower2, tower3;
+
+    public bool isPickingTower = false;
+
     public void DetermineEnemiesPerWave()
     {
 
@@ -51,9 +57,53 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-
+        if (Application.isEditor)
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                AddMoney(50);
+            }
+        }
 
         if (health <= 0) GameOver();
+    }
+
+    public void UpdatePos(tower_spawning tow)
+    {
+        towerPos = tow;
+        isPickingTower = true;
+    }
+
+    public void SpawnTower_1()
+    {
+        if (towerPos.already == false)
+        {
+            Instantiate(tower1, towerPos.transform.position, Quaternion.identity);
+            towerPos.already = true;
+            towerPos.turnOffUI();
+            isPickingTower = false;
+        }
+    }
+
+    public void SpawnTower_2()
+    {
+        if (towerPos.already == false)
+        {
+            Instantiate(tower2, towerPos.transform.position, Quaternion.identity);
+            towerPos.already = true;
+            towerPos.turnOffUI();
+            isPickingTower = false;
+        }
+    }
+    public void SpawnTower_3()
+    {
+        if (towerPos.already == false)
+        {
+            Instantiate(tower3, towerPos.transform.position, Quaternion.identity);
+            towerPos.already = true;
+            towerPos.turnOffUI();
+            isPickingTower = false;
+        }
     }
 
     public void GameOver()

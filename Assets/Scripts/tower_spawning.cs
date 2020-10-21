@@ -8,24 +8,33 @@ public class tower_spawning : MonoBehaviour
 {
     public GameObject the_prefab, tower_2, tower_3;
     public GameObject tower_placement_UI;
-    bool already = false;
+    public bool already = false;
+
+    GameController cont;
 
     private void Awake()
     {
-        tower_placement_UI = FindObjectOfType<GameController>().towerUI;
+        cont = FindObjectOfType<GameController>();
+        tower_placement_UI = cont.towerUI;
     }
 
     private void OnMouseDown()
     {
-        tower_placement_UI.SetActive(true); 
+        tower_placement_UI.SetActive(true);
+        if (!already && !cont.isPickingTower)
+        {
+            cont.UpdatePos(this);
+        }
+    }
 
-
-
-        if (already == false) { check_tower(); }
+    public void turnOffUI()
+    {
+        tower_placement_UI.SetActive(false);
     }
 
     void check_tower()
     {
+
         Instantiate(the_prefab, transform.position, Quaternion.identity);
         already = true;
         tower_placement_UI.SetActive(false);
