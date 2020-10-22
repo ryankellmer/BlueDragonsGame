@@ -81,6 +81,9 @@ public class EnemyControllerV2 : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
         SetHealth(currentHealth);   //Healthbar value
 
+        //Give small amount of money when hit
+        GameCtrl.AddMoney(.1f*moneyDrop);
+
         if(currentHealth < 1)
         {
             GameCtrl.AddScore(scoreValue);
