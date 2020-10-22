@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class spawnEnemy : MonoBehaviour
 {
-	public GameObject testEnemy;
+	//public GameObject testEnemy;
+    public int pooledObjects = 50;
     public float timer;
     public float spawnRate = 5f;
 
@@ -12,7 +13,7 @@ public class spawnEnemy : MonoBehaviour
     void Start()
     {
         timer = 0f;
-        Instantiate(testEnemy);
+        //Instantiate(testEnemy);
     }
 
     // Update is called once per frame
@@ -22,8 +23,11 @@ public class spawnEnemy : MonoBehaviour
 
         if(timer > spawnRate)
         {
-            Instantiate(testEnemy);
+            //Instantiate(testEnemy);
             timer = 0f;
+            GameObject EnemyGO = EnemyPool.SharedInstance.GetPooledObject(pooledObjects);
+            EnemyControllerV2 Enemy = EnemyGO.GetComponent<EnemyControllerV2>();
+            EnemyGO.SetActive(true);
         }
     }
 }

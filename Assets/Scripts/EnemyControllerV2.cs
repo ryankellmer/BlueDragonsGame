@@ -69,7 +69,8 @@ public class EnemyControllerV2 : MonoBehaviour
             {
                 GameCtrl.TakeDamage(attackDamage);
                 GameCtrl.AddScore((-.25f)*scoreValue);
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }
@@ -88,7 +89,8 @@ public class EnemyControllerV2 : MonoBehaviour
         {
             GameCtrl.AddScore(scoreValue);
             GameCtrl.AddMoney(moneyDrop);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
