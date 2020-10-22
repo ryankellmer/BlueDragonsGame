@@ -76,12 +76,22 @@ public class GameController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                Time.timeScale = 2f;
+                Time.timeScale *= 2f;
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha8))
             {
                 Time.timeScale = 8f;
+            }
+
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                AddScore(-25);
+            }
+
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                AddScore(25);
             }
         }
 
@@ -137,6 +147,7 @@ public class GameController : MonoBehaviour
 
     public void TakeDamage(float amt)
     {
+        Debug.Log("Taking damage: " + amt.ToString());
         health = Mathf.Clamp(health - amt, 0, maxHealth);
         healthBar.value = (int)health;
     }
