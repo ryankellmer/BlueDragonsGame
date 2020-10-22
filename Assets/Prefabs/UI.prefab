@@ -245,11 +245,7 @@ RectTransform:
   - {fileID: 6262047433486273274}
   - {fileID: 9111041093452208472}
   - {fileID: 4753277845243999325}
-<<<<<<< HEAD
-  - {fileID: 1989288852}
-=======
   - {fileID: 8454631809841399240}
->>>>>>> 4ac0e2d1f5d9d5248f9752a24fec6cdbe174542b
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
