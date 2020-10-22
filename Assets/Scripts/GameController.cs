@@ -63,6 +63,26 @@ public class GameController : MonoBehaviour
             {
                 AddMoney(50);
             }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                Time.timeScale = 3f;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Time.timeScale = 1f;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Time.timeScale = 2f;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                Time.timeScale = 8f;
+            }
         }
 
         if (health <= 0) GameOver();
