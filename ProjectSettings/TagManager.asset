@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - TowerUI
+  - MenuUI
   layers:
   - Default
   - TransparentFX

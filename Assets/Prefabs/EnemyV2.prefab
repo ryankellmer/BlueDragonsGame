@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 0
-  attackDamage: 1
+  attackDamage: 10
   moneyDrop: 5
   scoreValue: 10
   waypoints: []
