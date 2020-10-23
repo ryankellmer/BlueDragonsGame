@@ -439,7 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsPooled: []
   objectToPool: {fileID: 661880096885663283, guid: 02427b4df2222714fba4e6a6b5710a5d, type: 3}
-  numObjectsToPool: 50
+  numObjectsToPool: 40
 --- !u!1001 &982198718
 PrefabInstance:
   m_ObjectHideFlags: 0

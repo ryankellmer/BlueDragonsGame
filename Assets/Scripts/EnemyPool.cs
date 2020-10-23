@@ -8,7 +8,7 @@ public class EnemyPool : MonoBehaviour
     public static EnemyPool SharedInstance;
     public List<GameObject> objectsPooled;
     public GameObject objectToPool;
-    public int numObjectsToPool = 50;
+    public int numObjectsToPool;
     
     
     void Awake() {
@@ -29,11 +29,15 @@ public class EnemyPool : MonoBehaviour
     //Function so scripts can set inactive objects to active
     public GameObject GetPooledObject(int numObjectsToPool)
     {
-        for(int i = 0; i < numObjectsToPool; i++){
+        for(int i = 0; i < objectsPooled.Count; i++){
             if(!objectsPooled[i].activeInHierarchy){
                 return objectsPooled[i];
             }
         }
-        return null;
+        UnityEngine.Debug.Log("Test");
+        GameObject obj = Instantiate(objectToPool);
+        obj.SetActive(false);
+        objectsPooled.Add(obj);
+        return obj;
     }
 }

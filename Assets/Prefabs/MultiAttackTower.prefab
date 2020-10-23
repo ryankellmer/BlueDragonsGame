@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsPooled: []
   objectToPool: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
-  numObjectsToPool: 3
+  numObjectsToPool: 6
 --- !u!114 &8627842429067382931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
   count: 0
-  range: 2
+  range: 1
   currentRange: 0
   currentAttack: 0
   timeBeforeNextShot: 0.75

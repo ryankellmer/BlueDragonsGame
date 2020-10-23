@@ -127,7 +127,7 @@ MonoBehaviour:
   tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
   count: 0
-  range: 2
+  range: 4
   currentRange: 0
   currentAttack: 0
   timeBeforeNextShot: 0.75
