@@ -24,7 +24,7 @@ public class MultiAttackTowerController : TowerController
 
     public override void Start()
     {
-        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
+        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2)); //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
         currentAttack = multiShooterBaseAttack;
         currentRange = multiShooterBaseRange; 
@@ -62,10 +62,10 @@ public class MultiAttackTowerController : TowerController
       Collider2D[] objectsInRange = Physics2D.OverlapCircleAll(transform.position, currentRange); //Array of objects within tower range
       int numhit = 0;
 
-      //For all objects within range, check if enemy, if enemy send projectile to enemy up to numToAttack
+      //For all objects within range, check if enemy, if enemy send projectile to number of enemies up to numToAttack
       for(int i = 0; i<objectsInRange.Length; i++){
       currentTarget = objectsInRange[i].transform;
-      GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject(pooledObjects);
+      GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject("Missle");
       ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
       Projectile.MissleReceiveStats(currentAttack);
       if ((Projectile != null) && (objectsInRange[i].gameObject.tag == "Enemy")){

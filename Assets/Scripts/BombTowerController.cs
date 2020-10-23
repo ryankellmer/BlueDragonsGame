@@ -16,15 +16,13 @@ public class BombTowerController : TowerController
 
     public override void Start()
     {
-        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
+        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2)); //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
         currentAttack = bomberBaseAttack;
         currentRange = bomberBaseRange;
         towerCost = 100; 
         upgradeCost = 50;
     }
-
-
 
 
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
@@ -51,7 +49,7 @@ public class BombTowerController : TowerController
 
     //Send bomb to closest target 
    public override void Shoot(){
-       GameObject ProjectileGO = BombPool.SharedInstance.GetPooledObject(pooledObjects);
+       GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject("Bomb");
         ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
         Projectile.BombReceiveStats(currentAttack, currentRange);
         if (Projectile != null)

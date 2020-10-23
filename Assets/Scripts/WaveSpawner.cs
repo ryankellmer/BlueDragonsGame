@@ -15,14 +15,7 @@ public class WaveSpawner : MonoBehaviour
     WaveSpawnerStates state = WaveSpawnerStates.Starting;
     int enemiesSpawned = 0;
     int wavesSpawned = 0;
-    int pooledObjects = 50;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -44,7 +37,7 @@ public class WaveSpawner : MonoBehaviour
             case WaveSpawnerStates.Spawning:
                 if(timer > timeBetweenEnimies){
                     //Instantiate(enemy, new Vector3(0,0,0), Quaternion.identity);
-                    GameObject EnemyGO = EnemyPool.SharedInstance.GetPooledObject(pooledObjects);
+                    GameObject EnemyGO = ObjectPool.SharedInstance.GetPooledObject("Enemy");
                     EnemyControllerV2 Enemy = EnemyGO.GetComponent<EnemyControllerV2>();
                     EnemyGO.SetActive(true);
                     enemiesSpawned++;

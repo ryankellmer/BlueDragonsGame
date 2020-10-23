@@ -22,6 +22,7 @@ public class EnemyControllerV2 : MonoBehaviour
     [SerializeField]
     float speed;
     
+    
     void Start()
     {
         // Get waypoints from the Path gameobject function 'Positions'
@@ -37,6 +38,17 @@ public class EnemyControllerV2 : MonoBehaviour
         
 
         // Set enemy health to its max health
+        currentHealth = maxHealth;
+        SetMaxHealth(maxHealth);
+    }
+
+    //Resets Enemy stats for when they are returned to object pool either at end of level of reach 0 health
+    void ResetEnemy() {
+        waypointIndex = 0;
+        GameObject path = GameObject.Find("Path");
+        waypoints = path.GetComponent<Path>().Positions;
+        GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
+        transform.position = waypoints[waypointIndex]; 
         currentHealth = maxHealth;
         SetMaxHealth(maxHealth);
     }
@@ -70,6 +82,7 @@ public class EnemyControllerV2 : MonoBehaviour
                 GameCtrl.TakeDamage(attackDamage);
                 GameCtrl.AddScore((-.25f)*scoreValue);
                 //Destroy(gameObject);
+                ResetEnemy();
                 gameObject.SetActive(false);
             }
         }
@@ -90,6 +103,7 @@ public class EnemyControllerV2 : MonoBehaviour
             GameCtrl.AddScore(scoreValue);
             GameCtrl.AddMoney(moneyDrop);
             //Destroy(gameObject);
+            ResetEnemy();
             gameObject.SetActive(false);
         }
     }

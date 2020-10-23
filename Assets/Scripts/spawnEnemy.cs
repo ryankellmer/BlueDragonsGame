@@ -25,7 +25,7 @@ public class spawnEnemy : MonoBehaviour
         {
             //Instantiate(testEnemy);
             timer = 0f;
-            GameObject EnemyGO = EnemyPool.SharedInstance.GetPooledObject(pooledObjects);
+            GameObject EnemyGO = ObjectPool.SharedInstance.GetPooledObject("Enemy");
             EnemyControllerV2 Enemy = EnemyGO.GetComponent<EnemyControllerV2>();
             EnemyGO.SetActive(true);
         }

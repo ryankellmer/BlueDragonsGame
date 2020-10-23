@@ -247,6 +247,10 @@ PrefabInstance:
       propertyPath: GameOverUI
       value: 
       objectReference: {fileID: 1973249410}
+    - target: {fileID: 1465728084304764726, guid: fb999d970936e914189267b976e1ed49, type: 3}
+      propertyPath: tower3
+      value: 
+      objectReference: {fileID: 8627842429067382931, guid: efc9de95708e0e74893d8b0f5eb3533c, type: 3}
     - target: {fileID: 1465728084304764727, guid: fb999d970936e914189267b976e1ed49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.2
@@ -434,12 +438,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 936797692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9df961dab39577489096ca37855d535, type: 3}
+  m_Script: {fileID: 11500000, guid: 85696317a6124494eaaeef0fd52caee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsPooled: []
-  objectToPool: {fileID: 661880096885663283, guid: 02427b4df2222714fba4e6a6b5710a5d, type: 3}
-  numObjectsToPool: 40
+  pooledObjects: []
+  itemsToPool:
+  - amountToPool: 3
+    objectToPool: {fileID: 661880096885663283, guid: 02427b4df2222714fba4e6a6b5710a5d, type: 3}
+    shouldExpand: 1
+  - amountToPool: 20
+    objectToPool: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
+    shouldExpand: 1
+  - amountToPool: 15
+    objectToPool: {fileID: 2945796755755916467, guid: 9f1e6eb2f70f9384c92c7e3cc89153d3, type: 3}
+    shouldExpand: 1
 --- !u!1001 &982198718
 PrefabInstance:
   m_ObjectHideFlags: 0

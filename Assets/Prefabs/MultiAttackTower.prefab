@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1901352431993500838}
   - component: {fileID: 4450458989679915496}
   - component: {fileID: 1337633625475470657}
-  - component: {fileID: 6509077570146916035}
   - component: {fileID: 8627842429067382931}
   m_Layer: 0
   m_Name: MultiAttackTower
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3af0846817a31eb44981ebeb32086743, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -133,21 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6509077570146916035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7180909279772591079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85696317a6124494eaaeef0fd52caee9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectsPooled: []
-  objectToPool: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
-  numObjectsToPool: 6
 --- !u!114 &8627842429067382931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +148,7 @@ MonoBehaviour:
   tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
   count: 0
-  range: 1
+  range: 2.03
   currentRange: 0
   currentAttack: 0
   timeBeforeNextShot: 0.75

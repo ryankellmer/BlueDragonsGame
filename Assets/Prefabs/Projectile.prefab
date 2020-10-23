@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1423607426815757922}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Missle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,4 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 20
+  bombDamage: 0
+  bombRange: 0
   missleDamage: 2

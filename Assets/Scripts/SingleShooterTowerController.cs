@@ -16,7 +16,7 @@ public class SingleShooterTowerController : TowerController
 
     public override void Start()
     {
-        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
+        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2)); //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
         currentAttack = singleShooterBaseAttack;
         currentRange = singleShooterBaseRange; 
@@ -45,11 +45,12 @@ public class SingleShooterTowerController : TowerController
         timeBeforeNextShot += .25f;
     }
 
+    //Shoot projectile at current target 
     public override void Shoot(){
         if(target == null){
             return;
         }
-       GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject(pooledObjects);
+       GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject("Missle");
         ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
         Projectile.MissleReceiveStats(currentAttack);
         if (Projectile != null)
