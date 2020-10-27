@@ -28,7 +28,7 @@ public class GenerateScenary : MonoBehaviour
         }
        GameObject tp = GameObject.Find("TowerPositions");
        if(tp == null){
-           GameObject tpPrefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/TowerPositions.prefab", typeof(GameObject));
+           GameObject tpPrefab = Resources.Load<GameObject>("Assets/Prefabs/TowerPositions.prefab");
            tp = Instantiate(tpPrefab, Vector3.zero, Quaternion.identity);
            tp.GetComponent<TowerPositions>().CreateTowerPositions();
        }
