@@ -41,10 +41,10 @@ public class GameController : MonoBehaviour
     {
 
     }
-
+   
     private void Awake()
     {
-        towerUI = GameObject.FindGameObjectWithTag("TowerUI");
+        towerUI = GameObject.FindGameObjectWithTag("TowerUI"); 
         towerUI.SetActive(false);
 
         health = maxHealth;
@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour
 
     public void SpawnTower_1()  //regular tower
     {
-        if (towerPos.already == false &&money >  tower1.towerCost)
+        if (towerPos.already == false && money >  tower1.towerCost && isPickingTower == true)
         {
             RemoveMoney(tower1.towerCost); 
             Instantiate(tower1, towerPos.transform.position, Quaternion.identity);
@@ -168,5 +168,12 @@ public class GameController : MonoBehaviour
     {
         money -= amt;
         money_text.text = "$" + money.ToString(); 
+    }
+    public void collapseUINotPicking()
+    {
+        towerPos = null; 
+        isPickingTower = false;
+        GameObject.FindGameObjectWithTag("TowerUI").SetActive(false);
+        
     }
 }
