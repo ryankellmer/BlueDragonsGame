@@ -26,7 +26,8 @@ public class GameController : MonoBehaviour
 
     public GameObject towerUI;
 
-    tower_spawning towerPos;
+    public tower_spawning towerPos;
+    public Vector3 position;
 
     public TowerController tower1, tower2, tower3;
 
@@ -101,17 +102,18 @@ public class GameController : MonoBehaviour
     public void UpdatePos(tower_spawning tow)
     {
         towerPos = tow;
-        isPickingTower = true;
+        //isPickingTower = true;
+        position = towerPos.transform.position;
     }
 
     public void SpawnTower_1()  //regular tower
     {
-        if (towerPos.already == false && money >  tower1.towerCost && isPickingTower == true)
+        if (towerPos.already == false && money >  tower1.towerCost)
         {
             RemoveMoney(tower1.towerCost); 
             Instantiate(tower1, towerPos.transform.position, Quaternion.identity);
             towerPos.already = true;
-            isPickingTower = false;
+            //isPickingTower = false;
         }
         towerPos.turnOffUI();
     }
@@ -123,7 +125,7 @@ public class GameController : MonoBehaviour
             RemoveMoney(tower2.towerCost);
             Instantiate(tower2, towerPos.transform.position, Quaternion.identity);
             towerPos.already = true;
-            isPickingTower = false;
+            //isPickingTower = false;
         }
         towerPos.turnOffUI();
     }
@@ -134,7 +136,7 @@ public class GameController : MonoBehaviour
             RemoveMoney(tower3.towerCost); 
             Instantiate(tower3, towerPos.transform.position, Quaternion.identity);
             towerPos.already = true;
-            isPickingTower = false;
+            //isPickingTower = false;
         }
         towerPos.turnOffUI();
     }
@@ -172,7 +174,8 @@ public class GameController : MonoBehaviour
     public void collapseUINotPicking()
     {
         towerPos = null; 
-        isPickingTower = false;
+        //isPickingTower = false;
+        position = Vector3.zero;
         GameObject.FindGameObjectWithTag("TowerUI").SetActive(false);
         
     }

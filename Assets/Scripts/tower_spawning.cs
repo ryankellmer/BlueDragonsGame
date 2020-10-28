@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 
 public class tower_spawning : MonoBehaviour
 {
@@ -20,10 +20,13 @@ public class tower_spawning : MonoBehaviour
 
     private void OnMouseDown()
     {
-        tower_placement_UI.SetActive(true);
-        if (!already && !cont.isPickingTower)
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            cont.UpdatePos(this);
+            if (!already)
+            {
+                tower_placement_UI.SetActive(true);
+                cont.UpdatePos(this);
+            }
         }
     }
 
