@@ -8,7 +8,6 @@ public class MultiAttackTowerController : TowerController
    List<GameObject> allTargets = new List<GameObject>();
    public Transform currentTarget;
 
-  [Header("multi Shooter Tower Stats")]
     public int pooledObjects = 8;
     public int multiShooterBaseAttack = 1;
     public int multiShooterMidAttack = 2;
@@ -24,13 +23,14 @@ public class MultiAttackTowerController : TowerController
 
     public override void Start()
     {
-        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2)); //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
+        GetComponent<CircleCollider2D>().radius = multiShooterBaseRange; //Set Circle Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
         currentAttack = multiShooterBaseAttack;
         currentRange = multiShooterBaseRange; 
         numToAttack = baseNum;
         towerCost = 75;
         upgradeCost = 50;
+        timeBeforeNextShot = 8.0f;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, attack damage, and number of enemies to attack
@@ -40,7 +40,7 @@ public class MultiAttackTowerController : TowerController
             currentAttack = multiShooterMidAttack;
             currentRange = multiShooterMidRange;
             numToAttack = midNum;
-            GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
+            GetComponent<CircleCollider2D>().radius = currentRange;
           
         }
         if (level == towerLevel.mid){
@@ -48,13 +48,13 @@ public class MultiAttackTowerController : TowerController
             currentAttack = multiShooterHighAttack;
             currentRange = multiShooterHighRange;
             numToAttack = highNum;
-            GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
+            GetComponent<CircleCollider2D>().radius = currentRange;
         }
         if (level == towerLevel.high){
             return;
         }
         rotationSpeed += 0.5f;
-        timeBeforeNextShot += .25f;
+        timeBeforeNextShot -= .5f;
     }
 
     
@@ -75,7 +75,7 @@ public class MultiAttackTowerController : TowerController
         if(currentTarget == null){
             continue;
         }
-        Projectile.ReceiveTarget(currentTarget, damage); //Pass target to ProjectileController and damage amount
+        Projectile.ReceiveTarget(currentTarget, currentAttack); //Pass target to ProjectileController and damage amount
         numhit += 1;
         if (numhit == numToAttack){
           return;
@@ -83,4 +83,6 @@ public class MultiAttackTowerController : TowerController
         }
        }
      }
+
+
 }

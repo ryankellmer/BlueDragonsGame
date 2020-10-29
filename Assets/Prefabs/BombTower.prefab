@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6813324853490029673}
   - component: {fileID: 3779569348522673123}
-  - component: {fileID: 1607168236411203074}
   - component: {fileID: 6385202286841520717}
   - component: {fileID: 2630327478276896007}
+  - component: {fileID: 7033310657297523560}
   m_Layer: 0
   m_Name: BombTower
   m_TagString: Untagged
@@ -85,32 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1607168236411203074
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4251427375335977049}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &6385202286841520717
 Rigidbody2D:
   serializedVersion: 4
@@ -151,13 +125,14 @@ MonoBehaviour:
   range: 2
   currentRange: 0
   currentAttack: 0
-  timeBeforeNextShot: 0.75
+  timeBeforeNextShot: 9
   damage: 1
   rotationSpeed: 0.5
   type: 0
   level: 0
   towerCost: 10
   upgradeCost: 0
+  currentBlastRange: 0
   pooledObjects: 4
   bomberBaseAttack: 1
   bomberMidAttack: 3
@@ -165,3 +140,22 @@ MonoBehaviour:
   bomberBaseRange: 2
   bomberMidRange: 2.5
   bomberHighRange: 3
+  blastBaseRange: 0.25
+  blastMidRange: 0.5
+  blastHighRange: 0.75
+--- !u!58 &7033310657297523560
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251427375335977049}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

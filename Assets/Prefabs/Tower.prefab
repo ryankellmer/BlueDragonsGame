@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2143826426198161636}
   - component: {fileID: 3100492929797545490}
-  - component: {fileID: -9171065275898298137}
   - component: {fileID: 9143486518139794349}
+  - component: {fileID: -3317689225120502605}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -84,32 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-9171065275898298137
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6267208362563482244}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 50, y: 50}
-  m_EdgeRadius: 0
 --- !u!114 &9143486518139794349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,14 +100,7 @@ MonoBehaviour:
   tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
   count: 0
-  range: 4
-  currentRange: 0
   currentAttack: 0
-  timeBeforeNextShot: 0.75
-  damage: 1
-  rotationSpeed: 0.5
-  type: 0
-  level: 0
   towerCost: 50
   upgradeCost: 0
   pooledObjects: 4
@@ -143,3 +110,19 @@ MonoBehaviour:
   singleShooterBaseRange: 2
   singleShooterMidRange: 3
   singleShooterHighRange: 4
+--- !u!58 &-3317689225120502605
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267208362563482244}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

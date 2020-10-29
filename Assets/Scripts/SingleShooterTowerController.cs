@@ -12,16 +12,18 @@ public class SingleShooterTowerController : TowerController
     public float singleShooterBaseRange = 2f;
     public float singleShooterMidRange = 3f;
     public float singleShooterHighRange = 4f;
+   
 
 
     public override void Start()
     {
-        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2)); //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
+        GetComponent<CircleCollider2D>().radius = singleShooterBaseRange; //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
         currentAttack = singleShooterBaseAttack;
         currentRange = singleShooterBaseRange; 
         towerCost = 50;
         upgradeCost = 50;
+        timeBeforeNextShot = 6.0f;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
@@ -30,19 +32,19 @@ public class SingleShooterTowerController : TowerController
             upgradeCost = 75;
             currentAttack = singleShooterMidAttack;
             currentRange = singleShooterMidRange;
-            GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
+            GetComponent<CircleCollider2D>().radius = currentRange;
         }
         if (level == towerLevel.mid){
             upgradeCost = 100;
             currentAttack = singleShooterHighAttack;
             currentRange = singleShooterHighRange;
-            GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2));
+            GetComponent<CircleCollider2D>().radius = currentRange;
         }
         if (level == towerLevel.high){
             return;
         }
         rotationSpeed += 0.5f;
-        timeBeforeNextShot += .25f;
+        timeBeforeNextShot -= .5f;
     }
 
     //Shoot projectile at current target 
@@ -58,7 +60,7 @@ public class SingleShooterTowerController : TowerController
             ProjectileGO.transform.position = transform.position;
             ProjectileGO.transform.rotation = transform.rotation;
             ProjectileGO.SetActive(true);
-            Projectile.ReceiveTarget(target, damage); //Pass target to ProjectileController and damage amount
+            Projectile.ReceiveTarget(target, currentAttack); //Pass target to ProjectileController and damage amount
         }  
    }
     

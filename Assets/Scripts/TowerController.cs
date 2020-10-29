@@ -16,23 +16,19 @@ public class TowerController : MonoBehaviour
     public enum towerTypes{standard, slow, freeze, poison, burn}
     public enum towerLevel {start, mid, high}
     public float count;
-
-    [Header("Tower Stats")]
-    [Range(0f, 20f)]
-    public float range = 2f;
-    public float currentRange; //Specific to Bomb Tower's Bombs
+    protected float currentRange; 
     public int currentAttack; 
-    public float timeBeforeNextShot = 0.75f;
-    public int damage = 1;
-    public float rotationSpeed = .5f;
-    public towerTypes type; 
-    public towerLevel level;
+    protected float timeBeforeNextShot;
+    protected float rotationSpeed = .5f;
+    protected towerTypes type; 
+    protected towerLevel level;
     public int towerCost;
     public int upgradeCost; 
+ 
 
     public virtual void Start()
     {
-        GetComponent<BoxCollider2D>().size = new Vector2((range*2), (range*2)); //Set Trigger area size equal to range
+        GetComponent<CircleCollider2D>().radius = currentRange; //Set Trigger area size equal to range
         count = 0f;
         type = towerTypes.standard; 
         level = towerLevel.start;
@@ -41,16 +37,10 @@ public class TowerController : MonoBehaviour
         target = null;
     }
 
-    //Wait to shoot next projectile
+ 
     public virtual void Update()
     {
-        count += Time.deltaTime;
-
-        if (count > timeBeforeNextShot)
-        {
-            Shoot();
-            count = 0;
-        }
+    
     }
 
     //Locate Target
@@ -69,7 +59,7 @@ public class TowerController : MonoBehaviour
             }
         }
 
-        if (closestTarget != null && closestTargetDistance <= range)
+        if (closestTarget != null && closestTargetDistance <= currentRange)
         {
             target = closestTarget.transform;
         }
@@ -114,6 +104,12 @@ public class TowerController : MonoBehaviour
             UpdateTarget();
         }
         InvokeRepeating("RotateTower", 0f, 0.5f);
+        count += Time.deltaTime;
+        if (count > timeBeforeNextShot)
+        {
+            Shoot();
+            count = 0;
+        }
     }
 
     //When tower's current target leaves collider, allow tower to look for new target by setting target to null 
@@ -126,10 +122,10 @@ public class TowerController : MonoBehaviour
 
     public virtual void Shoot(){}
 
-    //When tower is selected in game view, circle will be drawn to show tower range
+    //When tower is selected in scene view, circle will be drawn to show tower range
     public void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, currentRange);
     }
 
 }
