@@ -138,6 +138,6 @@ public class MapGenerator : MonoBehaviour
             }
         }
         
-        path.GetComponent<Path>().wayPoints = waypoints;
+        Path.wayPoints = waypoints;
     }
 }

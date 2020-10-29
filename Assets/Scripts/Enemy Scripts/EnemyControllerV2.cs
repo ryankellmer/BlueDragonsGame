@@ -27,7 +27,7 @@ public class EnemyControllerV2 : MonoBehaviour
     {
         // Get waypoints from the Path gameobject function 'Positions'
         GameObject path = GameObject.Find("Path");
-        waypoints = path.GetComponent<Path>().Positions;
+        waypoints = Path.Positions;
 
         GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
 
@@ -46,7 +46,7 @@ public class EnemyControllerV2 : MonoBehaviour
     void ResetEnemy() {
         waypointIndex = 0;
         GameObject path = GameObject.Find("Path");
-        waypoints = path.GetComponent<Path>().Positions;
+        waypoints = Path.Positions;
         GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
         transform.position = waypoints[waypointIndex]; 
         currentHealth = maxHealth;
