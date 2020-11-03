@@ -68,11 +68,6 @@ public class MapGenerator : MonoBehaviour
         UpdatePath();
         UpdateWaypoints(nodes);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void UpdatePath(){
         string pathTileName = pathTile.name;
