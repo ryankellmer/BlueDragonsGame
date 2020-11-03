@@ -37,7 +37,7 @@ public class MainMenuController : MonoBehaviour
         
         else
         {
-            Resume();
+            //Resume();
         }
 
         
