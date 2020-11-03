@@ -704,7 +704,7 @@ PrefabInstance:
       objectReference: {fileID: 1640755879}
     - target: {fileID: 4743397914282698809, guid: 0dc8939bd2724bf4b875105591bcfa6d, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4743397914282698810, guid: 0dc8939bd2724bf4b875105591bcfa6d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1007,7 +1007,7 @@ PrefabInstance:
       objectReference: {fileID: 1640755879}
     - target: {fileID: 6969663513263107770, guid: 471813cedd1f1c54e8931b38477090dd, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6969663513570471049, guid: 471813cedd1f1c54e8931b38477090dd, type: 3}
       propertyPath: m_Color.a
@@ -1291,6 +1291,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1640755879}
+    - target: {fileID: 5025547154490171064, guid: 0e17699b0b0521648a6864ad2ef204aa, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6262047433486273274, guid: 0e17699b0b0521648a6864ad2ef204aa, type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
@@ -1582,6 +1586,14 @@ PrefabInstance:
     - target: {fileID: 3626575967122870110, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626575967122870111, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626575967122870111, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3626575967574227121, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
       propertyPath: m_AnchorMin.y
@@ -2181,7 +2193,7 @@ PrefabInstance:
       objectReference: {fileID: 1640755879}
     - target: {fileID: 8287174840697806142, guid: e71b89106e8eb8e41b74bdcc033e7afe, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8287174840718295539, guid: e71b89106e8eb8e41b74bdcc033e7afe, type: 3}
       propertyPath: m_AnchorMax.y
