@@ -122,14 +122,7 @@ MonoBehaviour:
   tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 2945796755755916467, guid: 9f1e6eb2f70f9384c92c7e3cc89153d3, type: 3}
   count: 0
-  range: 2
-  currentRange: 0
   currentAttack: 0
-  timeBeforeNextShot: 9
-  damage: 1
-  rotationSpeed: 0.5
-  type: 0
-  level: 0
   towerCost: 10
   upgradeCost: 0
   currentBlastRange: 0
@@ -140,9 +133,9 @@ MonoBehaviour:
   bomberBaseRange: 2
   bomberMidRange: 2.5
   bomberHighRange: 3
-  blastBaseRange: 0.25
-  blastMidRange: 0.5
-  blastHighRange: 0.75
+  blastBaseRange: 1
+  blastMidRange: 2
+  blastHighRange: 3
 --- !u!58 &7033310657297523560
 CircleCollider2D:
   m_ObjectHideFlags: 0

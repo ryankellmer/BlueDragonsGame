@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 20
   bombDamage: 1
-  bombRange: 3
+  bombRange: 6
   missleDamage: 0
 --- !u!58 &6695259258873288722
 CircleCollider2D:
