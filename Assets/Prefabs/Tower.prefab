@@ -107,9 +107,9 @@ MonoBehaviour:
   singleShooterBaseAttack: 3
   singleShooterMidAttack: 5
   singleShooterHighAttack: 7
-  singleShooterBaseRange: 2
+  singleShooterBaseRange: 2.5
   singleShooterMidRange: 3
-  singleShooterHighRange: 4
+  singleShooterHighRange: 3.5
 --- !u!58 &-3317689225120502605
 CircleCollider2D:
   m_ObjectHideFlags: 0

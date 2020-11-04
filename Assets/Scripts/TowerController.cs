@@ -116,7 +116,7 @@ public class TowerController : MonoBehaviour
     public void OnTriggerExit2D(Collider2D col){
         if(col.transform == target){
             target = null;
-            UnityEngine.Debug.Log("Target Leaving Collider");
+            //UnityEngine.Debug.Log("Target Leaving Collider");
         }
     }
 
