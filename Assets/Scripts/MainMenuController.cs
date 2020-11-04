@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,7 @@ public class MainMenuController : MonoBehaviour
    
     public GameObject PauseUI;
     public GameObject SoundOptionMenuUI;
-    
+    public bool gamePaused = false;
     
 
 
@@ -24,21 +25,37 @@ public class MainMenuController : MonoBehaviour
   { 
     
    
-        if(PauseUI.gameObject.activeInHierarchy == true) 
+        if(PauseUI.gameObject.activeInHierarchy == true || SoundOptionMenuUI.gameObject.activeInHierarchy == true) 
         {
-            Pause();
-            if (SoundOptionMenuUI.gameObject.activeInHierarchy == true) 
+            Time.timeScale = 0;
+           
+            /*if (gamePaused == false)
             {
-                Pause();
+
+                gamePaused = true;
+                PauseUI.SetActive(true);
+                Time.timeScale = 0;
             }
+
+
+
+
+            else
+            {
+                PauseUI.SetActive(false);
+                gamePaused = false;
+                Time.timeScale = 1;
+
+            }*/
+
         }
-        
-        
-        
         else
         {
-            //Resume();
+            Time.timeScale = 1;
         }
+
+
+
 
         
 
@@ -63,14 +80,5 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void Pause() 
-    {
-        //PauseUI.SetActive(true);
-        Time.timeScale = 0;
-    }
    
-    public void Resume() 
-    {
-        Time.timeScale = 1;
-    }
 }
