@@ -18,7 +18,6 @@ public class BombTowerController : TowerController
     public float blastHighRange = .1f;
 
 
-
     public override void Start()
     {
         GetComponent<CircleCollider2D>().radius = bomberBaseRange; //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
@@ -58,7 +57,10 @@ public class BombTowerController : TowerController
 
     //Send bomb to closest target 
    public override void Shoot(){
-       GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject("Bomb");
+       if(target == null){
+            return;
+        }
+        GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject("Bomb");
         ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
         Projectile.BombReceiveStats(currentAttack, currentBlastRange);
         if (Projectile != null)

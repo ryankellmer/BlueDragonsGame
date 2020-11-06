@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     [Header("Projectile Stats")]
-    public float projectileSpeed = 10f;
+    public float projectileSpeed = 1500f;
     protected Transform projectileTarget;
     public int bombDamage;
     public float bombRange;
@@ -13,10 +13,17 @@ public class ProjectileController : MonoBehaviour
     public enum projectileTypes{standard, slow, freeze, poison, burn}
 
     Rigidbody2D rb2d;
+    
 
-    void Start()
+    private void Awake()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
+
+    private void OnEnable(){
+        transform.LookAt(projectileTarget);
+        rb2d.AddForce(transform.up * projectileSpeed);
     }
 
     //Sends target to projectile so projectile can lock onto enemy's location
@@ -34,28 +41,11 @@ public class ProjectileController : MonoBehaviour
         missleDamage = damage; 
     }
 
-
-    void Update()
-    {
-        //If not enemy to shoot, destroy bullet, do not calculate distance or direction
-        if (projectileTarget == null)
-        {
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Enemy"){
             gameObject.SetActive(false);
-            return;
-        }
-
-        //Calculate distance(based on speed) and direction for projectile to go
-        Vector3 path = projectileTarget.position - transform.position;
-        float frameDistance = projectileSpeed * Time.deltaTime;
-
-        //Check if projectile has reached the target enemy
-        if (path.magnitude <= frameDistance)
-        {
             HitTarget();
-            return;
         }
-
-        transform.Translate(path.normalized * frameDistance, Space.World); //Move Projectile Towards Target 
     }
 
     //Decremet enemy health based on turret damage, destroy enemy when health is 0.
