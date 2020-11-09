@@ -123,7 +123,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 2945796755755916467, guid: 9f1e6eb2f70f9384c92c7e3cc89153d3, type: 3}
   count: 0
   currentAttack: 0
-  towerCost: 10
+  towerCost: 75
   upgradeCost: 0
   currentBlastRange: 0
   pooledObjects: 4

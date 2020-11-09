@@ -123,7 +123,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
   count: 0
   currentAttack: 0
-  towerCost: 30
+  towerCost: 100
   upgradeCost: 0
   currentTarget: {fileID: 0}
   pooledObjects: 4
