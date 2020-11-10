@@ -12,11 +12,13 @@ public class SingleShooterTowerController : TowerController
     public float singleShooterBaseRange = 2f;
     public float singleShooterMidRange = 3f;
     public float singleShooterHighRange = 4f;
-   
 
+    public AudioClip shotSound;
+    AudioSource audioSource; 
 
     public override void Start()
     {
+        audioSource = GetComponent<AudioSource>(); 
         GetComponent<CircleCollider2D>().radius = singleShooterBaseRange; //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
         currentAttack = singleShooterBaseAttack;
@@ -61,6 +63,7 @@ public class SingleShooterTowerController : TowerController
             ProjectileGO.transform.rotation = transform.rotation;
             ProjectileGO.SetActive(true);
             Projectile.ReceiveTarget(target, currentAttack); //Pass target to ProjectileController and damage amount
+            audioSource.PlayOneShot(shotSound, 0.5F); 
         }  
    }
     

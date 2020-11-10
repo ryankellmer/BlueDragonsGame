@@ -18,11 +18,15 @@ public class MultiAttackTowerController : TowerController
     public int numToAttack;
     public int baseNum = 2;
     public int midNum = 3;
-    public int highNum = 4; 
+    public int highNum = 4;
+
+    public AudioClip shotSound;
+    AudioSource audioSource; 
 
 
     public override void Start()
     {
+        audioSource = GetComponent<AudioSource>(); 
         GetComponent<CircleCollider2D>().radius = multiShooterBaseRange; //Set Circle Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
         currentAttack = multiShooterBaseAttack;
@@ -76,6 +80,7 @@ public class MultiAttackTowerController : TowerController
             continue;
         }
         Projectile.ReceiveTarget(currentTarget, currentAttack); //Pass target to ProjectileController and damage amount
+                audioSource.PlayOneShot(shotSound, 0.5f); 
         numhit += 1;
         if (numhit == numToAttack){
           return;
