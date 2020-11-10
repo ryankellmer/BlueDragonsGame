@@ -1902,6 +1902,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2011063324457164193, guid: d533c606ef451f846aaabfeceb247a5e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fd3077d6e642f454a8a7aa682062a438, type: 3}
     - target: {fileID: 2106405947758641543, guid: d533c606ef451f846aaabfeceb247a5e, type: 3}
       propertyPath: m_Name
       value: 'SFXManager '
