@@ -50,7 +50,8 @@ MonoBehaviour:
   backgroundFloat: 0
   soundEffectFloat: 0
   backgroundAudio: {fileID: 2011063324457164193}
-  soundEffectAudio: []
+  soundEffectAudio:
+  - {fileID: 0}
 --- !u!114 &2106405947758641540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +67,8 @@ MonoBehaviour:
   backgroundFloat: 0
   soundEffectFloat: 0
   backgroundAudio: {fileID: 2011063324457164193}
-  soundEffectAudio: []
+  soundEffectAudio:
+  - {fileID: 0}
 --- !u!1 &5218188715086980229
 GameObject:
   m_ObjectHideFlags: 0
