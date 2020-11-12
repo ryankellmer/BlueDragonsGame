@@ -23,49 +23,36 @@ public class MainMenuController : MonoBehaviour
     
   void Update() 
   { 
-    
-   
-        if(PauseUI.gameObject.activeInHierarchy == true || SoundOptionMenuUI.gameObject.activeInHierarchy == true) 
-        {
-            Time.timeScale = 0;
-           
-            /*if (gamePaused == false)
+        if (PauseUI != null && SoundOptionMenuUI != null) {
+            if (PauseUI.gameObject.activeInHierarchy == true || SoundOptionMenuUI.gameObject.activeInHierarchy == true)
             {
-
-                gamePaused = true;
-                PauseUI.SetActive(true);
                 Time.timeScale = 0;
+
+                /*if (gamePaused == false)
+                {
+                    gamePaused = true;
+                    PauseUI.SetActive(true);
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    PauseUI.SetActive(false);
+                    gamePaused = false;
+                    Time.timeScale = 1;
+
+                }*/
             }
-
-
-
-
-            else
-            {
-                PauseUI.SetActive(false);
-                gamePaused = false;
-                Time.timeScale = 1;
-
-            }*/
-
         }
         else
         {
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
         }
-
-
-
-
-        
-
-
-
   } 
     
     
    public void LoadScene(string SceneName)
    {
+        Time.timeScale = 1f;
        SceneManager.LoadScene(SceneName);
    }
 
@@ -77,7 +64,8 @@ public class MainMenuController : MonoBehaviour
 
     public void RestartGame() 
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
    

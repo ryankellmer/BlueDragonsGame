@@ -21,7 +21,7 @@ public class TowerPositions : MonoBehaviour
                 positions.Add(t);
             }
         }
-        Debug.Log(foliage.transform.childCount);
+        //Debug.Log(foliage.transform.childCount);
         foreach(Transform t in foliage.transform){
             positions.Remove(new Vector3Int((int)t.localPosition.x,(int)t.localPosition.y, positions[0].z));
         }

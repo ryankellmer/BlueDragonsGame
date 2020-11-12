@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 3ca7932d3c23beb46b2b39ab923ab2ff
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UIScenes/SettingsScene.unity
     guid: ae3bb220563fe704489288d6032263d6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UIScenes/PauseScene.unity
     guid: 3db961bd9b1f8f2448f2b1cb92116392
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UIScenes/GameOverScene.unity
     guid: 16d4701682401344fb4e03aa4713728d
   m_configObjects: {}

@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public float maxHealth = 100;
     float health;
     float score = 0;
+    [SerializeField]
     float money = 250;
 
     //Enemies
@@ -45,6 +46,8 @@ public class GameController : MonoBehaviour
    
     private void Awake()
     {
+        Time.timeScale = 1f;
+
         towerUI = GameObject.FindGameObjectWithTag("TowerUI"); 
         towerUI.SetActive(false);
 
@@ -108,7 +111,7 @@ public class GameController : MonoBehaviour
 
     public void SpawnTower_1()  //regular tower
     {
-        if (towerPos.already == false && money >  tower1.towerCost)
+        if (towerPos.already == false && money >=  tower1.towerCost)
         {
             RemoveMoney(tower1.towerCost); 
             Instantiate(tower1, towerPos.transform.position, Quaternion.identity);
@@ -120,7 +123,7 @@ public class GameController : MonoBehaviour
 
     public void SpawnTower_2() // Bombtower
     {
-        if (towerPos.already == false && money > tower2.towerCost)
+        if (towerPos.already == false && money >= tower2.towerCost)
         {
             RemoveMoney(tower2.towerCost);
             Instantiate(tower2, towerPos.transform.position, Quaternion.identity);
@@ -131,7 +134,7 @@ public class GameController : MonoBehaviour
     }
     public void SpawnTower_3() //Multiattack tower
     {
-        if (towerPos.already == false && money > tower3.towerCost)
+        if (towerPos.already == false && money >= tower3.towerCost)
         {
             RemoveMoney(tower3.towerCost); 
             Instantiate(tower3, towerPos.transform.position, Quaternion.identity);
@@ -149,7 +152,7 @@ public class GameController : MonoBehaviour
 
     public void TakeDamage(float amt)
     {
-        Debug.Log("Taking damage: " + amt.ToString());
+        //Debug.Log("Taking damage: " + amt.ToString());
         health = Mathf.Clamp(health - amt, 0, maxHealth);
         healthBar.value = (int)health;
     }
@@ -162,7 +165,7 @@ public class GameController : MonoBehaviour
 
     public void AddMoney(float amt)
     {
-        money += amt;
+        money = Mathf.RoundToInt(money + amt);
         money_text.text = "$" + money.ToString();
     }
 
