@@ -244,12 +244,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54816271}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 959.88477, y: 43.954586, z: -104.72529}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 29571.643, y: 1341.5399, z: -20234.63}
+  m_LocalScale: {x: 30.75, y: 30.75, z: 30.75}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 103750545}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &54816274
 MonoBehaviour:
@@ -263,6 +263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419d51e780bee85478285e081b9786a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &103750545 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5600880386872466299, guid: d533c606ef451f846aaabfeceb247a5e, type: 3}
+  m_PrefabInstance: {fileID: 1771387692559020754}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &143000311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,6 +2174,14 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 2829922603716340074, guid: 97354187aa0a6744bb16448ee7dbfca9, type: 2}
+    - target: {fileID: 2106405947758641540, guid: d533c606ef451f846aaabfeceb247a5e, type: 3}
+      propertyPath: soundEffectAudio.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106405947758641540, guid: d533c606ef451f846aaabfeceb247a5e, type: 3}
+      propertyPath: backgroundAudio
+      value: 
+      objectReference: {fileID: 54816272}
     - target: {fileID: 2106405947758641543, guid: d533c606ef451f846aaabfeceb247a5e, type: 3}
       propertyPath: m_Name
       value: 'SFXManager '
@@ -2222,6 +2235,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9008117377814230617, guid: d533c606ef451f846aaabfeceb247a5e, type: 3}
+      propertyPath: soundEffectAudio.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008117377814230617, guid: d533c606ef451f846aaabfeceb247a5e, type: 3}
       propertyPath: backgroundSlider
       value: 
       objectReference: {fileID: 2894256349879433916}
@@ -2233,6 +2250,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9008117377814230617, guid: d533c606ef451f846aaabfeceb247a5e, type: 3}
+      propertyPath: backgroundAudio
+      value: 
+      objectReference: {fileID: 54816272}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d533c606ef451f846aaabfeceb247a5e, type: 3}
 --- !u!114 &2894256348931601165 stripped
