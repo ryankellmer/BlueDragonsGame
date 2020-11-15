@@ -35,6 +35,7 @@ public class MultiAttackTowerController : TowerController
         towerCost = 75;
         upgradeCost = 50;
         timeBeforeNextShot = 8.0f;
+        clicked = false;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, attack damage, and number of enemies to attack

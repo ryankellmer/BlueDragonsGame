@@ -26,7 +26,7 @@ public class TowerController : MonoBehaviour
     public int towerCost;
     public int upgradeCost; 
 
- 
+    public bool clicked;
 
     public virtual void Start()
     {
@@ -122,17 +122,29 @@ public class TowerController : MonoBehaviour
         }
     }
 
+    //Shoot function defined individually by each child tower
     public virtual void Shoot(){}
 
-     //Create transparent circle as childobject of tower, instantiate on click 
+     //When tower is clicked on, draw ring, when tower is clicked off, remove ring.
     public void OnMouseDown(){
-        GameObject childObject;
-        childObject = Instantiate(RangeCircle) as GameObject;
-        childObject.transform.SetParent(gameObject.transform);
-        childObject.transform.localPosition = new Vector3(0,0,0);
-        Vector3 newScale = transform.localScale;
-        newScale *= currentRange * 3.1f;
-        childObject.transform.localScale = newScale;
+        if(clicked == false){ 
+            GameObject childObject = Instantiate(RangeCircle) as GameObject; 
+            childObject.transform.SetParent(gameObject.transform); //set Ring as childObject to Tower
+            childObject.transform.localPosition = new Vector3(0,0,0); //Move ring to tower's position
+            Vector3 newScale = transform.localScale; 
+            newScale *= currentRange * 3.1f; //Scale of tower's range
+            childObject.transform.localScale = newScale; //set ring's scale based on tower range
+            clicked = true;
+            return;
+        }
+        else {
+             foreach (Transform child in transform){ //finds child transforms attached to gameObject
+             Destroy(child.gameObject);
+            }
+            clicked = false;
+            return;
+        }
+        
     }
 
   

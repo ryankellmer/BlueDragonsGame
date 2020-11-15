@@ -31,6 +31,7 @@ public class BombTowerController : TowerController
         towerCost = 100; 
         upgradeCost = 50;
         timeBeforeNextShot = 9.0f;
+        clicked = false;
     }
 
 

@@ -26,6 +26,7 @@ public class SingleShooterTowerController : TowerController
         towerCost = 50;
         upgradeCost = 50;
         timeBeforeNextShot = 6.0f;
+        clicked = false;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
