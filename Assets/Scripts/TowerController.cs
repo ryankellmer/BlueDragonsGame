@@ -13,6 +13,7 @@ public class TowerController : MonoBehaviour
     public Transform target;
     public string tagOfTarget = "Enemy"; //targets will need "Enemy" tag for towers to be able to find them
     public GameObject ProjectilePrefab;
+    public GameObject RangeCircle;
     public enum towerTypes{standard, slow, freeze, poison, burn}
     public enum towerLevel {start, mid, high}
     public float count;
@@ -24,6 +25,7 @@ public class TowerController : MonoBehaviour
     protected towerLevel level;
     public int towerCost;
     public int upgradeCost; 
+
  
 
     public virtual void Start()
@@ -121,6 +123,19 @@ public class TowerController : MonoBehaviour
     }
 
     public virtual void Shoot(){}
+
+     //Create transparent circle as childobject of tower, instantiate on click 
+    public void OnMouseDown(){
+        GameObject childObject;
+        childObject = Instantiate(RangeCircle) as GameObject;
+        childObject.transform.SetParent(gameObject.transform);
+        childObject.transform.localPosition = new Vector3(0,0,0);
+        Vector3 newScale = transform.localScale;
+        newScale *= currentRange * 3.1f;
+        childObject.transform.localScale = newScale;
+    }
+
+  
 
     //When tower is selected in scene view, circle will be drawn to show tower range
     public void OnDrawGizmos()

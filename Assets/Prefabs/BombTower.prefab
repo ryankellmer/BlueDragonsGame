@@ -122,6 +122,7 @@ MonoBehaviour:
   target: {fileID: 0}
   tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 2945796755755916467, guid: 9f1e6eb2f70f9384c92c7e3cc89153d3, type: 3}
+  RangeCircle: {fileID: 4230927544685195418, guid: d72a150af41f7284baa6364f85668f47, type: 3}
   count: 0
   currentAttack: 0
   towerCost: 75
