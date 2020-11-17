@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     float money = 250;
 
+    float[] timeScale = new float[] { 1f, 2f, 4f };
+    int timeScaleIndex = 0; 
+
     //Enemies
     //public EnemyController enemy;
     public float timeBetweenSpawns;
@@ -181,5 +184,14 @@ public class GameController : MonoBehaviour
         position = Vector3.zero;
         GameObject.FindGameObjectWithTag("TowerUI").SetActive(false);
         
+    }
+    public void updateTime()
+    {
+        timeScaleIndex++;
+        Time.timeScale = timeScale[timeScaleIndex];
+        if(timeScaleIndex == 2)
+        {
+            timeScaleIndex = 0; 
+        }
     }
 }
