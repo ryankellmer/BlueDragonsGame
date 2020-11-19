@@ -6,16 +6,15 @@ public class BombTowerController : TowerController
 {
     public float currentBlastRange; 
     [Header("Bomb Tower Upgrade Stats")]
-    public int pooledObjects = 4;
     public int bomberBaseAttack = 1;
     public int bomberMidAttack = 3;
     public int bomberHighAttack = 5;
     public float bomberBaseRange = 2f;
     public float bomberMidRange = 2.5f;
     public float bomberHighRange = 3f;
-    public float blastBaseRange = 0.5f;
-    public float blastMidRange = 0.75f;
-    public float blastHighRange = .1f;
+    public float blastBaseRange = 1f;
+    public float blastMidRange = 2f;
+    public float blastHighRange = 3f;
 
     public AudioClip shotSound;
     AudioSource audioSource; 
@@ -31,7 +30,6 @@ public class BombTowerController : TowerController
         towerCost = 100; 
         upgradeCost = 50;
         timeBeforeNextShot = 9.0f;
-        clicked = false;
     }
 
 

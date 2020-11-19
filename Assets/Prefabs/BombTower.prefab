@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3d2e3d5df46daf74893b65805c4f0c6c, type: 3}
-  m_Color: {r: 0.54091954, g: 0.5566038, b: 0.52859855, a: 1}
+  m_Color: {r: 0.735849, g: 0.53985256, b: 0.3991634, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,7 +129,6 @@ MonoBehaviour:
   upgradeCost: 0
   clicked: 0
   currentBlastRange: 0
-  pooledObjects: 4
   bomberBaseAttack: 1
   bomberMidAttack: 3
   bomberHighAttack: 5

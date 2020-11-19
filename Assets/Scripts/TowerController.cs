@@ -11,7 +11,7 @@ public class TowerController : MonoBehaviour
    
     [Header("Necessary Public Variables")]
     public Transform target;
-    public string tagOfTarget = "Enemy"; //targets will need "Enemy" tag for towers to be able to find them
+    public string tagOfTarget = "Enemy"; 
     public GameObject ProjectilePrefab;
     public GameObject RangeCircle;
     public enum towerTypes{standard, slow, freeze, poison, burn}
@@ -148,7 +148,6 @@ public class TowerController : MonoBehaviour
     }
 
   
-
     //When tower is selected in scene view, circle will be drawn to show tower range
     public void OnDrawGizmos()
     {

@@ -5,15 +5,16 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     [Header("Projectile Stats")]
-    public float projectileSpeed = 1500f;
+    protected float projectileSpeed = 1500f;
     protected Transform projectileTarget;
-    public int bombDamage;
-    public float bombRange;
-    public int missleDamage; 
+    protected int bombDamage;
+    protected float bombRange;
+    protected int missleDamage; 
     public enum projectileTypes{standard, slow, freeze, poison, burn}
 
     Rigidbody2D rb2d;
-    
+    protected Vector3 enemyPos;
+    protected Vector3 projectilePos;
 
     private void Awake()
     {
@@ -21,9 +22,17 @@ public class ProjectileController : MonoBehaviour
     }
 
 
-    private void OnEnable(){
-        transform.LookAt(projectileTarget);
-        rb2d.AddForce(transform.up * projectileSpeed);
+    public virtual void Update(){
+        if(projectileTarget == null){
+            gameObject.SetActive(false);
+        }
+        enemyPos = projectileTarget.position;
+        projectilePos = transform.position;
+        enemyPos.x = enemyPos.x - projectilePos.x;
+        enemyPos.y = enemyPos.y - projectilePos.y;
+        float angle = Mathf.Atan2(enemyPos.y, enemyPos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+        rb2d.AddForce(transform.up * projectileSpeed * Time.deltaTime);
     }
 
     //Sends target to projectile so projectile can lock onto enemy's location

@@ -8,17 +8,13 @@ public class MultiAttackTowerController : TowerController
    List<GameObject> allTargets = new List<GameObject>();
    public Transform currentTarget;
 
-    public int pooledObjects = 8;
-    public int multiShooterBaseAttack = 1;
-    public int multiShooterMidAttack = 2;
-    public int multiShooterHighAttack = 3;
-    public float multiShooterBaseRange = 1f;
-    public float multiShooterMidRange = 1.5f;
-    public float multiShooterHighRange = 2f;
-    public int numToAttack;
-    public int baseNum = 2;
-    public int midNum = 3;
-    public int highNum = 4;
+    public int multiShooterBaseAttack = 5;
+    public int multiShooterMidAttack = 7;
+    public int multiShooterHighAttack = 9;
+    public float multiShooterBaseRange = 5f;
+    public float multiShooterMidRange = 6.5f;
+    public float multiShooterHighRange = 8.0f;
+  
 
     public AudioClip shotSound;
     AudioSource audioSource; 
@@ -31,11 +27,9 @@ public class MultiAttackTowerController : TowerController
         count = 0f;
         currentAttack = multiShooterBaseAttack;
         currentRange = multiShooterBaseRange; 
-        numToAttack = baseNum;
         towerCost = 75;
         upgradeCost = 50;
-        timeBeforeNextShot = 8.0f;
-        clicked = false;
+        timeBeforeNextShot = 20.0f;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, attack damage, and number of enemies to attack
@@ -44,7 +38,6 @@ public class MultiAttackTowerController : TowerController
             upgradeCost = 75;
             currentAttack = multiShooterMidAttack;
             currentRange = multiShooterMidRange;
-            numToAttack = midNum;
             GetComponent<CircleCollider2D>().radius = currentRange;
           
         }
@@ -52,7 +45,6 @@ public class MultiAttackTowerController : TowerController
             upgradeCost = 100;
             currentAttack = multiShooterHighAttack;
             currentRange = multiShooterHighRange;
-            numToAttack = highNum;
             GetComponent<CircleCollider2D>().radius = currentRange;
         }
         if (level == towerLevel.high){
@@ -64,30 +56,20 @@ public class MultiAttackTowerController : TowerController
 
     
     public override void Shoot(){
-      Collider2D[] objectsInRange = Physics2D.OverlapCircleAll(transform.position, currentRange); //Array of objects within tower range
-      int numhit = 0;
-
-      //For all objects within range, check if enemy, if enemy send projectile to number of enemies up to numToAttack
-      for(int i = 0; i<objectsInRange.Length; i++){
-      currentTarget = objectsInRange[i].transform;
-      GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject("Missle");
-      ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
-      Projectile.MissleReceiveStats(currentAttack);
-      if ((Projectile != null) && (objectsInRange[i].gameObject.tag == "Enemy")){
-        ProjectileGO.transform.position = transform.position;
-        ProjectileGO.transform.rotation = transform.rotation;
-        ProjectileGO.SetActive(true);
-        if(currentTarget == null){
-            continue;
+      if(target == null){
+            return;
         }
-        Projectile.ReceiveTarget(currentTarget, currentAttack); //Pass target to ProjectileController and damage amount
-                audioSource.PlayOneShot(shotSound, 0.5f); 
-        numhit += 1;
-        if (numhit == numToAttack){
-          return;
-        }
-        }
-       }
+        GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject("HomingMissle"); //Grab a homing-missle from object pool
+        ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>(); 
+        Projectile.MissleReceiveStats(currentAttack);
+        if (Projectile != null)
+        {
+            ProjectileGO.transform.position = transform.position;
+            ProjectileGO.transform.rotation = transform.rotation;
+            ProjectileGO.SetActive(true);
+            Projectile.ReceiveTarget(target, currentAttack); //Pass target to ProjectileController and damage amount
+            audioSource.PlayOneShot(shotSound, 0.5F); 
+        }  
      }
 
 

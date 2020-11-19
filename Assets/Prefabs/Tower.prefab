@@ -105,13 +105,14 @@ MonoBehaviour:
   currentAttack: 0
   towerCost: 50
   upgradeCost: 0
+  clicked: 0
   pooledObjects: 4
   singleShooterBaseAttack: 3
   singleShooterMidAttack: 5
   singleShooterHighAttack: 7
-  singleShooterBaseRange: 2.5
+  singleShooterBaseRange: 2
   singleShooterMidRange: 3
-  singleShooterHighRange: 3.5
+  singleShooterHighRange: 4
   shotSound: {fileID: 8300000, guid: 30699016c4846481693d7d1ba6b34949, type: 3}
 --- !u!58 &-3317689225120502605
 CircleCollider2D:

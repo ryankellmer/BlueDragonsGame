@@ -5,7 +5,6 @@ using UnityEngine;
 public class SingleShooterTowerController : TowerController
 {
     [Header("Single Shooter Tower Stats")]
-    public int pooledObjects = 4;
     public int singleShooterBaseAttack = 3;
     public int singleShooterMidAttack = 5;
     public int singleShooterHighAttack = 7;
@@ -25,8 +24,7 @@ public class SingleShooterTowerController : TowerController
         currentRange = singleShooterBaseRange; 
         towerCost = 50;
         upgradeCost = 50;
-        timeBeforeNextShot = 6.0f;
-        clicked = false;
+        timeBeforeNextShot = 5.0f;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
@@ -55,7 +53,7 @@ public class SingleShooterTowerController : TowerController
         if(target == null){
             return;
         }
-        GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject("Missle");
+        GameObject ProjectileGO = ObjectPool.SharedInstance.GetPooledObject("Missle"); //Grab projectile from object pool
         ProjectileController Projectile = ProjectileGO.GetComponent<ProjectileController>();
         Projectile.MissleReceiveStats(currentAttack);
         if (Projectile != null)

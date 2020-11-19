@@ -10,6 +10,7 @@ TagManager:
   - Bomb
   - Missle
   - Range
+  - HomingMissle
   layers:
   - Default
   - TransparentFX

@@ -7,9 +7,6 @@ using System.Collections.Generic;
 public class BombController : ProjectileController
 {
  
-
-  
-
     //Deal Damage to All enemies within bombRange when bomb hits target
     public override void HitTarget() {
         Collider2D[] enemiesInBlast = Physics2D.OverlapCircleAll(transform.position, bombRange);

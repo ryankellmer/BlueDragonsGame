@@ -121,24 +121,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   tagOfTarget: Enemy
-  ProjectilePrefab: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
+  ProjectilePrefab: {fileID: 1224693793686787474, guid: 347906914b17e2c46bd903a69406e2ea, type: 3}
   RangeCircle: {fileID: 4230927544685195418, guid: d72a150af41f7284baa6364f85668f47, type: 3}
   count: 0
   currentAttack: 0
   towerCost: 100
   upgradeCost: 0
+  clicked: 0
   currentTarget: {fileID: 0}
-  pooledObjects: 4
-  multiShooterBaseAttack: 1
-  multiShooterMidAttack: 2
-  multiShooterHighAttack: 3
-  multiShooterBaseRange: 2
-  multiShooterMidRange: 2.5
-  multiShooterHighRange: 3
-  numToAttack: 2
-  baseNum: 2
-  midNum: 3
-  highNum: 4
+  multiShooterBaseAttack: 5
+  multiShooterMidAttack: 7
+  multiShooterHighAttack: 9
+  multiShooterBaseRange: 5
+  multiShooterMidRange: 6.5
+  multiShooterHighRange: 8
   shotSound: {fileID: 8300000, guid: ee238a2ec654e4e5bb23e1932795d1b1, type: 3}
 --- !u!58 &-11180029574522033
 CircleCollider2D:
