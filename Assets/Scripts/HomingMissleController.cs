@@ -44,6 +44,9 @@ public class HomingMissleController : ProjectileController
     //When Target is hit, disable projectile and decrement enemy health
     public override void HitTarget()
     {
+        GameObject explosion = ObjectPool.SharedInstance.GetPooledObject("MissleExplosion");
+        explosion.SetActive(true);
+        explosion.transform.position = new Vector3(transform.position.x, transform.position.y + .3f, transform.position.z);
         EnemyControllerV2 enemy = projectileTarget.GetComponent<EnemyControllerV2>();
         gameObject.SetActive(false);
         if(enemy == null){

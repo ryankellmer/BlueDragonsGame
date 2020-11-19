@@ -697,6 +697,15 @@ MonoBehaviour:
   - amountToPool: 10
     objectToPool: {fileID: 1224693793686787474, guid: 347906914b17e2c46bd903a69406e2ea, type: 3}
     shouldExpand: 1
+  - amountToPool: 5
+    objectToPool: {fileID: 3758577082983602951, guid: 22e0682476e707d4b984b794e4324540, type: 3}
+    shouldExpand: 1
+  - amountToPool: 10
+    objectToPool: {fileID: 2699950699001564557, guid: ad677ed6db63777419e61f55278897f4, type: 3}
+    shouldExpand: 1
+  - amountToPool: 5
+    objectToPool: {fileID: 2485086898033671346, guid: a33c6a3c62ee5f34886c43e542356260, type: 3}
+    shouldExpand: 1
 --- !u!1001 &982198718
 PrefabInstance:
   m_ObjectHideFlags: 0
