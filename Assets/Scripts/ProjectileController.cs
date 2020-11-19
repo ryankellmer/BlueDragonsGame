@@ -21,6 +21,9 @@ public class ProjectileController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
+    public virtual void Start(){
+        
+    }
 
     public virtual void Update(){
         if(projectileTarget == null){

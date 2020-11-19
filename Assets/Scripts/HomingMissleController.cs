@@ -5,9 +5,21 @@ using UnityEngine;
 public class HomingMissleController : ProjectileController
 {
     public float missleSpeed = 1.2f;
+    Color colorStart = Color.red;
+    Color colorEnd = Color.green;
+    float duration = 1.0f;
+    Renderer rend;
+
+    public override void Start(){
+        rend = GetComponent<Renderer> ();
+    }
 
     public override void Update() //Obtain target's position and move towards target 
     {
+        //change homing missles color between red and green
+        float lerp = Mathf.PingPong(Time.time, duration) / duration;
+        rend.material.color = Color.Lerp(colorStart, colorEnd, lerp);
+
         if(projectileTarget == null){
             gameObject.SetActive(false);
             return;
@@ -35,4 +47,5 @@ public class HomingMissleController : ProjectileController
         }
         enemy.ChangeHealth(missleDamage);
     }
+
 }
