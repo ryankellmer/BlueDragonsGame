@@ -194,4 +194,12 @@ public class GameController : MonoBehaviour
             timeScaleIndex = 0; 
         }
     }
+    public void pauseButton()
+    {
+        Time.timeScale = 0; 
+    }
+    public void playbutton()
+    {
+        Time.timeScale = 1f; 
+    }
 }
