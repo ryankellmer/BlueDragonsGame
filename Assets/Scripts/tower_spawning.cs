@@ -33,7 +33,7 @@ public class tower_spawning : MonoBehaviour
     public void turnOffUI()
     {
         Destroy(this);
-        //tower_placement_UI.SetActive(false);
+        tower_placement_UI.SetActive(false);
     }
 
     void check_tower()
