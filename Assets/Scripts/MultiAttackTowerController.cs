@@ -29,7 +29,7 @@ public class MultiAttackTowerController : TowerController
         currentRange = multiShooterBaseRange; 
         towerCost = 75;
         upgradeCost = 50;
-        timeBeforeNextShot = 20.0f;
+        timeBeforeNextShot = 30.0f;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, attack damage, and number of enemies to attack
@@ -51,7 +51,7 @@ public class MultiAttackTowerController : TowerController
             return;
         }
         rotationSpeed += 0.5f;
-        timeBeforeNextShot -= .5f;
+        timeBeforeNextShot -= 5.0f;
     }
 
     

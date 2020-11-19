@@ -15,6 +15,7 @@ public class ProjectileController : MonoBehaviour
     Rigidbody2D rb2d;
     protected Vector3 enemyPos;
     protected Vector3 projectilePos;
+    protected GameObject enemyCol;
 
     private void Awake()
     {
@@ -38,7 +39,7 @@ public class ProjectileController : MonoBehaviour
         rb2d.AddForce(transform.up * projectileSpeed * Time.deltaTime);
     }
 
-    //Sends target to projectile so projectile can lock onto enemy's location
+    //Sends targets and attack damage from towers to projectiles
     public void ReceiveTarget(Transform turretTarget, int d)
     {
         projectileTarget = turretTarget;
@@ -53,8 +54,10 @@ public class ProjectileController : MonoBehaviour
         missleDamage = damage; 
     }
 
+    //Check if projectile has collided with target, if so deactivate projectile and hitTarget
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "Enemy"){
+        enemyCol = other.gameObject;
+        if(enemyCol.transform == projectileTarget){
             gameObject.SetActive(false);
             HitTarget();
         }

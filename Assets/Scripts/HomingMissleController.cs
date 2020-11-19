@@ -16,6 +16,9 @@ public class HomingMissleController : ProjectileController
 
     public override void Update() //Obtain target's position and move towards target 
     {
+        if(!projectileTarget.gameObject.activeInHierarchy){
+            gameObject.SetActive(false);
+        }
         //change homing missles color between red and green
         float lerp = Mathf.PingPong(Time.time, duration) / duration;
         rend.material.color = Color.Lerp(colorStart, colorEnd, lerp);
@@ -38,6 +41,7 @@ public class HomingMissleController : ProjectileController
         transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), enemyPos, missleSpeed * Time.deltaTime); 
     }
 
+    //When Target is hit, disable projectile and decrement enemy health
     public override void HitTarget()
     {
         EnemyControllerV2 enemy = projectileTarget.GetComponent<EnemyControllerV2>();

@@ -20,6 +20,7 @@ public class tower_spawning : MonoBehaviour
 
     private void OnMouseDown()
     {
+        UnityEngine.Debug.Log("JasonClick");
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             if (!already)
@@ -32,7 +33,8 @@ public class tower_spawning : MonoBehaviour
 
     public void turnOffUI()
     {
-        tower_placement_UI.SetActive(false);
+        Destroy(this);
+        //tower_placement_UI.SetActive(false);
     }
 
     void check_tower()

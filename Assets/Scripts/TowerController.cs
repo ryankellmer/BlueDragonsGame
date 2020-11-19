@@ -37,6 +37,7 @@ public class TowerController : MonoBehaviour
         towerCost = 50;
         upgradeCost = 50;
         target = null;
+        clicked = false;
     }
 
  
@@ -126,22 +127,23 @@ public class TowerController : MonoBehaviour
     public virtual void Shoot(){}
 
      //When tower is clicked on, draw ring, when tower is clicked off, remove ring.
-    public void OnMouseDown(){
-        if(clicked == false){ 
+    public void ChildClicked(){
+        UnityEngine.Debug.Log("Clicked");
+        if(clicked == true){ 
             GameObject childObject = Instantiate(RangeCircle) as GameObject; 
             childObject.transform.SetParent(gameObject.transform); //set Ring as childObject to Tower
             childObject.transform.localPosition = new Vector3(0,0,0); //Move ring to tower's position
             Vector3 newScale = transform.localScale; 
             newScale *= currentRange * 3.1f; //Scale of tower's range
             childObject.transform.localScale = newScale; //set ring's scale based on tower range
-            clicked = true;
+            clicked = false;
             return;
         }
         else {
              foreach (Transform child in transform){ //finds child transforms attached to gameObject
              Destroy(child.gameObject);
             }
-            clicked = false;
+            clicked = true;
             return;
         }
         
