@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class HomingMissleController : ProjectileController
 {
-    public float missleSpeed = 1.2f;
+    public float missleSpeed;
+    private float minSpeed = .5f;
+    private float maxSpeed = 9.0f;
+    private float accelerationTime = 7;
+    private float time;
     Color colorStart = Color.red;
     Color colorEnd = Color.green;
     float duration = 1.0f;
     Renderer rend;
 
-    public override void Start(){
+    void OnEnable(){
+        missleSpeed = .5f;
         rend = GetComponent<Renderer> ();
+        time = 0;
     }
 
     public override void Update() //Obtain target's position and move towards target 
     {
+        missleSpeed = Mathf.SmoothStep(minSpeed, maxSpeed, time/accelerationTime);
+
         if(!projectileTarget.gameObject.activeInHierarchy){
             gameObject.SetActive(false);
         }
@@ -39,6 +47,8 @@ public class HomingMissleController : ProjectileController
 
         enemyPos = projectileTarget.position;
         transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), enemyPos, missleSpeed * Time.deltaTime); 
+
+        time += Time.deltaTime;
     }
 
     //When Target is hit, disable projectile and decrement enemy health
