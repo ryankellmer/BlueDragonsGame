@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -24,12 +23,9 @@ public class GameController : MonoBehaviour
     public int enemesPerWave;
 
     //UI
-    //public Text score_text;
-    //public Text money_text;
-    //public Slider healthBar;
-    public TextMeshProUGUI health_text;
-    public TextMeshProUGUI money_text;
-    public TextMeshProUGUI score_text;
+    public Text score_text;
+    public Text money_text;
+    public Slider healthBar;
     public GameObject GameOverUI;
 
     public GameObject towerUI;
@@ -59,12 +55,11 @@ public class GameController : MonoBehaviour
         towerUI.SetActive(false);
 
         health = maxHealth;
-        //healthBar.maxValue = (int)maxHealth;
-        //healthBar.value = (int)maxHealth;
-        health_text.text = health.ToString();
+        healthBar.maxValue = (int)maxHealth;
+        healthBar.value = (int)maxHealth;
 
-        //score_text.text = "Score: " + score.ToString();
-        money_text.text = money.ToString();
+        score_text.text = "Score: " + score.ToString();
+        money_text.text = "$" + money.ToString();
     }
 
     private void Update()
@@ -154,7 +149,6 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        score_text.text = "Score: " + score.ToString();
         GameOverUI.SetActive(true);
         Time.timeScale = 0;
     }
@@ -163,26 +157,25 @@ public class GameController : MonoBehaviour
     {
         //Debug.Log("Taking damage: " + amt.ToString());
         health = Mathf.Clamp(health - amt, 0, maxHealth);
-        //healthBar.value = (int)health;
-        health_text.text = health.ToString();
+        healthBar.value = (int)health;
     }
 
     public void AddScore(float amt)
     {
         score = Mathf.Max(score + amt, 0);
-        //score_text.text = "Score: " + score.ToString();
+        score_text.text = "Score: " + score.ToString();
     }
 
     public void AddMoney(float amt)
     {
         money = Mathf.RoundToInt(money + amt);
-        money_text.text = money.ToString();
+        money_text.text = "$" + money.ToString();
     }
 
     public void RemoveMoney(float amt)
     {
         money -= amt;
-        money_text.text = money.ToString(); 
+        money_text.text = "$" + money.ToString(); 
     }
     public void collapseUINotPicking()
     {
