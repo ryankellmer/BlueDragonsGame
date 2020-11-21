@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Tilemaps;
 
 public class GameController : MonoBehaviour
 {
@@ -63,6 +64,7 @@ public class GameController : MonoBehaviour
    
     private void Awake()
     {
+
         Time.timeScale = 1f;
         towerStats = GameObject.FindGameObjectWithTag("TowerStats");
         towerStatsText = GameObject.FindGameObjectWithTag("TowerStatsText").GetComponent<Text>();

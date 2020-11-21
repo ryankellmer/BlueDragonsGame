@@ -32,4 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIScenes/Instructions4.unity
     guid: efef72466f0eae24594bfa873ea05ac3
+  - enabled: 1
+    path: Assets/Scenes/BlakeScene.unity
+    guid: 740fb3900a7da214eb66e6d54c0a2175
+
   m_configObjects: {}
