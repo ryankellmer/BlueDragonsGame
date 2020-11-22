@@ -26,12 +26,12 @@ public class SingleShooterTowerController : TowerController
         upgradeCost = 50;
         timeBeforeNextShot = 5.0f;
 
+        //Generate line to be used for tower radius ring
         lineRenderer = gameObject.GetComponent<LineRenderer>();
-        
         Color c1 = new Color(0.5f, 0.5f, 0.5f, 1);
         lineRenderer.material = new Material(Shader.Find("Legacy Shaders/Particles/Additive"));
         lineRenderer.SetColors(c1, c1);
-        lineRenderer.SetWidth(0.2f, 0.2f);
+        lineRenderer.SetWidth(0.15f, 0.15f);
         lineRenderer.SetVertexCount(numSegments + 1);
         lineRenderer.useWorldSpace = false;
 

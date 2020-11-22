@@ -6,7 +6,7 @@ public class MissleController : ProjectileController
 {
 
     
-
+    //When target is hit, create explosion, damage enemy
     public override void HitTarget()
     {
         GameObject explosion = ObjectPool.SharedInstance.GetPooledObject("BulletExplosion");

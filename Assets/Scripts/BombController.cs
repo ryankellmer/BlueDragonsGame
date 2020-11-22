@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class BombController : ProjectileController
 {
 
-    //Deal Damage to All enemies within bombRange when bomb hits target
+    //Deal Damage to All enemies within bombRange when bomb hits target, create explosion
     public override void HitTarget() {
         GameObject explosion = ObjectPool.SharedInstance.GetPooledObject("BombExplosion");
         explosion.SetActive(true);
