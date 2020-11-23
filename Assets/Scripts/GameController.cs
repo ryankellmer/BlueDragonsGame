@@ -30,6 +30,9 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI health_text;
     public TextMeshProUGUI money_text;
     public TextMeshProUGUI score_text;
+    public TextMeshProUGUI towerCost;
+    public TextMeshProUGUI bombTowerCost;
+    public TextMeshProUGUI missileTowerCost;
     public GameObject GameOverUI;
 
     public GameObject towerUI;
@@ -65,6 +68,7 @@ public class GameController : MonoBehaviour
 
         //score_text.text = "Score: " + score.ToString();
         money_text.text = money.ToString();
+        getTowerCosts();
     }
 
     private void Update()
@@ -208,5 +212,11 @@ public class GameController : MonoBehaviour
     public void playbutton()
     {
         Time.timeScale = 1f; 
+    }
+
+    public void getTowerCosts(){
+        towerCost.text = tower1.towerCost.ToString();
+        bombTowerCost.text = tower2.towerCost.ToString();
+        missileTowerCost.text = tower3.towerCost.ToString();
     }
 }
