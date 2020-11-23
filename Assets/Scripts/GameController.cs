@@ -181,12 +181,14 @@ public class GameController : MonoBehaviour
     {
         money = Mathf.RoundToInt(money + amt);
         money_text.text = money.ToString();
+        updateTowerAvailability();
     }
 
     public void RemoveMoney(float amt)
     {
         money -= amt;
-        money_text.text = money.ToString(); 
+        money_text.text = money.ToString();
+        updateTowerAvailability(); 
     }
     public void collapseUINotPicking()
     {
@@ -218,5 +220,37 @@ public class GameController : MonoBehaviour
         towerCost.text = tower1.towerCost.ToString();
         bombTowerCost.text = tower2.towerCost.ToString();
         missileTowerCost.text = tower3.towerCost.ToString();
+    }
+
+    public void updateTowerAvailability(){
+        //tower 1
+        if(money >= tower1.towerCost)
+        {
+            towerCost.color = new Color(255, 255, 255, 255);
+        }
+        else
+        {
+            towerCost.color = new Color(255, 0 , 0, 255);
+        }
+
+        //tower2
+        if(money >= tower2.towerCost)
+        {
+            bombTowerCost.color = new Color(255, 255, 255, 255);
+        }
+        else
+        {
+            bombTowerCost.color = new Color(255, 0 , 0, 255);
+        }
+
+        //tower 3
+        if(money >= tower3.towerCost)
+        {
+            missileTowerCost.color = new Color(255, 255, 255, 255);
+        }
+        else
+        {
+            missileTowerCost.color = new Color(255, 0 , 0, 255);
+        }
     }
 }
