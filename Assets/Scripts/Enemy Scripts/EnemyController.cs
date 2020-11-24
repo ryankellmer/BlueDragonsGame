@@ -225,6 +225,16 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
+        curBurn = 0f;
+        curFreeze = 0f;
+        curPoison = 0f;
+        curSlow = 0f;
+        poisonCools = 0f;
+        poisonDmgCools = 0f;
+        burnCools = 0f;
+        burnDmgCools = 0f;
+        slowCools = 0f;
+        freezeCools = 0f;
         GameCtrl.AddScore(scoreValue);
         GameCtrl.AddMoney(moneyDrop);
         //Destroy(gameObject);
