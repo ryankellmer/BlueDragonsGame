@@ -55,7 +55,7 @@ public class MultiAttackTowerController : TowerController
     }
 
     //Upgrade Tower attack speed, range, rotation speed, attack damage, and number of enemies to attack
-    public override void upgrade(){
+    public void upgrademultiShooterTower(){
         if (level == towerLevel.start){
             upgradeCost = 75;
             currentAttack = multiShooterMidAttack;

@@ -56,7 +56,7 @@ public class BombTowerController : TowerController
 
 
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
-    public override void upgrade(){
+    public void upgradeBombTower(){
         if (level == towerLevel.start){
             upgradeCost = 75;
             currentAttack = bomberMidAttack;

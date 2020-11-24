@@ -13,21 +13,10 @@ public class SingleShooterTowerController : TowerController
     public float singleShooterHighRange = 4f;
 
     public AudioClip shotSound;
-    AudioSource audioSource;
+    AudioSource audioSource; 
 
-    public GameController gameController;
-
-    public override int returnAttack()
-    {
-        return currentAttack; 
-    }
-    public override int returnRange()
-    {
-        return (int) currentRange; 
-    }
     public override void Start()
     {
-        gameController = GameObject.Find("GameController").GetComponent<GameController>(); 
         audioSource = GetComponent<AudioSource>(); 
         GetComponent<CircleCollider2D>().radius = singleShooterBaseRange; //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
@@ -60,15 +49,9 @@ public class SingleShooterTowerController : TowerController
         lineRenderer.enabled = false;
     }
 
-    private void OnMouseDown()
-    {
-        gameController.towerStatsText.text = currentAttack.ToString(); 
-    }
-
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
-    public override void upgrade(){
+    public void upgradeSingleShooterTower(){
         if (level == towerLevel.start){
-            level = towerLevel.mid; 
             upgradeCost = 75;
             currentAttack = singleShooterMidAttack;
             currentRange = singleShooterMidRange;
