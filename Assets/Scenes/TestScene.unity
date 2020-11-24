@@ -936,6 +936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerPositions
       objectReference: {fileID: 0}
+    - target: {fileID: 2305049878558854027, guid: aa0c0708a570b144bbc60c26048d5772, type: 3}
+      propertyPath: m_TagString
+      value: TowerPlacement
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa0c0708a570b144bbc60c26048d5772, type: 3}
 --- !u!114 &1202951029 stripped
@@ -1502,11 +1506,11 @@ PrefabInstance:
       objectReference: {fileID: 982198719}
     - target: {fileID: 3575086148588702843, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000008285
+      value: 0.0000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 3575086148588702843, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000030518
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 3575086148588702843, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1636,6 +1640,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 703226177}
+    - target: {fileID: 3626575968468459770, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00019836426
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e5cd6f03c1464fe3823051fadbe771e, type: 3}
 --- !u!1 &2042388304 stripped
