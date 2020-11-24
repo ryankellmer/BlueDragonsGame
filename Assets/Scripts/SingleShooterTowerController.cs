@@ -73,18 +73,21 @@ public class SingleShooterTowerController : TowerController
             currentAttack = singleShooterMidAttack;
             currentRange = singleShooterMidRange;
             GetComponent<CircleCollider2D>().radius = currentRange;
+            rotationSpeed += 0.5f;
+            timeBeforeNextShot -= .5f;
         }
         if (level == towerLevel.mid){
+            level = towerLevel.high;
             upgradeCost = 100;
             currentAttack = singleShooterHighAttack;
             currentRange = singleShooterHighRange;
             GetComponent<CircleCollider2D>().radius = currentRange;
+            rotationSpeed += 0.5f;
+            timeBeforeNextShot -= .5f;
         }
         if (level == towerLevel.high){
             return;
         }
-        rotationSpeed += 0.5f;
-        timeBeforeNextShot -= .5f;
     }
 
     //Shoot projectile at current target 

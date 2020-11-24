@@ -15,12 +15,12 @@ public class BombController : ProjectileController
         Collider2D[] enemiesInBlast = Physics2D.OverlapCircleAll(transform.position, bombRange);
         for(int i=0; i<enemiesInBlast.Length; i++){
             if(enemiesInBlast[i].gameObject.tag == "Enemy"){
-                EnemyControllerV2 enemy = enemiesInBlast[i].GetComponent<EnemyControllerV2>();
+                EnemyController enemy = enemiesInBlast[i].GetComponent<EnemyController>();
                 gameObject.SetActive(false);
                 if(enemy == null){
                     continue;
                 }
-                enemy.ChangeHealth(bombDamage);
+                enemy.AttackEnemy(bombDamage, type, 10f);
             }
         }
     }
