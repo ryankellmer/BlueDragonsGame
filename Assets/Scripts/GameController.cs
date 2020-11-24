@@ -36,6 +36,8 @@ public class GameController : MonoBehaviour
     public GameObject GameOverUI;
 
     public GameObject towerUI;
+    public GameObject towerStats;
+    public Text towerStatsText;
 
     public tower_spawning towerPos;
     public Vector3 position;
@@ -57,7 +59,9 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1f;
-
+        towerStats = GameObject.FindGameObjectWithTag("TowerStats");
+        towerStatsText = GameObject.FindGameObjectWithTag("TowerStatsText").GetComponent<Text>();
+   //     towerStats.SetActive(false); 
         towerUI = GameObject.FindGameObjectWithTag("TowerUI"); 
         towerUI.SetActive(false);
 
@@ -189,6 +193,10 @@ public class GameController : MonoBehaviour
         money -= amt;
         money_text.text = money.ToString();
         updateTowerAvailability(); 
+    }
+    public float moneyAmt()
+    {
+        return money; 
     }
     public void collapseUINotPicking()
     {

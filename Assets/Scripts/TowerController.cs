@@ -138,5 +138,7 @@ public class TowerController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, currentRange);
     }
-
+    public virtual void upgrade() { }
+    public virtual int returnAttack() { return 1; }
+    public virtual int returnRange() { return 1;  }
 }
