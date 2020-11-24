@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TowerClickableController : MonoBehaviour
 {
+    //Draw circle indicating tower range when tower is clicked
     void OnMouseDown(){
-        //Debug.Log("Mouse down");
-        transform.parent.gameObject.GetComponent<TowerController>().ChildClicked();
+        transform.parent.gameObject.GetComponent<TowerController>().DoRenderer();
     } 
 }

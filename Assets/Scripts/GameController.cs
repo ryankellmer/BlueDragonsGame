@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -23,9 +24,15 @@ public class GameController : MonoBehaviour
     public int enemesPerWave;
 
     //UI
-    public Text score_text;
-    public Text money_text;
-    public Slider healthBar;
+    //public Text score_text;
+    //public Text money_text;
+    //public Slider healthBar;
+    public TextMeshProUGUI health_text;
+    public TextMeshProUGUI money_text;
+    public TextMeshProUGUI score_text;
+    public TextMeshProUGUI towerCost;
+    public TextMeshProUGUI bombTowerCost;
+    public TextMeshProUGUI missileTowerCost;
     public GameObject GameOverUI;
 
     public GameObject towerUI;
@@ -55,11 +62,13 @@ public class GameController : MonoBehaviour
         towerUI.SetActive(false);
 
         health = maxHealth;
-        healthBar.maxValue = (int)maxHealth;
-        healthBar.value = (int)maxHealth;
+        //healthBar.maxValue = (int)maxHealth;
+        //healthBar.value = (int)maxHealth;
+        health_text.text = health.ToString();
 
-        score_text.text = "Score: " + score.ToString();
-        money_text.text = "$" + money.ToString();
+        //score_text.text = "Score: " + score.ToString();
+        money_text.text = money.ToString();
+        getTowerCosts();
     }
 
     private void Update()
@@ -149,6 +158,7 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        score_text.text = "Score: " + score.ToString();
         GameOverUI.SetActive(true);
         Time.timeScale = 0;
     }
@@ -157,25 +167,28 @@ public class GameController : MonoBehaviour
     {
         //Debug.Log("Taking damage: " + amt.ToString());
         health = Mathf.Clamp(health - amt, 0, maxHealth);
-        healthBar.value = (int)health;
+        //healthBar.value = (int)health;
+        health_text.text = health.ToString();
     }
 
     public void AddScore(float amt)
     {
         score = Mathf.Max(score + amt, 0);
-        score_text.text = "Score: " + score.ToString();
+        //score_text.text = "Score: " + score.ToString();
     }
 
     public void AddMoney(float amt)
     {
         money = Mathf.RoundToInt(money + amt);
-        money_text.text = "$" + money.ToString();
+        money_text.text = money.ToString();
+        updateTowerAvailability();
     }
 
     public void RemoveMoney(float amt)
     {
         money -= amt;
-        money_text.text = "$" + money.ToString(); 
+        money_text.text = money.ToString();
+        updateTowerAvailability(); 
     }
     public void collapseUINotPicking()
     {
@@ -201,5 +214,43 @@ public class GameController : MonoBehaviour
     public void playbutton()
     {
         Time.timeScale = 1f; 
+    }
+
+    public void getTowerCosts(){
+        towerCost.text = tower1.towerCost.ToString();
+        bombTowerCost.text = tower2.towerCost.ToString();
+        missileTowerCost.text = tower3.towerCost.ToString();
+    }
+
+    public void updateTowerAvailability(){
+        //tower 1
+        if(money >= tower1.towerCost)
+        {
+            towerCost.color = new Color(255, 255, 255, 255);
+        }
+        else
+        {
+            towerCost.color = new Color(255, 0 , 0, 255);
+        }
+
+        //tower2
+        if(money >= tower2.towerCost)
+        {
+            bombTowerCost.color = new Color(255, 255, 255, 255);
+        }
+        else
+        {
+            bombTowerCost.color = new Color(255, 0 , 0, 255);
+        }
+
+        //tower 3
+        if(money >= tower3.towerCost)
+        {
+            missileTowerCost.color = new Color(255, 255, 255, 255);
+        }
+        else
+        {
+            missileTowerCost.color = new Color(255, 0 , 0, 255);
+        }
     }
 }

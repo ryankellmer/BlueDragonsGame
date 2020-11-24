@@ -12,14 +12,30 @@ public class tower_spawning : MonoBehaviour
 
     GameController cont;
 
+    public static GameObject selectedTile; 
+    Renderer rend;
+    Color selectedColor = Color.black;
+    Color unselectedColor = Color.white;
+    bool clicked;
+
     private void Awake()
     {
         cont = FindObjectOfType<GameController>();
         tower_placement_UI = cont.towerUI;
+        rend = GetComponent<Renderer>();
+        clicked = false;
     }
 
     private void OnMouseDown()
     {
+        if(clicked == false){
+            TileSelection(gameObject);
+            clicked = true;
+        }
+        else{
+            rend.material.color = unselectedColor;
+            clicked = false;
+        }
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             if (!already)
@@ -42,5 +58,17 @@ public class tower_spawning : MonoBehaviour
         Instantiate(the_prefab, transform.position, Quaternion.identity);
         already = true;
         tower_placement_UI.SetActive(false);
+    }
+
+    public void TileSelection(GameObject newTile){
+        //checks if there was a tile selected previously, if there was, return tile to unselected color
+        if(selectedTile != null){ 
+            Renderer oldTile = selectedTile.GetComponent<Renderer>();
+            oldTile.material.color = unselectedColor;
+        }
+        //Assign newly clicked tile to static selected tile, change color to selected color
+        selectedTile = newTile;
+        Renderer newTileRend = selectedTile.GetComponent<Renderer>();
+        newTileRend.material.color = selectedColor; 
     }
 }

@@ -28,23 +28,17 @@ public class TowerController : MonoBehaviour
 
     public bool clicked;
 
-    public virtual void Start()
-    {
-        GetComponent<CircleCollider2D>().radius = currentRange; //Set Trigger area size equal to range
-        count = 0f;
-        type = towerTypes.standard; 
-        level = towerLevel.start;
-        towerCost = 50;
-        upgradeCost = 50;
-        target = null;
-        clicked = false;
-    }
+    [Range(0.1f, 100f)]
+    public float radius = 1.0f;
 
+    [Range(3, 256)]
+    public int numSegments = 28;
+
+    protected LineRenderer lineRenderer;
+
+    public virtual void Start(){}
  
-    public virtual void Update()
-    {
-    
-    }
+    public virtual void Update(){}
 
     //Locate Target
     public virtual void UpdateTarget()
@@ -125,35 +119,19 @@ public class TowerController : MonoBehaviour
 
     //Shoot function defined individually by each child tower
     public virtual void Shoot(){}
-
-     //When tower is clicked on, draw ring, when tower is clicked off, remove ring.
-    public void ChildClicked(){
-        //UnityEngine.Debug.Log("Clicked");
         
-        if(clicked == false){ 
-            GameObject childObject = Instantiate(RangeCircle) as GameObject; 
-            childObject.transform.SetParent(gameObject.transform); //set Ring as childObject to Tower
-            childObject.transform.localPosition = new Vector3(0,0,0); //Move ring to tower's position
-            Vector3 newScale = transform.localScale; 
-            newScale *= currentRange * 3.1f; //Scale of tower's range
-            childObject.transform.localScale = newScale; //set ring's scale based on tower range
+    //When child clickable object is clicked, draw line around tower indicating range, when clicked again turn off line
+    public void DoRenderer ( ) {
+        if(clicked == false){
+            lineRenderer.enabled = true;
             clicked = true;
-            return;
         }
         else {
-            /*
-            foreach (Transform child in transform){ //finds child transforms attached to gameObject
-                Destroy(child.gameObject);
-            }
-            */
-            Destroy(transform.Find("CircleFinalSmolBoiPls(Clone)").gameObject);
+            lineRenderer.enabled = false;
             clicked = false;
-            return;
         }
         
-        
     }
-
   
     //When tower is selected in scene view, circle will be drawn to show tower range
     public void OnDrawGizmos()

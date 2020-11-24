@@ -17,17 +17,23 @@ public class ProjectileController : MonoBehaviour
     protected Vector3 projectilePos;
     protected GameObject enemyCol;
 
+    //Obtain rigidbody of projectile when created
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
+    //Disable projectile after certain amount of time if it fails to reach target
     public virtual void Start(){
-        
+        Invoke("DisableProjectile", 3f);
     }
 
+    //Obtain position of target, push projectile towards target every frame
     public virtual void Update(){
         if(projectileTarget == null){
+            gameObject.SetActive(false);
+        }
+        if(!projectileTarget.gameObject.activeInHierarchy){
             gameObject.SetActive(false);
         }
         enemyPos = projectileTarget.position;
@@ -61,6 +67,11 @@ public class ProjectileController : MonoBehaviour
             gameObject.SetActive(false);
             HitTarget();
         }
+    }
+
+    //Returns Projectile to Object Pool
+    protected void DisableProjectile(){
+        gameObject.SetActive(false);
     }
 
     //Decremet enemy health based on turret damage, destroy enemy when health is 0.

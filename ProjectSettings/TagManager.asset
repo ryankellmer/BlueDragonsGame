@@ -11,6 +11,12 @@ TagManager:
   - Missle
   - Range
   - HomingMissle
+  - Undefined
+  - BombExplosion
+  - BulletExplosion
+  - MissleExplosion
+  - SpawnTiles
+  - TowerPlacement
   layers:
   - Default
   - TransparentFX

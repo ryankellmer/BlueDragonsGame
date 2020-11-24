@@ -25,6 +25,28 @@ public class SingleShooterTowerController : TowerController
         towerCost = 50;
         upgradeCost = 50;
         timeBeforeNextShot = 5.0f;
+
+        //Generate line to be used for tower radius ring
+        lineRenderer = gameObject.GetComponent<LineRenderer>();
+        Color c1 = new Color(0.5f, 0.5f, 0.5f, 1);
+        lineRenderer.material = new Material(Shader.Find("Legacy Shaders/Particles/Additive"));
+        lineRenderer.SetColors(c1, c1);
+        lineRenderer.SetWidth(0.15f, 0.15f);
+        lineRenderer.SetVertexCount(numSegments + 1);
+        lineRenderer.useWorldSpace = false;
+
+        float deltaTheta = (float) (2.0 * Mathf.PI) / numSegments;
+        float theta = 0f;
+
+        for (int i = 0 ; i < numSegments + 1 ; i++) {
+                float x = currentRange * Mathf.Cos(theta);
+                float y = currentRange * Mathf.Sin(theta);
+                Vector3 pos = new Vector3(x, y, 0);
+                lineRenderer.SetPosition(i, pos);
+                theta += deltaTheta;
+        }
+
+        lineRenderer.enabled = false;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
