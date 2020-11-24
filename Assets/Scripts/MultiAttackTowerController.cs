@@ -14,14 +14,15 @@ public class MultiAttackTowerController : TowerController
     public float multiShooterBaseRange = 5f;
     public float multiShooterMidRange = 6.5f;
     public float multiShooterHighRange = 8.0f;
-  
 
+    public GameController GameCtrl;
     public AudioClip shotSound;
     AudioSource audioSource; 
 
 
     public override void Start()
     {
+        GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
         audioSource = GetComponent<AudioSource>(); 
         GetComponent<CircleCollider2D>().radius = multiShooterBaseRange; //Set Circle Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
@@ -58,22 +59,32 @@ public class MultiAttackTowerController : TowerController
     public override void upgrade(){
         if (level == towerLevel.start){
             upgradeCost = 75;
-            currentAttack = multiShooterMidAttack;
-            currentRange = multiShooterMidRange;
-            GetComponent<CircleCollider2D>().radius = currentRange;
-          
+            if (GameCtrl.moneyAmt() <= upgradeCost)
+            {
+                level = towerLevel.mid; 
+                GameCtrl.RemoveMoney(upgradeCost); 
+                currentAttack = multiShooterMidAttack;
+                currentRange = multiShooterMidRange;
+                GetComponent<CircleCollider2D>().radius = currentRange;
+                rotationSpeed += 0.5f;
+                timeBeforeNextShot -= 5.0f;
+            }
         }
+        upgradeCost = 100;
         if (level == towerLevel.mid){
-            upgradeCost = 100;
-            currentAttack = multiShooterHighAttack;
-            currentRange = multiShooterHighRange;
-            GetComponent<CircleCollider2D>().radius = currentRange;
+            if (GameCtrl.moneyAmt() <= upgradeCost)
+            {
+                level = towerLevel.high; 
+                currentAttack = multiShooterHighAttack;
+                currentRange = multiShooterHighRange;
+                GetComponent<CircleCollider2D>().radius = currentRange;
+                rotationSpeed += 0.5f;
+                timeBeforeNextShot -= 5.0f;
+            }
         }
         if (level == towerLevel.high){
             return;
         }
-        rotationSpeed += 0.5f;
-        timeBeforeNextShot -= 5.0f;
     }
 
     

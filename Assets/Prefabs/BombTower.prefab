@@ -122,6 +122,7 @@ MonoBehaviour:
   blastBaseRange: 2
   blastMidRange: 3
   blastHighRange: 4
+  GameCtrl: {fileID: 0}
   shotSound: {fileID: 8300000, guid: 57d195b3aee16405daf2709c96c9563d, type: 3}
 --- !u!58 &1936120903657920797
 CircleCollider2D:
@@ -510,8 +511,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.28, y: 0.34, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.40881348, y: 0.4923753, z: 0.2}
+  m_Center: {x: 0.03298855, y: 0.07618764, z: 0}
 --- !u!114 &5297363661596073571
 MonoBehaviour:
   m_ObjectHideFlags: 0

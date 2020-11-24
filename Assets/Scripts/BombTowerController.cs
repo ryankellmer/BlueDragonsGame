@@ -15,7 +15,7 @@ public class BombTowerController : TowerController
     public float blastBaseRange = 1f;
     public float blastMidRange = 2f;
     public float blastHighRange = 3f;
-
+    public GameController GameCtrl;
     public AudioClip shotSound;
     AudioSource audioSource; 
 
@@ -30,15 +30,18 @@ public class BombTowerController : TowerController
         towerCost = 100; 
         upgradeCost = 50;
         timeBeforeNextShot = 9.0f;
+        
 
-        //Generate line to be used for tower radius ring
-        lineRenderer = gameObject.GetComponent<LineRenderer>();
+    //Generate line to be used for tower radius ring
+    lineRenderer = gameObject.GetComponent<LineRenderer>();
         Color c1 = new Color(0.5f, 0.5f, 0.5f, 1);
         lineRenderer.material = new Material(Shader.Find("Legacy Shaders/Particles/Additive"));
         lineRenderer.SetColors(c1, c1);
         lineRenderer.SetWidth(0.15f, 0.15f);
         lineRenderer.SetVertexCount(numSegments + 1);
         lineRenderer.useWorldSpace = false;
+
+        GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
 
         float deltaTheta = (float) (2.0 * Mathf.PI) / numSegments;
         float theta = 0f;
@@ -59,23 +62,33 @@ public class BombTowerController : TowerController
     public override void upgrade(){
         if (level == towerLevel.start){
             upgradeCost = 75;
-            currentAttack = bomberMidAttack;
-            currentRange = bomberMidRange;
-            currentBlastRange = blastMidRange;
-            GetComponent<CircleCollider2D>().radius = currentRange;
+            if (upgradeCost <= GameCtrl.moneyAmt())
+            {
+                GameCtrl.RemoveMoney(upgradeCost); 
+                currentAttack = bomberMidAttack;
+                currentRange = bomberMidRange;
+                currentBlastRange = blastMidRange;
+                GetComponent<CircleCollider2D>().radius = currentRange;
+                rotationSpeed += 0.5f;
+                timeBeforeNextShot -= .5f;
+            }
         }
         if (level == towerLevel.mid){
             upgradeCost = 100;
-            currentAttack = bomberHighAttack;
-            currentRange = bomberHighRange;
-            currentBlastRange = blastHighRange;
-            GetComponent<CircleCollider2D>().radius = currentRange;
+            if (upgradeCost <= GameCtrl.moneyAmt()){
+                GameCtrl.RemoveMoney(upgradeCost); 
+                currentAttack = bomberHighAttack;
+                currentRange = bomberHighRange;
+                currentBlastRange = blastHighRange;
+                GetComponent<CircleCollider2D>().radius = currentRange;
+                rotationSpeed += 0.5f;
+                timeBeforeNextShot -= .5f;
+            }
         }
         if (level == towerLevel.high){
             return;
         }
-        rotationSpeed += 0.5f;
-        timeBeforeNextShot -= .5f;
+        
     }
 
 

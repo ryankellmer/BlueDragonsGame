@@ -194,9 +194,9 @@ public class GameController : MonoBehaviour
         money_text.text = money.ToString();
         updateTowerAvailability(); 
     }
-    public float moneyAmt()
+    public int moneyAmt()
     {
-        return money; 
+        return (int)money; 
     }
     public void collapseUINotPicking()
     {
