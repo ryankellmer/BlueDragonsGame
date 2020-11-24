@@ -83,7 +83,7 @@ public class SingleShooterTowerController : TowerController
             ProjectileGO.transform.position = transform.position;
             ProjectileGO.transform.rotation = transform.rotation;
             ProjectileGO.SetActive(true);
-            Projectile.ReceiveTarget(target, currentAttack); //Pass target to ProjectileController and damage amount
+            Projectile.ReceiveTarget(target, currentAttack, type); //Pass target to ProjectileController and damage amount
             audioSource.PlayOneShot(shotSound, 0.5F); 
         }  
    }

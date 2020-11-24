@@ -16,6 +16,7 @@ public class ProjectileController : MonoBehaviour
     protected Vector3 enemyPos;
     protected Vector3 projectilePos;
     protected GameObject enemyCol;
+    public TowerController.towerTypes type;
 
     //Obtain rigidbody of projectile when created
     private void Awake()
@@ -45,10 +46,11 @@ public class ProjectileController : MonoBehaviour
         rb2d.AddForce(transform.up * projectileSpeed * Time.deltaTime);
     }
 
-    //Sends targets and attack damage from towers to projectiles
-    public void ReceiveTarget(Transform turretTarget, int d)
+    //Sends targets, attack type, and attack damage from towers to projectiles
+    public void ReceiveTarget(Transform turretTarget, int d, TowerController.towerTypes towerType)
     {
         projectileTarget = turretTarget;
+        type = towerType;
     }
 
     public void BombReceiveStats(int damage, float range){

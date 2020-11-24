@@ -21,7 +21,7 @@ public class TowerController : MonoBehaviour
     public int currentAttack; 
     protected float timeBeforeNextShot;
     protected float rotationSpeed = .5f;
-    protected towerTypes type; 
+    public towerTypes type = towerTypes.standard; 
     protected towerLevel level;
     public int towerCost;
     public int upgradeCost; 
