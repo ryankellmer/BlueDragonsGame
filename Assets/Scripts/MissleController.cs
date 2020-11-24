@@ -12,11 +12,11 @@ public class MissleController : ProjectileController
         GameObject explosion = ObjectPool.SharedInstance.GetPooledObject("BulletExplosion");
         explosion.SetActive(true);
         explosion.transform.position = new Vector3(transform.position.x, transform.position.y + .3f, transform.position.z);
-        EnemyControllerV2 enemy = projectileTarget.GetComponent<EnemyControllerV2>();
+        EnemyController enemy = projectileTarget.GetComponent<EnemyController>();
         gameObject.SetActive(false);
         if(enemy == null){
             return;
         }
-        enemy.ChangeHealth(missleDamage);
+        enemy.AttackEnemy(missleDamage, type, 10f);
     }
 }

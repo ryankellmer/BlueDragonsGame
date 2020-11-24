@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowEnemyController : EnemyController
+public class StandardEnemyController : EnemyController
 {
     public override void Start()
     {

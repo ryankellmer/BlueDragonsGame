@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3082139759389408380}
-  - component: {fileID: 8114757157741165690}
+  - component: {fileID: -5995399036879561553}
   - component: {fileID: 2654491756505030218}
   - component: {fileID: 2768808957669882376}
   m_Layer: 0
@@ -118,7 +118,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8114757157741165690
+--- !u!114 &-5995399036879561553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,19 +127,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 661880096885663283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18ff667374383fc46b491ddf475fc143, type: 3}
+  m_Script: {fileID: 11500000, guid: a8a8b0d4149f95b49b45e18407592b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 0
   currentHealth: 0
-  attackDamage: 15
-  moneyDrop: 8
-  scoreValue: 10
+  defense: 0
+  attackDamage: 0
+  moneyDrop: 0
+  scoreValue: 0
+  waypointIndex: 0
   waypoints: []
   GameCtrl: {fileID: 0}
   enemySprite: {fileID: 0}
   slider: {fileID: 2589684092098493107}
-  speed: 1
+  normalSpeed: 0
+  slowSpeed: 0
+  currentSpeed: 0
+  poisonResistance: 0
+  poisonTime: 8
+  burnResistance: 0
+  burnTime: 6
+  slowResistance: 0
+  slowTime: 7
+  freezeResistance: 0
+  freezeTime: 5
+  timeBetweenPoisonDamage: 0.5
+  timeBetweenBurnDamage: 0.5
+  iframes: 0.15
+  poisonDamage: 3
+  burnDamage: 2
 --- !u!61 &2654491756505030218
 BoxCollider2D:
   m_ObjectHideFlags: 0
