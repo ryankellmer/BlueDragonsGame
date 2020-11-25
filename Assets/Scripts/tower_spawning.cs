@@ -28,14 +28,6 @@ public class tower_spawning : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(clicked == false){
-            TileSelection(gameObject);
-            clicked = true;
-        }
-        else{
-            rend.material.color = unselectedColor;
-            clicked = false;
-        }
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             if (!already)
@@ -43,6 +35,14 @@ public class tower_spawning : MonoBehaviour
                 tower_placement_UI.SetActive(true);
                 cont.UpdatePos(this);
             }
+        }
+        if(clicked == false){
+            TileSelection(gameObject);
+            clicked = true;
+        }
+        else{
+            rend.material.color = unselectedColor;
+            clicked = false;
         }
     }
 
