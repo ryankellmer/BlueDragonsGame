@@ -21,7 +21,7 @@ public class TowerController : MonoBehaviour
     public int currentAttack; 
     protected float timeBeforeNextShot;
     protected float rotationSpeed = .5f;
-    public towerTypes type = towerTypes.standard; 
+    public towerTypes type; 
     protected towerLevel level;
     public int towerCost;
     public int upgradeCost; 
@@ -131,6 +131,27 @@ public class TowerController : MonoBehaviour
             clicked = false;
         }
         
+    }
+
+    public void GenerateRing(){
+        lineRenderer = gameObject.GetComponent<LineRenderer>();
+        Color c1 = new Color(0.5f, 0.5f, 0.5f, 1);
+        lineRenderer.material = new Material(Shader.Find("Legacy Shaders/Particles/Additive"));
+        lineRenderer.SetColors(c1, c1);
+        lineRenderer.SetWidth(0.15f, 0.15f);
+        lineRenderer.SetVertexCount(numSegments + 1);
+        lineRenderer.useWorldSpace = false;
+
+        float deltaTheta = (float) (2.0 * Mathf.PI) / numSegments;
+        float theta = 0f;
+
+        for (int i = 0 ; i < numSegments + 1 ; i++) {
+                float x = currentRange * Mathf.Cos(theta);
+                float y = currentRange * Mathf.Sin(theta);
+                Vector3 pos = new Vector3(x, y, 0);
+                lineRenderer.SetPosition(i, pos);
+                theta += deltaTheta;
+        }
     }
   
     //When tower is selected in scene view, circle will be drawn to show tower range

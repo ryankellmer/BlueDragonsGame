@@ -21,6 +21,8 @@ public class BombTowerController : TowerController
 
     public override void Start()
     {
+        type = towerTypes.standard;
+
         audioSource = GetComponent<AudioSource>(); 
         GetComponent<CircleCollider2D>().radius = bomberBaseRange; //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
@@ -32,27 +34,9 @@ public class BombTowerController : TowerController
         timeBeforeNextShot = 9.0f;
         
 
-    //Generate line to be used for tower radius ring
-    lineRenderer = gameObject.GetComponent<LineRenderer>();
-        Color c1 = new Color(0.5f, 0.5f, 0.5f, 1);
-        lineRenderer.material = new Material(Shader.Find("Legacy Shaders/Particles/Additive"));
-        lineRenderer.SetColors(c1, c1);
-        lineRenderer.SetWidth(0.15f, 0.15f);
-        lineRenderer.SetVertexCount(numSegments + 1);
-        lineRenderer.useWorldSpace = false;
-
-        GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
-
-        float deltaTheta = (float) (2.0 * Mathf.PI) / numSegments;
-        float theta = 0f;
-
-        for (int i = 0 ; i < numSegments + 1 ; i++) {
-                float x = currentRange * Mathf.Cos(theta);
-                float y = currentRange * Mathf.Sin(theta);
-                Vector3 pos = new Vector3(x, y, 0);
-                lineRenderer.SetPosition(i, pos);
-                theta += deltaTheta;
-        }
+        //Generate line to be used for tower radius ring
+        GenerateRing();
+    
 
         lineRenderer.enabled = false;
     }
@@ -71,11 +55,13 @@ public class BombTowerController : TowerController
                 GetComponent<CircleCollider2D>().radius = currentRange;
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
+                GenerateRing();
             }
         }
         if (level == towerLevel.mid){
             upgradeCost = 100;
             if (upgradeCost <= GameCtrl.moneyAmt()){
+                type = towerTypes.slow;
                 GameCtrl.RemoveMoney(upgradeCost); 
                 currentAttack = bomberHighAttack;
                 currentRange = bomberHighRange;
@@ -83,6 +69,7 @@ public class BombTowerController : TowerController
                 GetComponent<CircleCollider2D>().radius = currentRange;
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
+                GenerateRing();
             }
         }
         if (level == towerLevel.high){

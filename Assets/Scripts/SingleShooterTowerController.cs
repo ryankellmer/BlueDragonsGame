@@ -27,6 +27,8 @@ public class SingleShooterTowerController : TowerController
     }
     public override void Start()
     {
+        type = towerTypes.standard;
+
         GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
         audioSource = GetComponent<AudioSource>(); 
         GetComponent<CircleCollider2D>().radius = singleShooterBaseRange; //Set Box Collider equal to range, so tower does not seek enemies unless they are close enough to hit
@@ -38,24 +40,7 @@ public class SingleShooterTowerController : TowerController
         timeBeforeNextShot = 5.0f;
 
         //Generate line to be used for tower radius ring
-        lineRenderer = gameObject.GetComponent<LineRenderer>();
-        Color c1 = new Color(0.5f, 0.5f, 0.5f, 1);
-        lineRenderer.material = new Material(Shader.Find("Legacy Shaders/Particles/Additive"));
-        lineRenderer.SetColors(c1, c1);
-        lineRenderer.SetWidth(0.15f, 0.15f);
-        lineRenderer.SetVertexCount(numSegments + 1);
-        lineRenderer.useWorldSpace = false;
-
-        float deltaTheta = (float) (2.0 * Mathf.PI) / numSegments;
-        float theta = 0f;
-
-        for (int i = 0 ; i < numSegments + 1 ; i++) {
-                float x = currentRange * Mathf.Cos(theta);
-                float y = currentRange * Mathf.Sin(theta);
-                Vector3 pos = new Vector3(x, y, 0);
-                lineRenderer.SetPosition(i, pos);
-                theta += deltaTheta;
-        }
+        GenerateRing();
 
         lineRenderer.enabled = false;
     }
@@ -77,12 +62,14 @@ public class SingleShooterTowerController : TowerController
                 GetComponent<CircleCollider2D>().radius = currentRange;
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
+                GenerateRing();
              }
         }
         upgradeCost = 100;
         if (level == towerLevel.mid){
             if (upgradeCost <= GameCtrl.moneyAmt())
             {
+                type = towerTypes.burn;
                 GameCtrl.RemoveMoney(upgradeCost); 
                 level = towerLevel.high;
                 currentAttack = singleShooterHighAttack;
@@ -90,6 +77,7 @@ public class SingleShooterTowerController : TowerController
                 GetComponent<CircleCollider2D>().radius = currentRange;
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
+                GenerateRing();
             }
         }
         if (level == towerLevel.high){
