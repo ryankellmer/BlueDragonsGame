@@ -46,6 +46,11 @@ public class GameController : MonoBehaviour
 
     public bool isPickingTower = false;
 
+    public float GetMoney()
+    {
+        return money;
+    }
+
     public void DetermineEnemiesPerWave()
     {
 

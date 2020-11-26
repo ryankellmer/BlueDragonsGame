@@ -21,6 +21,7 @@ public class BombTowerController : TowerController
 
     public override void Start()
     {
+        GameCtrl = FindObjectOfType<GameController>();
         type = towerTypes.standard;
 
         audioSource = GetComponent<AudioSource>(); 
@@ -46,8 +47,9 @@ public class BombTowerController : TowerController
     public override void upgrade(){
         if (level == towerLevel.start){
             upgradeCost = 75;
-            if (upgradeCost <= GameCtrl.moneyAmt())
+            if (upgradeCost <= GameCtrl.GetMoney())
             {
+                level = towerLevel.mid;
                 GameCtrl.RemoveMoney(upgradeCost); 
                 currentAttack = bomberMidAttack;
                 currentRange = bomberMidRange;
@@ -56,11 +58,14 @@ public class BombTowerController : TowerController
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
                 GenerateRing();
+                return;
             }
         }
         if (level == towerLevel.mid){
             upgradeCost = 100;
-            if (upgradeCost <= GameCtrl.moneyAmt()){
+            if (upgradeCost <= GameCtrl.GetMoney())
+            {
+                level = towerLevel.high;
                 type = towerTypes.slow;
                 GameCtrl.RemoveMoney(upgradeCost); 
                 currentAttack = bomberHighAttack;
@@ -70,6 +75,7 @@ public class BombTowerController : TowerController
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
                 GenerateRing();
+                return;
             }
         }
         if (level == towerLevel.high){

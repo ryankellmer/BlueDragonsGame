@@ -22,9 +22,9 @@ public class MultiAttackTowerController : TowerController
 
     public override void Start()
     {
+        GameCtrl = FindObjectOfType<GameController>();
         type = towerTypes.standard;
 
-        GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
         audioSource = GetComponent<AudioSource>(); 
         GetComponent<CircleCollider2D>().radius = multiShooterBaseRange; //Set Circle Collider equal to range, so tower does not seek enemies unless they are close enough to hit
         count = 0f;
@@ -44,7 +44,7 @@ public class MultiAttackTowerController : TowerController
     public override void upgrade(){
         if (level == towerLevel.start){
             upgradeCost = 75;
-            if (GameCtrl.moneyAmt() >= upgradeCost)
+            if (GameCtrl.GetMoney() >= upgradeCost)
             {
                 level = towerLevel.mid; 
                 GameCtrl.RemoveMoney(upgradeCost); 
@@ -54,11 +54,12 @@ public class MultiAttackTowerController : TowerController
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= 5.0f;
                 GenerateRing();
+                return;
             }
         }
         upgradeCost = 100;
         if (level == towerLevel.mid){
-            if (GameCtrl.moneyAmt() >= upgradeCost)
+            if (GameCtrl.GetMoney() >= upgradeCost)
             {
                 type = towerTypes.freeze;
                 level = towerLevel.high; 
@@ -68,6 +69,7 @@ public class MultiAttackTowerController : TowerController
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= 5.0f;
                 GenerateRing();
+                return;
             }
         }
         if (level == towerLevel.high){

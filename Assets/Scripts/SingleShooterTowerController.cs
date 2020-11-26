@@ -63,6 +63,7 @@ public class SingleShooterTowerController : TowerController
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
                 GenerateRing();
+                return;
              }
         }
         upgradeCost = 100;
@@ -78,6 +79,7 @@ public class SingleShooterTowerController : TowerController
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
                 GenerateRing();
+                return;
             }
         }
         if (level == towerLevel.high){
