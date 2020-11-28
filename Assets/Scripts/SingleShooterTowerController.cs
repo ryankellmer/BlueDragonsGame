@@ -43,6 +43,7 @@ public class SingleShooterTowerController : TowerController
         GenerateRing();
 
         lineRenderer.enabled = false;
+        upgradeCost = 75;
     }
 
     private void OnMouseDown()
@@ -52,7 +53,6 @@ public class SingleShooterTowerController : TowerController
 
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
     public override void upgrade(){
-        upgradeCost = 75;
         if (level == towerLevel.start){
             if (upgradeCost <= GameCtrl.moneyAmt()){
                 GameCtrl.RemoveMoney(upgradeCost);
@@ -63,10 +63,10 @@ public class SingleShooterTowerController : TowerController
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
                 GenerateRing();
+                upgradeCost = 100;
                 return;
              }
         }
-        upgradeCost = 100;
         if (level == towerLevel.mid){
             if (upgradeCost <= GameCtrl.moneyAmt())
             {

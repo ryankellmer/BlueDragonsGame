@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoisonResEnemyController : EnemyController
 {
-    public override void Start()
+    void OnEnable()
     {
         maxHealth = 15;
         currentHealth = maxHealth;

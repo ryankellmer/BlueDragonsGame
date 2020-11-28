@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BurnResEnemyController : EnemyController
 {
-    public override void Start()
+    void OnEnable()
     {
         maxHealth = 15;
         currentHealth = maxHealth;

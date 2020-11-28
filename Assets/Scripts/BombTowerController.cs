@@ -40,13 +40,13 @@ public class BombTowerController : TowerController
     
 
         lineRenderer.enabled = false;
+        upgradeCost = 75;
     }
 
 
     //Upgrade Tower attack speed, range, rotation speed, and attack damage
     public override void upgrade(){
         if (level == towerLevel.start){
-            upgradeCost = 75;
             if (upgradeCost <= GameCtrl.GetMoney())
             {
                 level = towerLevel.mid;
@@ -58,11 +58,11 @@ public class BombTowerController : TowerController
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
                 GenerateRing();
+                upgradeCost = 100;
                 return;
             }
         }
         if (level == towerLevel.mid){
-            upgradeCost = 100;
             if (upgradeCost <= GameCtrl.GetMoney())
             {
                 level = towerLevel.high;

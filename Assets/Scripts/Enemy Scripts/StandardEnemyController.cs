@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StandardEnemyController : EnemyController
 {
-    public override void Start()
+    void OnEnable()
     {
         maxHealth = 15;
         currentHealth = maxHealth;
@@ -19,6 +19,7 @@ public class StandardEnemyController : EnemyController
         burnResistance = 0f;
         slowResistance = 0f;
         freezeResistance = 0f;
+        waypointIndex = 0;
 
         GameObject path = GameObject.Find("Path");
         waypoints = path.GetComponent<Path>().Positions;

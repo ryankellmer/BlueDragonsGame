@@ -35,14 +35,14 @@ public class tower_spawning : MonoBehaviour
                 tower_placement_UI.SetActive(true);
                 cont.UpdatePos(this);
             }
-        }
-        if(clicked == false){
-            TileSelection(gameObject);
-            clicked = true;
-        }
-        else{
-            rend.material.color = unselectedColor;
-            clicked = false;
+            if(clicked == false){
+                TileSelection(gameObject);
+                clicked = true;
+            }
+            else{
+                rend.material.color = unselectedColor;
+                clicked = false;
+            }
         }
     }
 

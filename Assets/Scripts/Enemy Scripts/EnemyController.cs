@@ -57,11 +57,6 @@ public class EnemyController : MonoBehaviour
     public int poisonDamage = 3;
     public int burnDamage = 2;
 
-
-
-
-    public virtual void Start(){}
-
     void Update()
     {
        if(cools > 0) cools -= Time.deltaTime;
@@ -188,9 +183,6 @@ public class EnemyController : MonoBehaviour
             }
             cools = iframes;
         }
-
-        
-        
     }
 
     void Move()
@@ -225,6 +217,15 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
+        GameCtrl.AddScore(scoreValue);
+        GameCtrl.AddMoney(moneyDrop);
+        //Destroy(gameObject);
+        ResetEnemy();
+        gameObject.SetActive(false);
+    }
+
+    void ResetEnemy()
+    {
         curBurn = 0f;
         curFreeze = 0f;
         curPoison = 0f;
@@ -235,21 +236,12 @@ public class EnemyController : MonoBehaviour
         burnDmgCools = 0f;
         slowCools = 0f;
         freezeCools = 0f;
-        GameCtrl.AddScore(scoreValue);
-        GameCtrl.AddMoney(moneyDrop);
-        //Destroy(gameObject);
-        ResetEnemy();
-        gameObject.SetActive(false);
-    }
-
-    void ResetEnemy() 
-    {
         waypointIndex = 0;
-        GameObject path = GameObject.Find("Path");
-        waypoints = path.GetComponent<Path>().Positions;
-        GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
+        //GameObject path = GameObject.Find("Path");
+        //waypoints = path.GetComponent<Path>().Positions;
+        //GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
         transform.position = waypoints[waypointIndex]; 
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
         SetMaxHealth(maxHealth);
     }
 

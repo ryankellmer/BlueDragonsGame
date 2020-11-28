@@ -38,12 +38,12 @@ public class MultiAttackTowerController : TowerController
         GenerateRing();
 
         lineRenderer.enabled = false;
+        upgradeCost = 75;
     }
 
     //Upgrade Tower attack speed, range, rotation speed, attack damage, and number of enemies to attack
     public override void upgrade(){
         if (level == towerLevel.start){
-            upgradeCost = 75;
             if (GameCtrl.GetMoney() >= upgradeCost)
             {
                 level = towerLevel.mid; 
@@ -54,10 +54,10 @@ public class MultiAttackTowerController : TowerController
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= 5.0f;
                 GenerateRing();
+                upgradeCost = 100;
                 return;
             }
         }
-        upgradeCost = 100;
         if (level == towerLevel.mid){
             if (GameCtrl.GetMoney() >= upgradeCost)
             {
