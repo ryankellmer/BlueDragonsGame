@@ -57,11 +57,12 @@ public class EnemyController : MonoBehaviour
     public int poisonDamage = 3;
     public int burnDamage = 2;
 
-    protected SpriteRenderer rend;
+
+    Animator anim;
 
     private void Awake()
     {
-        rend = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     protected void ResetStuff()
@@ -213,7 +214,14 @@ public class EnemyController : MonoBehaviour
 
             }
             cools = iframes;
+            anim.SetBool("flash", true);
+            Invoke("ResetFlash", 0.01f);
         }
+    }
+
+    void ResetFlash()
+    {
+        anim.SetBool("flash", false);
     }
 
     void Move()
