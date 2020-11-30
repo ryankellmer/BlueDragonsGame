@@ -57,6 +57,38 @@ public class EnemyController : MonoBehaviour
     public int poisonDamage = 3;
     public int burnDamage = 2;
 
+
+    Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
+    protected void ResetStuff()
+    {
+        maxHealth = 15;
+        currentHealth = maxHealth;
+        SetMaxHealth(maxHealth);
+        defense = 1;
+        attackDamage = 10;
+        moneyDrop = 10;
+        scoreValue = 10;
+        normalSpeed = 1.5f;
+        slowSpeed = 0.5f;
+        poisonResistance = 0f;
+        burnResistance = 0f;
+        slowResistance = 0f;
+        freezeResistance = 100f;
+
+        GameObject path = GameObject.Find("Path");
+        waypoints = path.GetComponent<Path>().Positions;
+
+        GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
+
+        transform.position = waypoints[waypointIndex];
+    }
+
     void Update()
     {
        if(cools > 0) cools -= Time.deltaTime;
@@ -182,35 +214,45 @@ public class EnemyController : MonoBehaviour
 
             }
             cools = iframes;
+            anim.SetBool("flash", true);
+            Invoke("ResetFlash", 0.01f);
         }
+    }
+
+    void ResetFlash()
+    {
+        anim.SetBool("flash", false);
     }
 
     void Move()
     {
-        // Move from current position towards next waypoint at a set speed.
-    	transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex], currentSpeed * Time.deltaTime);
-
-        enemySprite = this.gameObject.transform.GetChild(0);
-        
-        // Finding current direction headed, and rotating sprite to face forward direction.
-        Vector3 dir = waypoints[waypointIndex] - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.AngleAxis(angle-90, Vector3.forward);
-        enemySprite.rotation = Quaternion.Slerp(enemySprite.rotation, q, Time.deltaTime * 10f);
-
-        // Check if enemy has reached the next waypoint. If so, increment waypoint index if there are more waypoints available
-        // If enemy has reached final waypoint, delete the enemy.
-        if(Vector3.Distance(transform.position, waypoints[waypointIndex]) < 0.01f)
+        if (waypoints.Count > 0)
         {
-            if(waypointIndex < waypoints.Count-1)
-                waypointIndex++;
-            else
+            // Move from current position towards next waypoint at a set speed.
+            transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex], currentSpeed * Time.deltaTime);
+
+            enemySprite = this.gameObject.transform.GetChild(0);
+
+            // Finding current direction headed, and rotating sprite to face forward direction.
+            Vector3 dir = waypoints[waypointIndex] - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            enemySprite.rotation = Quaternion.Slerp(enemySprite.rotation, q, Time.deltaTime * 10f);
+
+            // Check if enemy has reached the next waypoint. If so, increment waypoint index if there are more waypoints available
+            // If enemy has reached final waypoint, delete the enemy.
+            if (Vector3.Distance(transform.position, waypoints[waypointIndex]) < 0.01f)
             {
-                GameCtrl.TakeDamage(attackDamage);
-                GameCtrl.AddScore((-.25f)*scoreValue);
-                //Destroy(gameObject);
-                ResetEnemy();
-                gameObject.SetActive(false);
+                if (waypointIndex < waypoints.Count - 1)
+                    waypointIndex++;
+                else
+                {
+                    GameCtrl.TakeDamage(attackDamage);
+                    GameCtrl.AddScore((-.25f) * scoreValue);
+                    //Destroy(gameObject);
+                    ResetEnemy();
+                    gameObject.SetActive(false);
+                }
             }
         }
     }

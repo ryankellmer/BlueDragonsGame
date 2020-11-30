@@ -159,6 +159,7 @@ MonoBehaviour:
   iframes: 0.15
   poisonDamage: 3
   burnDamage: 2
+  anim: {fileID: 0}
 --- !u!61 &2654491756505030218
 BoxCollider2D:
   m_ObjectHideFlags: 0
