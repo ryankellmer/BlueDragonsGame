@@ -137,9 +137,9 @@ public class GameController : MonoBehaviour
             RemoveMoney(tower1.towerCost); 
             Instantiate(tower1, towerPos.transform.position, Quaternion.identity);
             towerPos.already = true;
-            //isPickingTower = false;
-        }
+            isPickingTower = false;
         towerPos.turnOffUI();
+        }
     }
 
     public void SpawnTower_2() // Bombtower
@@ -149,9 +149,9 @@ public class GameController : MonoBehaviour
             RemoveMoney(tower2.towerCost);
             Instantiate(tower2, towerPos.transform.position, Quaternion.identity);
             towerPos.already = true;
-            //isPickingTower = false;
-        }
+            isPickingTower = false;
         towerPos.turnOffUI();
+        }
     }
     public void SpawnTower_3() //Multiattack tower
     {
@@ -160,9 +160,9 @@ public class GameController : MonoBehaviour
             RemoveMoney(tower3.towerCost); 
             Instantiate(tower3, towerPos.transform.position, Quaternion.identity);
             towerPos.already = true;
-            //isPickingTower = false;
-        }
+            isPickingTower = false;
         towerPos.turnOffUI();
+        }
     }
 
     public void GameOver()
