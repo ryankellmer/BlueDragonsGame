@@ -142,7 +142,7 @@ public class EnemyController : MonoBehaviour
 
        if(freezeCools > 0)
        {
-           Debug.Log("Freezing enemy");
+           //Debug.Log("Freezing enemy");
            freezeCools -= Time.deltaTime;
            currentSpeed = 0f;
        }
@@ -173,15 +173,15 @@ public class EnemyController : MonoBehaviour
             switch(type)
             {
                 case (TowerController.towerTypes.standard):
-                    Debug.Log("Standard Attack");
+                    //Debug.Log("Standard Attack");
                     currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
-                    Debug.Log(currentHealth);
+                    //Debug.Log(currentHealth);
                     SetHealth(currentHealth);
                     GameCtrl.AddMoney(1f);
                     if(currentHealth <= 0) Die();
                     break;
                 case (TowerController.towerTypes.poison):
-                    Debug.Log("Poison Attack");
+                    //Debug.Log("Poison Attack");
                     currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
                     GameCtrl.AddMoney(1f);
@@ -194,7 +194,7 @@ public class EnemyController : MonoBehaviour
                     }
                     break;
                 case (TowerController.towerTypes.burn):
-                    Debug.Log("Burn Attack");
+                    //Debug.Log("Burn Attack");
                     currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
                     GameCtrl.AddMoney(1f);
@@ -207,17 +207,17 @@ public class EnemyController : MonoBehaviour
                     }
                     break;
                 case (TowerController.towerTypes.freeze):
-                    Debug.Log("Freeze Attack");
+                    //Debug.Log("Freeze Attack");
                     currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
                     GameCtrl.AddMoney(1f);
                     if(currentHealth <= 0) Die();
                     curFreeze += potency;
-                    Debug.Log(curFreeze);
+                    //Debug.Log(curFreeze);
                     if(curFreeze >= freezeResistance && freezeCools <= 0) freezeCools = freezeTime;
                     break;
                 case (TowerController.towerTypes.slow):
-                    Debug.Log("Slow Attack");
+                    //Debug.Log("Slow Attack");
                     currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
                     GameCtrl.AddMoney(1f);

@@ -33,9 +33,9 @@ public class WaveSpawner : MonoBehaviour
         switch(state){
             case WaveSpawnerStates.Starting:
                 if(timer > initialWaitTime){
-                    currentSpawnType = WaveSpawner.enemyTypes[rand.Next(enemyTypes.Length)];
+                    currentSpawnType = WaveSpawner.enemyTypes[rand.Next(enemyTypes.Length - 1)];
                     //Debug.Log(currentSpawnType);
-                    currentSpawnType = "SlowResistEnemy";
+                    //currentSpawnType = "SlowResistEnemy";
                     //Debug.Log(rand.Next(enemyTypes.Length));
                     state = WaveSpawnerStates.Spawning;
                     timer = 0;
@@ -43,30 +43,38 @@ public class WaveSpawner : MonoBehaviour
                 break;
             case WaveSpawnerStates.Waiting:
                 if(timer >= timeBetweenSubWaves){
-                    currentSpawnType = enemyTypes[rand.Next(enemyTypes.Length)];
+                    currentSpawnType = enemyTypes[rand.Next(enemyTypes.Length - 1)];
                     state = WaveSpawnerStates.Spawning;
                     timer = 0;
                 }
                 break;
             case WaveSpawnerStates.Spawning:
-                if(timer > timeBetweenEnimies){
-                    Debug.Log(currentSpawnType);
-                    GameObject EnemyGO = ObjectPool.SharedInstance.GetPooledObject(currentSpawnType);
+                waveText.text = "Wave: " + (wavesSpawned + 1);
+                if(wavesSpawned == numOfWaves - 1){
+                    GameObject EnemyGO = ObjectPool.SharedInstance.GetPooledObject("BossEnemy");
                     EnemyController Enemy = EnemyGO.GetComponent<EnemyController>();
                     EnemyGO.SetActive(true);
-                    enemiesSpawned++;
-                    timer = 0;
-                    if(enemiesSpawned >= numOfEnemiesPerWave){
-                        subWavesSpawned++;
-                        enemiesSpawned = 0;
-                        if(subWavesSpawned >= numOfSubWaves){
-                            state = WaveSpawnerStates.Finished;
-                            wavesSpawned++;
-                            waveText.text = "Wave: " + (wavesSpawned + 1);
-                        }
-                        else{
-                            state = WaveSpawnerStates.Waiting;
-                            timer = 0;
+                    wavesSpawned++;
+                    state = WaveSpawnerStates.Finished;
+                } else {
+                    if(timer > timeBetweenEnimies){
+                        //Debug.Log(currentSpawnType);
+                        GameObject EnemyGO = ObjectPool.SharedInstance.GetPooledObject(currentSpawnType);
+                        EnemyController Enemy = EnemyGO.GetComponent<EnemyController>();
+                        EnemyGO.SetActive(true);
+                        enemiesSpawned++;
+                        timer = 0;
+                        if(enemiesSpawned >= numOfEnemiesPerWave){
+                            subWavesSpawned++;
+                            enemiesSpawned = 0;
+                            if(subWavesSpawned >= numOfSubWaves){
+                                state = WaveSpawnerStates.Finished;
+                                wavesSpawned++;
+                            }
+                            else{
+                                state = WaveSpawnerStates.Waiting;
+                                timer = 0;
+                            }
                         }
                     }
                 }
@@ -74,15 +82,14 @@ public class WaveSpawner : MonoBehaviour
             case WaveSpawnerStates.Finished:
                 if(wavesSpawned >= numOfWaves){
                     //level beat
-                }
-                if(timer > timeBetweenWaves){
+                }else if(timer > timeBetweenWaves){
                     state = WaveSpawnerStates.Spawning;
                     enemiesSpawned = 0;
                     subWavesSpawned = 0;
-                    currentSpawnType = enemyTypes[rand.Next(enemyTypes.Length)];
+                    currentSpawnType = enemyTypes[rand.Next(enemyTypes.Length - 1)];
                 }
                 break;
-            default: // this will do nothing and is for the finished state as well as a catch all
+            default: 
                 break;
         }
 
