@@ -177,14 +177,14 @@ public class EnemyController : MonoBehaviour
                     currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     Debug.Log(currentHealth);
                     SetHealth(currentHealth);
-                    GameCtrl.AddMoney(.1f*moneyDrop);
+                    GameCtrl.AddMoney(1f);
                     if(currentHealth <= 0) Die();
                     break;
                 case (TowerController.towerTypes.poison):
                     Debug.Log("Poison Attack");
                     currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
-                    GameCtrl.AddMoney(.1f*moneyDrop);
+                    GameCtrl.AddMoney(1f);
                     if(currentHealth <= 0) Die();
                     curPoison += potency;
                     if(curPoison >= poisonResistance && poisonCools <= 0)
@@ -197,7 +197,7 @@ public class EnemyController : MonoBehaviour
                     Debug.Log("Burn Attack");
                     currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
-                    GameCtrl.AddMoney(.1f*moneyDrop);
+                    GameCtrl.AddMoney(1f);
                     if(currentHealth <= 0) Die();
                     curBurn += potency;
                     if(curBurn >= burnResistance && burnCools <= 0)
@@ -210,7 +210,7 @@ public class EnemyController : MonoBehaviour
                     Debug.Log("Freeze Attack");
                     currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
-                    GameCtrl.AddMoney(.1f*moneyDrop);
+                    GameCtrl.AddMoney(1f);
                     if(currentHealth <= 0) Die();
                     curFreeze += potency;
                     Debug.Log(curFreeze);
@@ -220,7 +220,7 @@ public class EnemyController : MonoBehaviour
                     Debug.Log("Slow Attack");
                     currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
-                    GameCtrl.AddMoney(.1f*moneyDrop);
+                    GameCtrl.AddMoney(1f);
                     if(currentHealth <= 0) Die();
                     curSlow += potency;
                     if(curSlow >= slowResistance && slowCools <= 0) slowCools = slowTime;
