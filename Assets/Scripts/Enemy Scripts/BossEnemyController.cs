@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossEnemyController : EnemyController
 {
+    private bool firstDisable = false;
     void OnEnable()
     {
         ResetStuff();
@@ -36,5 +37,15 @@ public class BossEnemyController : EnemyController
         freezeCools = 0f;
         //currentHealth = maxHealth;
         SetMaxHealth(maxHealth);
+    }
+    void OnDisable(){
+        if(firstDisable){
+            Debug.Log("disable");
+            WaveSpawner.NextLevel();
+        }
+        else{
+            firstDisable = true;
+        }
+        
     }
 }

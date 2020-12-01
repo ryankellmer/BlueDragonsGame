@@ -168,6 +168,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         score_text.text = "Score: " + score.ToString();
+        PlayerPrefs.SetInt("Level", 0);
         GameOverUI.SetActive(true);
         Time.timeScale = 0;
     }
