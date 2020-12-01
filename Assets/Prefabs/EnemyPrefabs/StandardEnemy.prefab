@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: -8261315501424983259}
   - component: {fileID: 2946207507769143747}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: enemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,8 +95,12 @@ GameObject:
   - component: {fileID: -5995399036879561553}
   - component: {fileID: 2654491756505030218}
   - component: {fileID: 2768808957669882376}
+<<<<<<< Updated upstream
   - component: {fileID: 6907017869414799047}
   m_Layer: 0
+=======
+  m_Layer: 2
+>>>>>>> Stashed changes
   m_Name: StandardEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -236,7 +240,7 @@ GameObject:
   - component: {fileID: 4636812218273663969}
   - component: {fileID: 6976912944949650976}
   - component: {fileID: 5301687363096878057}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +338,7 @@ GameObject:
   - component: {fileID: 1971722707612322697}
   - component: {fileID: 3386617681231710491}
   - component: {fileID: 587812649075248474}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5980870815118303139}
   - component: {fileID: 2589684092098493107}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Health bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +501,7 @@ GameObject:
   - component: {fileID: 1890985544747795261}
   - component: {fileID: 7195119349351229519}
   - component: {fileID: 6821855753306598850}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +574,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671296985275103792}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Missing Prefab (Dummy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
