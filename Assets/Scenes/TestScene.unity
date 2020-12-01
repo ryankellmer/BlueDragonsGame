@@ -374,6 +374,10 @@ PrefabInstance:
       propertyPath: missileTowerCost
       value: 
       objectReference: {fileID: 1911655817}
+    - target: {fileID: 1465728084304764726, guid: fb999d970936e914189267b976e1ed49, type: 3}
+      propertyPath: LevelCompleteUI
+      value: 
+      objectReference: {fileID: 6969663513263107717, guid: 4f68350b56e6f224c8c76c0f34330c9d, type: 3}
     - target: {fileID: 1465728084304764727, guid: fb999d970936e914189267b976e1ed49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.2
