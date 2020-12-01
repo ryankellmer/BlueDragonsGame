@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1221724973618155387}
   m_Layer: 2
   m_Name: FreezeResistantEnemy
-  m_TagString: Enemy
+  m_TagString: FreezeResistEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7241375385616098723}
   m_Layer: 0
   m_Name: SlowResistantEnemy
-  m_TagString: Enemy
+  m_TagString: SlowResistEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
