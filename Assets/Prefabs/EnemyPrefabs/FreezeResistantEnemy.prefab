@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2937c266ff7ca5345853b34e59dc395c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1221724973618155387}
   m_Layer: 2
   m_Name: FreezeResistantEnemy
-  m_TagString: Enemy
+  m_TagString: FreezeResistEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,6 @@ MonoBehaviour:
   iframes: 0.15
   poisonDamage: 3
   burnDamage: 2
-  anim: {fileID: 0}
 --- !u!61 &2654491756505030218
 BoxCollider2D:
   m_ObjectHideFlags: 0

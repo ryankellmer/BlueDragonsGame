@@ -26,7 +26,7 @@ public class ProjectileController : MonoBehaviour
 
     //Disable projectile after certain amount of time if it fails to reach target
     public virtual void Start(){
-        Invoke("DisableProjectile", 3f);
+        Invoke("DisableProjectile", 1f);
     }
 
     //Obtain position of target, push projectile towards target every frame

@@ -19,6 +19,10 @@ TagManager:
   - TowerPlacement
   - TowerStats
   - TowerStatsText
+  - BurnResistEnemy
+  - SlowResistEnemy
+  - PoisonResistEnemy
+  - FreezeResistEnemy
   layers:
   - Default
   - TransparentFX
