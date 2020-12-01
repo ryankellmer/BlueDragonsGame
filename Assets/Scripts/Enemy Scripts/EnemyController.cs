@@ -24,19 +24,19 @@ public class EnemyController : MonoBehaviour
     [Header("Enemy Resistances")]
     [Range(0, 100)]
     public float poisonResistance;
-    float curPoison = 0;
+    protected float curPoison = 0;
     public float poisonTime = 8f;
     [Range(0, 100)]
     public float burnResistance;
-    float curBurn = 0;
+    protected float curBurn = 0;
     public float burnTime = 6f;
     [Range(0, 100)]
     public float slowResistance;
-    float curSlow = 0;
+    protected float curSlow = 0;
     public float slowTime = 7f;
     [Range(0, 100)]
     public float freezeResistance;
-    float curFreeze = 0;
+    protected float curFreeze = 0;
     public float freezeTime = 5f;
     public float timeBetweenPoisonDamage = 0.5f;
     public float timeBetweenBurnDamage = 0.5f;
@@ -45,12 +45,12 @@ public class EnemyController : MonoBehaviour
     float cools = 0f;
 
     //Cooldowns for status effects
-    float poisonCools = 0f;
-    float poisonDmgCools = 0f;
-    float burnCools = 0f;
-    float burnDmgCools = 0f;
-    float slowCools = 0f;
-    float freezeCools = 0f;
+    protected float poisonCools = 0f;
+    protected float poisonDmgCools = 0f;
+    protected float burnCools = 0f;
+    protected float burnDmgCools = 0f;
+    protected float slowCools = 0f;
+    protected float freezeCools = 0f;
 
     //Damage done by poison and burn effects
     [Header("Damage taken via status effects")]
@@ -80,12 +80,26 @@ public class EnemyController : MonoBehaviour
         burnResistance = 0f;
         slowResistance = 0f;
         freezeResistance = 100f;
+        curBurn = 0f;
+        curFreeze = 0f;
+        curPoison = 0f;
+        curSlow = 0f;
+        poisonCools = 0f;
+        poisonDmgCools = 0f;
+        burnCools = 0f;
+        burnDmgCools = 0f;
+        slowCools = 0f;
+        freezeCools = 0f;
+        //currentHealth = maxHealth;
+        SetMaxHealth(maxHealth);
+    }
 
+    public void ResetPos()
+    {
+        waypointIndex = 0;
         GameObject path = GameObject.Find("Path");
         waypoints = path.GetComponent<Path>().Positions;
-
         GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
-
         transform.position = waypoints[waypointIndex];
     }
 
@@ -250,7 +264,8 @@ public class EnemyController : MonoBehaviour
                     GameCtrl.TakeDamage(attackDamage);
                     GameCtrl.AddScore((-.25f) * scoreValue);
                     //Destroy(gameObject);
-                    ResetEnemy();
+                    ResetStuff();
+                    transform.position = new Vector3(-100, 100, 0);
                     gameObject.SetActive(false);
                 }
             }
@@ -262,29 +277,9 @@ public class EnemyController : MonoBehaviour
         GameCtrl.AddScore(scoreValue);
         GameCtrl.AddMoney(moneyDrop);
         //Destroy(gameObject);
-        ResetEnemy();
+        ResetStuff();
+        transform.position = new Vector3(-100, 100, 0);
         gameObject.SetActive(false);
-    }
-
-    void ResetEnemy()
-    {
-        curBurn = 0f;
-        curFreeze = 0f;
-        curPoison = 0f;
-        curSlow = 0f;
-        poisonCools = 0f;
-        poisonDmgCools = 0f;
-        burnCools = 0f;
-        burnDmgCools = 0f;
-        slowCools = 0f;
-        freezeCools = 0f;
-        waypointIndex = 0;
-        //GameObject path = GameObject.Find("Path");
-        //waypoints = path.GetComponent<Path>().Positions;
-        //GameCtrl = GameObject.Find("GameController").GetComponent<GameController>();
-        transform.position = waypoints[waypointIndex]; 
-        //currentHealth = maxHealth;
-        SetMaxHealth(maxHealth);
     }
 
     public void SetHealth(int health)

@@ -672,6 +672,9 @@ MonoBehaviour:
   - amountToPool: 5
     objectToPool: {fileID: 2485086898033671346, guid: a33c6a3c62ee5f34886c43e542356260, type: 3}
     shouldExpand: 1
+  - amountToPool: 20
+    objectToPool: {fileID: 661880096885663283, guid: 766a065a812ef034b89f0f619585b619, type: 3}
+    shouldExpand: 1
 --- !u!1001 &982198718
 PrefabInstance:
   m_ObjectHideFlags: 0

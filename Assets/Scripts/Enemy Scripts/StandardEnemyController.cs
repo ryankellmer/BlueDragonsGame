@@ -6,11 +6,7 @@ public class StandardEnemyController : EnemyController
 {
     void OnEnable()
     {
-        Invoke("ResetStuff", 0.2f);
-    }
-
-    private void OnDisable()
-    {
-        CancelInvoke();
+        ResetStuff();
+        Invoke("ResetPos", 0.1f);
     }
 }
