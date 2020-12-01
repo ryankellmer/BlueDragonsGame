@@ -189,17 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &565928132 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1393293565971074906, guid: 4581c5d2888e5fe499402c01b515f2bf, type: 3}
-  m_PrefabInstance: {fileID: 861768578}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &584521852
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,27 +297,7 @@ PrefabInstance:
     - target: {fileID: 2060012340, guid: fb999d970936e914189267b976e1ed49, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 661880096885663283, guid: a80bb3d7620b88440b0b949d56b465e9, type: 3}
-    - target: {fileID: 2060012340, guid: fb999d970936e914189267b976e1ed49, type: 3}
-      propertyPath: numOfSubWaves
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2060012340, guid: fb999d970936e914189267b976e1ed49, type: 3}
-      propertyPath: numOfWaves
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2060012340, guid: fb999d970936e914189267b976e1ed49, type: 3}
-      propertyPath: timeBetweenSubWaves
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2060012340, guid: fb999d970936e914189267b976e1ed49, type: 3}
-      propertyPath: timeBetweenWaves
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 2060012340, guid: fb999d970936e914189267b976e1ed49, type: 3}
-      propertyPath: waveText
-      value: 
-      objectReference: {fileID: 565928132}
+      objectReference: {fileID: 661880096885663283, guid: 80e3dca435ab15143bf75746002dfe1c, type: 3}
     - target: {fileID: 1465728084304764726, guid: fb999d970936e914189267b976e1ed49, type: 3}
       propertyPath: score_text
       value: 
@@ -377,10 +346,6 @@ PrefabInstance:
       propertyPath: missileTowerCost
       value: 
       objectReference: {fileID: 1911655817}
-    - target: {fileID: 1465728084304764726, guid: fb999d970936e914189267b976e1ed49, type: 3}
-      propertyPath: wave
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1465728084304764727, guid: fb999d970936e914189267b976e1ed49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.2
@@ -710,24 +675,6 @@ MonoBehaviour:
   - amountToPool: 20
     objectToPool: {fileID: 661880096885663283, guid: 766a065a812ef034b89f0f619585b619, type: 3}
     shouldExpand: 1
-<<<<<<< Updated upstream
-=======
-  - amountToPool: 20
-    objectToPool: {fileID: 661880096885663283, guid: 688795226cc02044d98fb865daf615c1, type: 3}
-    shouldExpand: 1
-  - amountToPool: 20
-    objectToPool: {fileID: 661880096885663283, guid: df11d012cce831e41bdc1d15fdaa226b, type: 3}
-    shouldExpand: 1
-  - amountToPool: 20
-    objectToPool: {fileID: 661880096885663283, guid: 8c6d36b0f2c9b0a4389a568f1dbcf629, type: 3}
-    shouldExpand: 1
-  - amountToPool: 20
-    objectToPool: {fileID: 661880096885663283, guid: a80bb3d7620b88440b0b949d56b465e9, type: 3}
-    shouldExpand: 1
-  - amountToPool: 20
-    objectToPool: {fileID: 661880096885663283, guid: 02427b4df2222714fba4e6a6b5710a5d, type: 3}
-    shouldExpand: 1
->>>>>>> Stashed changes
 --- !u!1001 &982198718
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,8 +11,7 @@ public class TowerController : MonoBehaviour
    
     [Header("Necessary Public Variables")]
     public Transform target;
-    //public string tagOfTarget = "Enemy";
-    string[] tagOfTarget = WaveSpawner.enemyTypes;
+    public string tagOfTarget = "Enemy"; 
     public GameObject ProjectilePrefab;
     public GameObject RangeCircle;
     public enum towerTypes{standard, slow, freeze, poison, burn}
@@ -44,11 +43,7 @@ public class TowerController : MonoBehaviour
     //Locate Target
     public virtual void UpdateTarget()
     {
-        List<GameObject> targets = new List<GameObject>();
-        foreach (String tag in tagOfTarget){
-            targets.AddRange(GameObject.FindGameObjectsWithTag(tag));
-        }
-        //List<GameObject> targets = GameObject.FindGameObjectsWithTag(tagOfTarget);
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(tagOfTarget);
         float closestTargetDistance = Mathf.Infinity;
         GameObject closestTarget = null;
         foreach (GameObject element in targets)
