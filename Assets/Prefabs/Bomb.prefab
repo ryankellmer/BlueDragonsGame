@@ -118,10 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1713d39060e6ed9428b946e4dfd3530f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 250
-  bombDamage: 1
-  bombRange: 6
-  missleDamage: 0
+  type: 0
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!58 &6695259258873288722
 CircleCollider2D:
   m_ObjectHideFlags: 0

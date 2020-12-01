@@ -5,8 +5,8 @@ using UnityEngine;
 public class HomingMissleController : ProjectileController
 {
     public float missleSpeed;
-    private float minSpeed = .5f;
-    private float maxSpeed = 9.0f;
+    public float minSpeed = .5f;
+    public float maxSpeed = 9.0f;
     private float accelerationTime = 7;
     private float time;
     Color colorStart = Color.red;
@@ -14,15 +14,11 @@ public class HomingMissleController : ProjectileController
     float duration = 1.0f;
     Renderer rend;
 
-    //When missle is pulled from object pool, reset missle speed and time
-    void OnEnable(){
+    //Disable projectile after certaina mount of time if projectile is not reached
+    public override void OnEnable(){
         missleSpeed = minSpeed;
         rend = GetComponent<Renderer> ();
         time = 0;
-    }
-
-    //Disable projectile after certaina mount of time if projectile is not reached
-    public override void Start(){
         Invoke("DisableProjectile", 6f);
     }
 

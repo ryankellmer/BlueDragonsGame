@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2654491756505030218}
   - component: {fileID: 2768808957669882376}
   - component: {fileID: 356886468556570703}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BurnResistantEnemy
   m_TagString: BurnResistEnemy
   m_Icon: {fileID: 0}

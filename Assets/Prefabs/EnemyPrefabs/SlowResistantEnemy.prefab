@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2654491756505030218}
   - component: {fileID: 2768808957669882376}
   - component: {fileID: 7241375385616098723}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SlowResistantEnemy
   m_TagString: SlowResistEnemy
   m_Icon: {fileID: 0}

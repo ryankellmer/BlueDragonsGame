@@ -24,9 +24,9 @@ public class ProjectileController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    //Disable projectile after certain amount of time if it fails to reach target
-    public virtual void Start(){
-        Invoke("DisableProjectile", 1f);
+    public virtual void OnEnable()
+    {
+        Invoke("DisableProjectile", 2f);
     }
 
     //Obtain position of target, push projectile towards target every frame
@@ -69,6 +69,11 @@ public class ProjectileController : MonoBehaviour
             gameObject.SetActive(false);
             HitTarget();
         }
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 
     //Returns Projectile to Object Pool

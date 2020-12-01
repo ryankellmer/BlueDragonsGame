@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class BombController : ProjectileController
 {
+    public LayerMask enemyMask;
 
     //Deal Damage to All enemies within bombRange when bomb hits target, create explosion
     public override void HitTarget() {
@@ -13,17 +14,11 @@ public class BombController : ProjectileController
         GameObject explosion = ObjectPool.SharedInstance.GetPooledObject("BombExplosion");
         explosion.SetActive(true);
         explosion.transform.position = new Vector3(transform.position.x, transform.position.y + .3f, transform.position.z);
-        Collider2D[] enemiesInBlast = Physics2D.OverlapCircleAll(transform.position, bombRange);
+        Collider2D[] enemiesInBlast = Physics2D.OverlapCircleAll(transform.position, bombRange, enemyMask);
         for(int i=0; i<enemiesInBlast.Length; i++){
-            if(enemiesInBlast[i].gameObject.tag == "Enemy"){
-                EnemyController enemy = enemiesInBlast[i].GetComponent<EnemyController>();
-                gameObject.SetActive(false);
-                if(enemy == null){
-                    continue;
-                }
-                enemy.AttackEnemy(bombDamage, type, 10f);
-            }
+            EnemyController enemy = enemiesInBlast[i].GetComponent<EnemyController>();
+            enemy.AttackEnemy(bombDamage, type, 10f);
+            gameObject.SetActive(false);
         }
     }
-    
 }
