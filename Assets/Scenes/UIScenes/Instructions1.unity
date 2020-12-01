@@ -331,7 +331,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e93889074eca36c4a98769d46319c4d1, type: 3}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -342,9 +342,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The goal is to use collected resources to purchase  towers and place them
-    in strategic locations that will most effectivly destroy the enemy dragons before
-    they cross the opposite side of the map. '
+  m_Text: 200 coins are given at the start of the wave. Use coins to build and upgrade
+    towers to destroy the incoming dragons. Every dragon that is killed rewards more
+    coins. If a dragon survives and passes your defending towers health points are
+    taken from your HP bar. Once your HP bar hits 0 it is GameOver!
 --- !u!222 &514140023
 CanvasRenderer:
   m_ObjectHideFlags: 0

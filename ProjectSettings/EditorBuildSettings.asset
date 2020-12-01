@@ -28,8 +28,17 @@ EditorBuildSettings:
     guid: 2d9c778cae5ef134991cb602bf1f70bb
   - enabled: 1
     path: Assets/Scenes/UIScenes/Instructions3.unity
-    guid: e6c4761413cc8c445b1193070ebc7d7e
+    guid: 01267a084038d684ebc91f579529fe99
   - enabled: 1
     path: Assets/Scenes/UIScenes/Instructions4.unity
+    guid: c835c537e611e604b9dc5adc0dfcb3dd
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/Instructions5.unity
+    guid: e6c4761413cc8c445b1193070ebc7d7e
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/Instructions6.unity
+    guid: d3e7333216e40174ead1267bad0487fa
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/Instructions7.unity
     guid: efef72466f0eae24594bfa873ea05ac3
   m_configObjects: {}
