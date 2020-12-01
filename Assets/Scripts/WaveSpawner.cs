@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class WaveSpawner : MonoBehaviour
     public static string[] enemyTypes = {"Enemy", "SlowResistEnemy", "BurnResistEnemy", "PoisonResistEnemy", "FreezeResistEnemy", "BossEnemy"};
     string currentSpawnType;
     System.Random rand = new System.Random();
+    static int currentLevel = 0;
 
     // Update is called once per frame
     void Update()
@@ -32,6 +34,7 @@ public class WaveSpawner : MonoBehaviour
         timer += Time.deltaTime;
         switch(state){
             case WaveSpawnerStates.Starting:
+                currentLevel = PlayerPrefs.GetInt("Level", 0);
                 if(timer > initialWaitTime){
                     currentSpawnType = WaveSpawner.enemyTypes[rand.Next(enemyTypes.Length - 1)];
                     //Debug.Log(currentSpawnType);
@@ -62,9 +65,10 @@ public class WaveSpawner : MonoBehaviour
                         GameObject EnemyGO = ObjectPool.SharedInstance.GetPooledObject(currentSpawnType);
                         EnemyController Enemy = EnemyGO.GetComponent<EnemyController>();
                         EnemyGO.SetActive(true);
+                        Enemy.normalSpeed += .05f * currentLevel;
                         enemiesSpawned++;
                         timer = 0;
-                        if(enemiesSpawned >= numOfEnemiesPerWave){
+                        if(enemiesSpawned >= numOfEnemiesPerWave + currentLevel + wavesSpawned){
                             subWavesSpawned++;
                             enemiesSpawned = 0;
                             if(subWavesSpawned >= numOfSubWaves){
@@ -93,6 +97,12 @@ public class WaveSpawner : MonoBehaviour
                 break;
         }
 
+    }
+
+    public static void NextLevel(){
+        PlayerPrefs.SetInt("Level", currentLevel + 1);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }
 
