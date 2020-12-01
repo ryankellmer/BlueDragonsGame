@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7728741649522024122}
   - component: {fileID: 4212481043239954975}
   - component: {fileID: 6221600315518941176}
+  - component: {fileID: 2942887862456040363}
   m_Layer: 0
   m_Name: Core_light
   m_TagString: Untagged
@@ -4870,6 +4871,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2942887862456040363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160883600353773729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3d98f0c34957240bc83fe2b912c879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2699950699001564557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4882,6 +4895,7 @@ GameObject:
   - component: {fileID: 2384866616876809792}
   - component: {fileID: 5428858386357458235}
   - component: {fileID: 3524371067014364023}
+  - component: {fileID: 3250502633816872504}
   m_Layer: 0
   m_Name: BulletExplosion
   m_TagString: BulletExplosion
@@ -9755,6 +9769,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7ee2398ce8732468a907d0094cc06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3250502633816872504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2699950699001564557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3d98f0c34957240bc83fe2b912c879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4851018849392016890
 GameObject:
   m_ObjectHideFlags: 0
@@ -9766,6 +9792,7 @@ GameObject:
   - component: {fileID: 7513489078074509996}
   - component: {fileID: 8346345345821871282}
   - component: {fileID: 4918401006680306790}
+  - component: {fileID: 9153759061075962596}
   m_Layer: 0
   m_Name: Ring_explosion
   m_TagString: Untagged
@@ -14625,3 +14652,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &9153759061075962596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851018849392016890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3d98f0c34957240bc83fe2b912c879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

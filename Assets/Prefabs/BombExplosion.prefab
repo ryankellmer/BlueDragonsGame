@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3479519612809652426}
   - component: {fileID: 6486923827239158705}
   - component: {fileID: -6793653673715487235}
+  - component: {fileID: 2210824198382159441}
   m_Layer: 0
   m_Name: BombExplosion
   m_TagString: BombExplosion
@@ -4884,6 +4885,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7ee2398ce8732468a907d0094cc06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2210824198382159441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758577082983602951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3d98f0c34957240bc83fe2b912c879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6582947910677450322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,6 +4908,7 @@ GameObject:
   - component: {fileID: 4869543464318440720}
   - component: {fileID: 1764778435652594464}
   - component: {fileID: 8583664757311862904}
+  - component: {fileID: 5855043916812586209}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -9772,3 +9786,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5855043916812586209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582947910677450322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3d98f0c34957240bc83fe2b912c879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
