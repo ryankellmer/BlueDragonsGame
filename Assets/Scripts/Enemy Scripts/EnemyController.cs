@@ -174,7 +174,7 @@ public class EnemyController : MonoBehaviour
             {
                 case (TowerController.towerTypes.standard):
                     Debug.Log("Standard Attack");
-                    currentHealth = Mathf.Clamp(currentHealth - (amount-defense), 0, maxHealth);
+                    currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     Debug.Log(currentHealth);
                     SetHealth(currentHealth);
                     GameCtrl.AddMoney(.1f*moneyDrop);
@@ -182,7 +182,7 @@ public class EnemyController : MonoBehaviour
                     break;
                 case (TowerController.towerTypes.poison):
                     Debug.Log("Poison Attack");
-                    currentHealth = Mathf.Clamp(currentHealth - (amount-defense), 0, maxHealth);
+                    currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
                     GameCtrl.AddMoney(.1f*moneyDrop);
                     if(currentHealth <= 0) Die();
@@ -195,7 +195,7 @@ public class EnemyController : MonoBehaviour
                     break;
                 case (TowerController.towerTypes.burn):
                     Debug.Log("Burn Attack");
-                    currentHealth = Mathf.Clamp(currentHealth - (amount-defense), 0, maxHealth);
+                    currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
                     GameCtrl.AddMoney(.1f*moneyDrop);
                     if(currentHealth <= 0) Die();
@@ -208,7 +208,7 @@ public class EnemyController : MonoBehaviour
                     break;
                 case (TowerController.towerTypes.freeze):
                     Debug.Log("Freeze Attack");
-                    currentHealth = Mathf.Clamp(currentHealth - (amount-defense), 0, maxHealth);
+                    currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
                     GameCtrl.AddMoney(.1f*moneyDrop);
                     if(currentHealth <= 0) Die();
@@ -218,7 +218,7 @@ public class EnemyController : MonoBehaviour
                     break;
                 case (TowerController.towerTypes.slow):
                     Debug.Log("Slow Attack");
-                    currentHealth = Mathf.Clamp(currentHealth - (amount-defense), 0, maxHealth);
+                    currentHealth = Mathf.Clamp(currentHealth - CalculateDamage(amount), 0, maxHealth);
                     SetHealth(currentHealth);
                     GameCtrl.AddMoney(.1f*moneyDrop);
                     if(currentHealth <= 0) Die();
@@ -291,5 +291,11 @@ public class EnemyController : MonoBehaviour
     {
         slider.maxValue = health;
         slider.value = health;
+    }
+
+    public int CalculateDamage(int atk){
+        int tot = atk - defense;
+        if(tot > 0) return tot;
+        return 1;
     }
 }
