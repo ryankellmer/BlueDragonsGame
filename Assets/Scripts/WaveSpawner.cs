@@ -21,7 +21,7 @@ public class WaveSpawner : MonoBehaviour
     int enemiesSpawned = 0;
     int wavesSpawned = 0;
     int subWavesSpawned = 0;
-    public static string[] enemyTypes = {"Enemy", "SlowResistEnemy", "BurnResistEnemy", "PoisonResistEnemy", "FreezeResistEnemy"};
+    public static string[] enemyTypes = {"Enemy", "SlowResistEnemy", "BurnResistEnemy", "PoisonResistEnemy", "FreezeResistEnemy", "BossEnemy"};
     string currentSpawnType;
     System.Random rand = new System.Random();
 

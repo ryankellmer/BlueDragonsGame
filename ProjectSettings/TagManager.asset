@@ -23,6 +23,7 @@ TagManager:
   - SlowResistEnemy
   - PoisonResistEnemy
   - FreezeResistEnemy
+  - BossEnemy
   layers:
   - Default
   - TransparentFX

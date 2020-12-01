@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowResEnemyController : EnemyController
+public class BossEnemyController : EnemyController
 {
     void OnEnable()
     {
@@ -11,19 +11,19 @@ public class SlowResEnemyController : EnemyController
     }
 
     protected override void ResetStuff(){
-        maxHealth = 10;
+        maxHealth = 100;
         currentHealth = maxHealth;
         SetMaxHealth(maxHealth);
-        defense = 1;
-        attackDamage = 10;
-        moneyDrop = 10;
-        scoreValue = 10;
-        normalSpeed = 1.5f;
+        defense = 10;
+        attackDamage = 100;
+        moneyDrop = 100;
+        scoreValue = 100;
+        normalSpeed = .75f;
         slowSpeed = 0.5f;
-        poisonResistance = 0f;
-        burnResistance = 0f;
-        slowResistance = 100f;
-        freezeResistance = 0f;
+        poisonResistance = 50f;
+        burnResistance = 50f;
+        slowResistance = 50f;
+        freezeResistance = 50f;
         curBurn = 0f;
         curFreeze = 0f;
         curPoison = 0f;

@@ -65,7 +65,7 @@ public class EnemyController : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
     }
 
-    protected void ResetStuff()
+    protected virtual void ResetStuff()
     {
         maxHealth = 15;
         currentHealth = maxHealth;
@@ -79,7 +79,7 @@ public class EnemyController : MonoBehaviour
         poisonResistance = 0f;
         burnResistance = 0f;
         slowResistance = 0f;
-        freezeResistance = 100f;
+        freezeResistance = 0f;
         curBurn = 0f;
         curFreeze = 0f;
         curPoison = 0f;
