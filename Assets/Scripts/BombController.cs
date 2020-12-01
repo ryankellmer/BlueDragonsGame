@@ -10,7 +10,7 @@ public class BombController : ProjectileController
 
     //Deal Damage to All enemies within bombRange when bomb hits target, create explosion
     public override void HitTarget() {
-        Debug.Log(bombDamage);
+        //Debug.Log(bombDamage);
         GameObject explosion = ObjectPool.SharedInstance.GetPooledObject("BombExplosion");
         explosion.SetActive(true);
         explosion.transform.position = new Vector3(transform.position.x, transform.position.y + .3f, transform.position.z);

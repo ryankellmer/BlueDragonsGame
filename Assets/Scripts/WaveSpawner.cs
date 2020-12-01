@@ -16,6 +16,7 @@ public class WaveSpawner : MonoBehaviour
     public int numOfSubWaves;
     public int numOfWaves;
     public TextMeshProUGUI waveText;
+    public TextMeshProUGUI enemyText;
 
     float timer = 0;
     WaveSpawnerStates state = WaveSpawnerStates.Starting;
@@ -26,6 +27,7 @@ public class WaveSpawner : MonoBehaviour
     string currentSpawnType;
     System.Random rand = new System.Random();
     static int currentLevel = 0;
+    int enemiesRemaining;
 
     // Update is called once per frame
     void Update()
@@ -37,11 +39,9 @@ public class WaveSpawner : MonoBehaviour
                 currentLevel = PlayerPrefs.GetInt("Level", 0);
                 if(timer > initialWaitTime){
                     currentSpawnType = WaveSpawner.enemyTypes[rand.Next(enemyTypes.Length - 1)];
-                    //Debug.Log(currentSpawnType);
-                    //currentSpawnType = "SlowResistEnemy";
-                    //Debug.Log(rand.Next(enemyTypes.Length));
                     state = WaveSpawnerStates.Spawning;
                     timer = 0;
+                    enemiesRemaining = numOfSubWaves * (currentLevel + wavesSpawned + numOfEnemiesPerWave);
                 }
                 break;
             case WaveSpawnerStates.Waiting:
@@ -67,6 +67,8 @@ public class WaveSpawner : MonoBehaviour
                         EnemyGO.SetActive(true);
                         Enemy.normalSpeed += .05f * currentLevel;
                         enemiesSpawned++;
+                        enemiesRemaining--;
+                        enemyText.text = enemiesRemaining.ToString();
                         timer = 0;
                         if(enemiesSpawned >= numOfEnemiesPerWave + currentLevel + wavesSpawned){
                             subWavesSpawned++;
@@ -90,6 +92,7 @@ public class WaveSpawner : MonoBehaviour
                     state = WaveSpawnerStates.Spawning;
                     enemiesSpawned = 0;
                     subWavesSpawned = 0;
+                    enemiesRemaining = numOfSubWaves * (currentLevel + wavesSpawned + numOfEnemiesPerWave);
                     currentSpawnType = enemyTypes[rand.Next(enemyTypes.Length - 1)];
                 }
                 break;

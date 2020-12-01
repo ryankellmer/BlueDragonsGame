@@ -318,6 +318,10 @@ PrefabInstance:
       propertyPath: timeBetweenWaves
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 2060012340, guid: fb999d970936e914189267b976e1ed49, type: 3}
+      propertyPath: enemyText
+      value: 
+      objectReference: {fileID: 861768579}
     - target: {fileID: 1465728084304764726, guid: fb999d970936e914189267b976e1ed49, type: 3}
       propertyPath: score_text
       value: 
@@ -580,12 +584,27 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 39.6
       objectReference: {fileID: 0}
+    - target: {fileID: 7252041542130722129, guid: 4581c5d2888e5fe499402c01b515f2bf, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8705922838339047509, guid: 4581c5d2888e5fe499402c01b515f2bf, type: 3}
       propertyPath: m_fontSize
       value: 39.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4581c5d2888e5fe499402c01b515f2bf, type: 3}
+--- !u!114 &861768579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7252041542130722129, guid: 4581c5d2888e5fe499402c01b515f2bf, type: 3}
+  m_PrefabInstance: {fileID: 861768578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &924829309
 GameObject:
   m_ObjectHideFlags: 0

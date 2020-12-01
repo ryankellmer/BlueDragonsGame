@@ -40,7 +40,7 @@ public class BossEnemyController : EnemyController
     }
     void OnDisable(){
         if(firstDisable){
-            Debug.Log("disable");
+            //Debug.Log("disable");
             WaveSpawner.NextLevel();
         }
         else{
