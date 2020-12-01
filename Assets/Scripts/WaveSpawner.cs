@@ -17,6 +17,8 @@ public class WaveSpawner : MonoBehaviour
     public int numOfWaves;
     public TextMeshProUGUI waveText;
     public TextMeshProUGUI enemyText;
+    public GameObject gameController;
+    static GameObject sGameController;
 
     float timer = 0;
     WaveSpawnerStates state = WaveSpawnerStates.Starting;
@@ -29,6 +31,9 @@ public class WaveSpawner : MonoBehaviour
     static int currentLevel = 0;
     int enemiesRemaining;
 
+    void Start(){
+        sGameController = gameController;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -103,7 +108,7 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public static void NextLevel(){
-        GameObject.Find("GameController").GetComponent<GameController>().LevelComplete();
+        sGameController.GetComponent<GameController>().LevelComplete();
         PlayerPrefs.SetInt("Level", currentLevel + 1);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);

@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: enemyText
       value: 
       objectReference: {fileID: 861768579}
+    - target: {fileID: 2060012340, guid: fb999d970936e914189267b976e1ed49, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 936797692}
     - target: {fileID: 1465728084304764726, guid: fb999d970936e914189267b976e1ed49, type: 3}
       propertyPath: score_text
       value: 
