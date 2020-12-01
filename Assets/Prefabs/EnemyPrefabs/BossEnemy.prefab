@@ -4971,6 +4971,7 @@ MonoBehaviour:
   iframes: 0.15
   poisonDamage: 3
   burnDamage: 2
+  levelCompleteText: {fileID: 6969663513263107717, guid: 4f68350b56e6f224c8c76c0f34330c9d, type: 3}
 --- !u!61 &2654491756505030218
 BoxCollider2D:
   m_ObjectHideFlags: 0

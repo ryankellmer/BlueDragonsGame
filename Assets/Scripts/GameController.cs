@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI bombTowerCost;
     public TextMeshProUGUI missileTowerCost;
     public GameObject GameOverUI;
+    public GameObject LevelCompleteUI;
 
     public GameObject towerUI;
     public GameObject towerStats;
@@ -171,6 +172,10 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("Level", 0);
         GameOverUI.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public void LevelComplete(){
+        LevelCompleteUI.SetActive(true);
     }
 
     public void TakeDamage(float amt)

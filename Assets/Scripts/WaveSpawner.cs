@@ -103,6 +103,7 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public static void NextLevel(){
+        GameObject.Find("GameController").GetComponent<GameController>().LevelComplete();
         PlayerPrefs.SetInt("Level", currentLevel + 1);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
