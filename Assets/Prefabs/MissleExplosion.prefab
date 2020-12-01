@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2746162268204519295}
   - component: {fileID: 5499957777691632644}
   - component: {fileID: 4030157982477470280}
-  - component: {fileID: 6789064932238886382}
   m_Layer: 0
   m_Name: MissleExplosion
   m_TagString: MissleExplosion
@@ -4886,18 +4885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7ee2398ce8732468a907d0094cc06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6789064932238886382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2485086898033671346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3d98f0c34957240bc83fe2b912c879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8256327531777055279
 GameObject:
   m_ObjectHideFlags: 0
@@ -4909,7 +4896,6 @@ GameObject:
   - component: {fileID: 6407645936079979418}
   - component: {fileID: 5345987823621300434}
   - component: {fileID: 5517721489794621806}
-  - component: {fileID: 8527988810500720229}
   m_Layer: 0
   m_Name: Core_Smoke
   m_TagString: Untagged
@@ -9787,18 +9773,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &8527988810500720229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8256327531777055279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3d98f0c34957240bc83fe2b912c879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8918277306076749915
 GameObject:
   m_ObjectHideFlags: 0
@@ -9810,7 +9784,6 @@ GameObject:
   - component: {fileID: 5021537369222002640}
   - component: {fileID: 1577236523394953629}
   - component: {fileID: 3090151964900336493}
-  - component: {fileID: 5463442352020892590}
   m_Layer: 0
   m_Name: Smoke_Spray
   m_TagString: Untagged
@@ -14679,15 +14652,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &5463442352020892590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918277306076749915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a3d98f0c34957240bc83fe2b912c879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
