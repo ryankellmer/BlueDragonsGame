@@ -16,6 +16,7 @@ public class SingleShooterTowerController : TowerController
     AudioSource audioSource;
 
     public GameController GameCtrl;
+    public GameObject upgBut;
 
     public override int returnAttack()
     {
@@ -79,6 +80,7 @@ public class SingleShooterTowerController : TowerController
                 rotationSpeed += 0.5f;
                 timeBeforeNextShot -= .5f;
                 GenerateRing();
+                upgBut.SetActive(false);
                 return;
             }
         }

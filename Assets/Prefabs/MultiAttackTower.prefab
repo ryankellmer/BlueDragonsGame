@@ -220,7 +220,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5481806236287241371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -488,7 +488,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 1224693793686787474, guid: 347906914b17e2c46bd903a69406e2ea, type: 3}
   RangeCircle: {fileID: 4230927544685195418, guid: d72a150af41f7284baa6364f85668f47, type: 3}
   count: 0
@@ -507,8 +506,10 @@ MonoBehaviour:
   multiShooterBaseRange: 5
   multiShooterMidRange: 6.5
   multiShooterHighRange: 8
+  shootTime: 17.5
   GameCtrl: {fileID: 0}
   shotSound: {fileID: 8300000, guid: ee238a2ec654e4e5bb23e1932795d1b1, type: 3}
+  upgBut: {fileID: 7309013439720460679}
 --- !u!58 &-11180029574522033
 CircleCollider2D:
   m_ObjectHideFlags: 0

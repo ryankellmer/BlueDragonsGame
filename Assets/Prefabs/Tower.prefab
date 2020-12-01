@@ -552,7 +552,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 6316151699931118967, guid: f976918d1e26ae341ad35f5ac9f8d031, type: 3}
   RangeCircle: {fileID: 4230927544685195418, guid: d72a150af41f7284baa6364f85668f47, type: 3}
   count: 0
@@ -572,6 +571,7 @@ MonoBehaviour:
   singleShooterHighRange: 4
   shotSound: {fileID: 8300000, guid: 30699016c4846481693d7d1ba6b34949, type: 3}
   GameCtrl: {fileID: 0}
+  upgBut: {fileID: 1326944914733181416}
 --- !u!58 &-3317689225120502605
 CircleCollider2D:
   m_ObjectHideFlags: 0

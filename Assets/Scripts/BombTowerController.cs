@@ -17,7 +17,8 @@ public class BombTowerController : TowerController
     public float blastHighRange = 3f;
     public GameController GameCtrl;
     public AudioClip shotSound;
-    AudioSource audioSource; 
+    AudioSource audioSource;
+    public GameObject upgBut;
 
     public override void Start()
     {
@@ -65,6 +66,7 @@ public class BombTowerController : TowerController
         if (level == towerLevel.mid){
             if (upgradeCost <= GameCtrl.GetMoney())
             {
+                upgBut.SetActive(false);
                 level = towerLevel.high;
                 type = towerTypes.slow;
                 GameCtrl.RemoveMoney(upgradeCost); 
@@ -78,7 +80,9 @@ public class BombTowerController : TowerController
                 return;
             }
         }
-        if (level == towerLevel.high){
+        if (level == towerLevel.high)
+        {
+            upgBut.SetActive(false);
             return;
         }
         

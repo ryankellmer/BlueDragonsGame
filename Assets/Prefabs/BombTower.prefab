@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  tagOfTarget: Enemy
   ProjectilePrefab: {fileID: 2945796755755916467, guid: 9f1e6eb2f70f9384c92c7e3cc89153d3, type: 3}
   RangeCircle: {fileID: 4230927544685195418, guid: d72a150af41f7284baa6364f85668f47, type: 3}
   count: 0
@@ -125,6 +124,7 @@ MonoBehaviour:
   blastHighRange: 4
   GameCtrl: {fileID: 0}
   shotSound: {fileID: 8300000, guid: 57d195b3aee16405daf2709c96c9563d, type: 3}
+  upgBut: {fileID: 8260200702165094681}
 --- !u!58 &1936120903657920797
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -459,7 +459,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5475812376340389480}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

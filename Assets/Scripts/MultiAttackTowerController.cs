@@ -14,10 +14,13 @@ public class MultiAttackTowerController : TowerController
     public float multiShooterBaseRange = 5f;
     public float multiShooterMidRange = 6.5f;
     public float multiShooterHighRange = 8.0f;
+    public float shootTime;
 
     public GameController GameCtrl;
     public AudioClip shotSound;
-    AudioSource audioSource; 
+    AudioSource audioSource;
+
+    public GameObject upgBut;
 
 
     public override void Start()
@@ -32,7 +35,7 @@ public class MultiAttackTowerController : TowerController
         currentRange = multiShooterBaseRange; 
         towerCost = 75;
         upgradeCost = 50;
-        timeBeforeNextShot = 30.0f;
+        timeBeforeNextShot = shootTime;
 
         //Generate line to be used for tower radius ring
         GenerateRing();
@@ -44,7 +47,7 @@ public class MultiAttackTowerController : TowerController
     //Upgrade Tower attack speed, range, rotation speed, attack damage, and number of enemies to attack
     public override void upgrade(){
         if (level == towerLevel.start){
-            if (GameCtrl.GetMoney() >= upgradeCost)
+            if (GameCtrl.moneyAmt() >= upgradeCost)
             {
                 level = towerLevel.mid; 
                 GameCtrl.RemoveMoney(upgradeCost); 
@@ -52,27 +55,30 @@ public class MultiAttackTowerController : TowerController
                 currentRange = multiShooterMidRange;
                 GetComponent<CircleCollider2D>().radius = currentRange;
                 rotationSpeed += 0.5f;
-                timeBeforeNextShot -= 5.0f;
+                shootTime -= 1.0f;
                 GenerateRing();
                 upgradeCost = 100;
                 return;
             }
         }
         if (level == towerLevel.mid){
-            if (GameCtrl.GetMoney() >= upgradeCost)
+            if (GameCtrl.moneyAmt() >= upgradeCost)
             {
+                upgBut.SetActive(false);
                 type = towerTypes.freeze;
                 level = towerLevel.high; 
                 currentAttack = multiShooterHighAttack;
                 currentRange = multiShooterHighRange;
                 GetComponent<CircleCollider2D>().radius = currentRange;
                 rotationSpeed += 0.5f;
-                timeBeforeNextShot -= 5.0f;
+                shootTime -= 0.5f;
                 GenerateRing();
                 return;
             }
         }
-        if (level == towerLevel.high){
+        if (level == towerLevel.high)
+        {
+            upgBut.SetActive(false);
             return;
         }
     }
