@@ -4,7 +4,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/cdunham927/BlueDragonsGame">
-    <img src="images/BlueDragonsLogo.png" alt="Logo" width="500" height="500">
+    <img src="images/BlueDragonsLogo.png" alt="Logo" width="350" height="350">
   </a>
 
   <h2 align="center">Blue Dragons</h2>
